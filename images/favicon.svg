@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="JiliAce PH Live">
+  <rect width="32" height="32" rx="8" fill="#1a1a1a"/>
+  <rect x="1" y="1" width="30" height="30" rx="7" fill="none" stroke="#dc2626" stroke-opacity="0.5"/>
+  <text x="16" y="21" text-anchor="middle" font-family="system-ui,Segoe UI,sans-serif" font-size="11" font-weight="800" fill="#ececec">JA</text>
+</svg>

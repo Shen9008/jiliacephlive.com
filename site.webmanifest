@@ -1,0 +1,19 @@
+{
+  "name": "JiliAce PH Live",
+  "short_name": "JiliAce PH",
+  "description": "JiliAce & JiliAce PH player guides — slots, live casino, promotions, and safer play.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#121212",
+  "theme_color": "#121212",
+  "lang": "en-PH",
+  "icons": [
+    {
+      "src": "images/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
