@@ -57,6 +57,29 @@
     overflow: hidden;
 }
 
+.game-card__media .game-card__ph {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.game-card__ph-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.5rem 0.65rem 0.55rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.25;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.96);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.75);
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.72));
+    z-index: 1;
+}
+
 /* Placeholder art — varied gradients */
 .game-card__ph {
     background: linear-gradient(135deg, var(--bg-elev) 0%, var(--surface) 50%, var(--bg-elev) 100%);
@@ -403,9 +426,25 @@
     flex: 1;
 }
 
-.promo-pair-card .game-card__ph {
+.promo-pair-card__visual {
+    position: relative;
     aspect-ratio: 16 / 9;
+    width: 100%;
     border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.promo-pair-card__visual .game-card__ph {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+
+.promo-pair-card__visual .game-card__ph-title {
+    font-size: 0.72rem;
+    padding: 0.45rem 0.5rem;
 }
 
 .guide-chip-strip {
