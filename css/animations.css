@@ -1,0 +1,491 @@
+/* Motion & effects — pairs with main.css; respects prefers-reduced-motion */
+
+/* --- Floating “balls” (hero background) --- */
+.hero {
+    overflow: hidden;
+}
+
+.hero__blobs {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero__blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.45;
+    will-change: transform;
+    animation: hero-float 18s ease-in-out infinite;
+}
+
+.hero__blob--1 {
+    width: min(280px, 45vw);
+    height: min(280px, 45vw);
+    background: radial-gradient(circle at 30% 30%, rgba(220, 38, 38, 0.55), transparent 70%);
+    top: -8%;
+    right: -5%;
+    animation-delay: 0s;
+}
+
+.hero__blob--2 {
+    width: min(200px, 35vw);
+    height: min(200px, 35vw);
+    background: radial-gradient(circle at 70% 70%, rgba(248, 113, 113, 0.35), transparent 70%);
+    bottom: 10%;
+    left: -6%;
+    animation-delay: -4s;
+}
+
+.hero__blob--3 {
+    width: min(160px, 28vw);
+    height: min(160px, 28vw);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent 65%);
+    top: 40%;
+    left: 35%;
+    animation-delay: -7s;
+}
+
+.hero__blob--4 {
+    width: min(120px, 22vw);
+    height: min(120px, 22vw);
+    background: radial-gradient(circle, rgba(220, 38, 38, 0.4), transparent 70%);
+    bottom: 25%;
+    right: 15%;
+    animation-delay: -10s;
+}
+
+.hero__blob--5 {
+    width: min(90px, 16vw);
+    height: min(90px, 16vw);
+    background: radial-gradient(circle, rgba(153, 27, 27, 0.5), transparent 70%);
+    top: 15%;
+    left: 10%;
+    animation-delay: -2s;
+}
+
+@keyframes hero-float {
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(14px, -22px) scale(1.04);
+    }
+    50% {
+        transform: translate(-12px, 16px) scale(0.97);
+    }
+    75% {
+        transform: translate(10px, 8px) scale(1.02);
+    }
+}
+
+.hero__grid {
+    position: relative;
+    z-index: 1;
+}
+
+.hero__badge {
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero__badge:hover {
+    transform: translateY(-2px);
+    border-color: rgba(220, 38, 38, 0.55);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.hero__badge .icon {
+    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hero__badge:hover .icon {
+    transform: rotate(15deg) scale(1.1);
+}
+
+/* --- Typewriter (hero headline) --- */
+.hero__h1 {
+    min-height: 2.75em;
+}
+
+.hero__h1 .typewriter {
+    display: inline;
+}
+
+.hero__h1 em {
+    font-style: normal;
+    color: var(--accent);
+}
+
+.typewriter::after {
+    content: "";
+    display: inline-block;
+    width: 2px;
+    height: 0.9em;
+    margin-left: 3px;
+    vertical-align: -0.06em;
+    background: var(--accent);
+    animation: typewriter-caret 0.85s steps(1, end) infinite;
+}
+
+.typewriter.is-done::after {
+    animation: none;
+    opacity: 0.35;
+}
+
+@keyframes typewriter-caret {
+    0%,
+    49% {
+        opacity: 1;
+    }
+    50%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* --- Section titles: gradient underline on hover --- */
+.section__title {
+    background-image: linear-gradient(90deg, var(--accent), var(--accent-muted));
+    background-size: 0% 3px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    padding-bottom: 0.12em;
+    transition: background-size 0.45s ease;
+}
+
+.section__head:hover .section__title {
+    background-size: 100% 3px;
+}
+
+.page-hero h1 {
+    transition: transform 0.35s ease, letter-spacing 0.35s ease;
+}
+
+.page-hero:hover h1 {
+    letter-spacing: -0.01em;
+    transform: translateX(2px);
+}
+
+/* --- Nav: icons slide in on hover (desktop) --- */
+@media (min-width: 960px) {
+    .nav__link--icon {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+    }
+
+    .nav__link-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 18px;
+        max-width: 0;
+        opacity: 0;
+        overflow: hidden;
+        transform: translateX(-6px);
+        transition:
+            max-width 0.32s ease,
+            opacity 0.32s ease,
+            transform 0.32s ease;
+    }
+
+    .nav__link-icon svg {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+        color: var(--accent-muted);
+    }
+
+    .nav__link--icon:hover .nav__link-icon,
+    .nav__link--icon:focus-visible .nav__link-icon {
+        max-width: 18px;
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .nav__link--icon.is-active .nav__link-icon {
+        max-width: 18px;
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .nav__burger:hover .icon,
+    .nav__burger:focus-visible .icon {
+        transform: rotate(90deg);
+    }
+
+    .nav__burger .icon {
+        transition: transform 0.35s ease;
+    }
+}
+
+.brand__mark {
+    transition: transform 0.45s ease, box-shadow 0.35s ease;
+}
+
+.brand:hover .brand__mark {
+    transform: rotate(-4deg) scale(1.05);
+    box-shadow: 0 8px 24px rgba(220, 38, 38, 0.35);
+}
+
+/* --- Buttons --- */
+.btn {
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.25s ease,
+        border-color 0.25s ease,
+        filter 0.2s ease;
+}
+
+.btn--primary::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    left: -100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.22),
+        transparent
+    );
+    transition: left 0.55s ease;
+    pointer-events: none;
+}
+
+.btn--primary:hover::before,
+.btn--primary:focus-visible::before {
+    left: 100%;
+}
+
+.btn--primary:hover,
+.btn--primary:focus-visible {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow:
+        0 12px 36px rgba(220, 38, 38, 0.45),
+        0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.btn--primary:active {
+    transform: translateY(-1px) scale(1);
+}
+
+.btn--ghost:hover,
+.btn--ghost:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 1px rgba(220, 38, 38, 0.35);
+}
+
+.btn .icon {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn:hover .icon,
+.btn:focus-visible .icon {
+    transform: scale(1.12);
+}
+
+/* --- Cards & showcase --- */
+.game-card {
+    transition:
+        transform 0.28s ease,
+        box-shadow 0.28s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.4);
+}
+
+.feature-card {
+    transition: transform 0.28s ease, border-color 0.28s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(220, 38, 38, 0.25);
+}
+
+.feature-card__icon {
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.feature-card:hover .feature-card__icon svg {
+    transform: scale(1.12) rotate(-6deg);
+}
+
+.trust-card {
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.trust-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(220, 38, 38, 0.22);
+}
+
+.trust-card__icon {
+    transition: transform 0.4s ease, background 0.3s ease;
+}
+
+.trust-card:hover .trust-card__icon {
+    transform: scale(1.08);
+    background: rgba(220, 38, 38, 0.28);
+}
+
+.showcase__row-title {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.showcase__row-title:hover {
+    transform: translateX(4px);
+    color: var(--accent-muted);
+}
+
+.chip {
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.chip:hover {
+    transform: translateY(-2px);
+}
+
+.cat-tile {
+    transition: transform 0.28s ease;
+}
+
+.cat-tile:hover {
+    transform: translateY(-3px) scale(1.02);
+}
+
+/* --- Scroll reveal (requires body.js-motion from main.js) --- */
+body.js-motion .section.fade-reveal:not(.is-visible) {
+    opacity: 0;
+    transform: translateY(22px);
+}
+
+body.js-motion .section.fade-reveal {
+    transition:
+        opacity 0.65s ease,
+        transform 0.65s ease;
+}
+
+body.js-motion .section.fade-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* --- FAQ accordion polish --- */
+.faq details {
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.faq details:hover {
+    border-color: rgba(220, 38, 38, 0.22);
+}
+
+.faq details[open] {
+    animation: faq-open 0.35s ease;
+}
+
+@keyframes faq-open {
+    from {
+        opacity: 0.92;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* --- Info flow steps (hero aside) --- */
+.info-flow__step {
+    transition: transform 0.3s ease;
+}
+
+.info-flow__step:hover {
+    transform: translateX(4px);
+}
+
+.info-flow__n {
+    transition: transform 0.35s ease, background 0.35s ease;
+}
+
+.info-flow__step:hover .info-flow__n {
+    transform: scale(1.08);
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+    .hero__blob,
+    .typewriter::after,
+    .btn--primary::before {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .hero__blob {
+        filter: blur(28px);
+        opacity: 0.25;
+    }
+
+    .typewriter::after {
+        display: none;
+    }
+
+    .section__title {
+        transition: none;
+        background-size: 100% 3px;
+    }
+
+    .btn:hover,
+    .btn:focus-visible,
+    .game-card:hover,
+    .feature-card:hover,
+    .trust-card:hover,
+    .chip:hover,
+    .cat-tile:hover {
+        transform: none;
+    }
+
+    .feature-card:hover .feature-card__icon svg {
+        transform: none;
+    }
+
+    .brand:hover .brand__mark {
+        transform: none;
+    }
+
+    .hero__badge:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .hero__badge:hover .icon {
+        transform: none;
+    }
+
+    body.js-motion .section.fade-reveal:not(.is-visible) {
+        opacity: 1;
+        transform: none;
+    }
+
+    .faq details[open] {
+        animation: none;
+    }
+
+    @media (min-width: 960px) {
+        .nav__link-icon {
+            max-width: 18px;
+            opacity: 1;
+            transform: none;
+        }
+    }
+}
