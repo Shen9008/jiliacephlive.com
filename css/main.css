@@ -1,17 +1,18 @@
-/* JiliAce PH Live — palette & tone aligned with jiliace.win (Pinoy pink / gold / deep plum) */
+/* JiliAce PH Live — dark grey + red */
 :root {
-    --bg: #100818;
-    --bg-elev: #180f1f;
-    --surface: #241326;
-    --border: rgba(255, 130, 180, 0.14);
-    --text: #fff3f8;
-    --muted: #c4a8b8;
-    --accent: #ff3d8c;
-    --accent-strong: #c21e62;
-    --accent-dim: rgba(255, 61, 140, 0.2);
-    --gold: #ffcc33;
-    --gold-dim: rgba(255, 204, 51, 0.14);
-    --danger: #ff6b6b;
+    --bg: #121212;
+    --bg-elev: #1a1a1a;
+    --surface: #252525;
+    --border: rgba(255, 255, 255, 0.08);
+    --text: #ececec;
+    --muted: #9ca3af;
+    --accent: #dc2626;
+    --accent-strong: #991b1b;
+    --accent-muted: #f87171;
+    --accent-dim: rgba(220, 38, 38, 0.18);
+    --gold: #d4d4d4;
+    --gold-dim: rgba(255, 255, 255, 0.06);
+    --danger: #ef4444;
     --radius: 14px;
     --radius-sm: 10px;
     --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
@@ -52,7 +53,7 @@ a {
 }
 
 a:hover {
-    color: #ff9ec8;
+    color: var(--accent-muted);
 }
 
 .shell {
@@ -64,8 +65,8 @@ a:hover {
     position: absolute;
     left: -9999px;
     top: 0;
-    background: var(--gold);
-    color: #111;
+    background: var(--accent);
+    color: #fff;
     padding: 0.5rem 1rem;
     z-index: 100;
     font-weight: 600;
@@ -81,7 +82,7 @@ a:hover {
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgba(16, 8, 24, 0.94);
+    background: rgba(18, 18, 18, 0.94);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
 }
@@ -112,7 +113,7 @@ a:hover {
     width: 40px;
     height: 40px;
     border-radius: 12px;
-    background: linear-gradient(145deg, var(--accent) 0%, var(--accent-strong) 55%, #5a1038 100%);
+    background: linear-gradient(145deg, #3f3f3f 0%, var(--accent) 55%, var(--accent-strong) 100%);
     display: grid;
     place-items: center;
     font-size: 0.72rem;
@@ -154,21 +155,21 @@ a:hover {
 }
 
 .nav__link--cta {
-    background: linear-gradient(135deg, var(--gold), #e6a514);
-    color: #2a1a05 !important;
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    color: #fff !important;
     font-weight: 700;
     margin-left: 0.25rem;
 }
 
 .nav__link--cta:hover {
     filter: brightness(1.08);
-    color: #2a1a05 !important;
+    color: #fff !important;
 }
 
 .nav__link--outline {
-    border: 1px solid rgba(255, 61, 140, 0.55);
+    border: 1px solid rgba(220, 38, 38, 0.4);
     color: var(--text) !important;
-    background: rgba(255, 61, 140, 0.08);
+    background: rgba(220, 38, 38, 0.08);
 }
 
 .nav__link--outline:hover {
@@ -249,11 +250,11 @@ a:hover {
 .mm__link--cta {
     margin-top: 0.5rem;
     text-align: center;
-    background: var(--gold-dim);
-    border: 1px solid rgba(244, 193, 75, 0.35);
+    background: var(--accent-dim);
+    border: 1px solid rgba(220, 38, 38, 0.35);
     border-radius: var(--radius-sm);
     padding: 0.85rem !important;
-    color: var(--gold) !important;
+    color: var(--accent-muted) !important;
 }
 
 .mm__link--muted {
@@ -312,9 +313,9 @@ main {
     position: relative;
     padding: clamp(2.5rem, 8vw, 5rem) 0;
     background:
-        radial-gradient(ellipse 85% 55% at 78% 8%, rgba(255, 61, 140, 0.28), transparent 55%),
-        radial-gradient(ellipse 50% 40% at 12% 88%, rgba(255, 204, 51, 0.1), transparent),
-        linear-gradient(180deg, #1a0c16 0%, var(--bg) 45%);
+        radial-gradient(ellipse 85% 55% at 78% 8%, rgba(220, 38, 38, 0.18), transparent 55%),
+        radial-gradient(ellipse 50% 40% at 12% 88%, rgba(255, 255, 255, 0.04), transparent),
+        linear-gradient(180deg, #1f1f1f 0%, var(--bg) 45%);
     border-bottom: 1px solid var(--border);
 }
 
@@ -336,9 +337,9 @@ main {
     gap: 0.4rem;
     font-size: 0.8rem;
     font-weight: 600;
-    color: #1a0d12;
-    background: linear-gradient(90deg, var(--gold), #ffe08a);
-    border: 1px solid rgba(255, 204, 51, 0.45);
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid rgba(220, 38, 38, 0.35);
     padding: 0.35rem 0.75rem;
     border-radius: 999px;
     margin-bottom: 1rem;
@@ -347,7 +348,7 @@ main {
 .hero__badge .icon {
     width: 18px;
     height: 18px;
-    color: var(--accent-strong);
+    color: var(--accent);
 }
 
 .hero h1 {
@@ -416,7 +417,7 @@ main {
 .btn--primary {
     background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
     color: #fff;
-    box-shadow: 0 8px 28px rgba(255, 61, 140, 0.35);
+    box-shadow: 0 8px 28px rgba(220, 38, 38, 0.35);
 }
 
 .btn--ghost {
@@ -540,8 +541,8 @@ main {
     width: 2.25rem;
     height: 2.25rem;
     border-radius: 12px;
-    background: linear-gradient(135deg, var(--gold), #c99220);
-    color: #1a1203;
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    color: #fff;
     font-weight: 800;
     display: grid;
     place-items: center;
@@ -613,7 +614,7 @@ main {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--gold);
+    color: var(--accent-muted);
     margin-bottom: 0.35rem;
 }
 
@@ -766,7 +767,7 @@ main {
     margin: 0 0 0.5rem;
     font-size: 0.95rem;
     font-weight: 600;
-    color: var(--gold);
+    color: var(--accent-muted);
     line-height: 1.35;
 }
 
@@ -799,7 +800,7 @@ main {
 }
 
 .cta-strip {
-    background: linear-gradient(120deg, rgba(255, 61, 140, 0.14), rgba(255, 204, 51, 0.1));
+    background: linear-gradient(120deg, rgba(220, 38, 38, 0.12), rgba(255, 255, 255, 0.04));
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: clamp(1.5rem, 4vw, 2.25rem);

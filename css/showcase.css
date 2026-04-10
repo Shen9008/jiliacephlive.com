@@ -63,31 +63,31 @@
 }
 
 .game-card__ph--a {
-    background: linear-gradient(145deg, #3d1530 0%, #1a0a14 50%, #2a1840 100%);
+    background: linear-gradient(145deg, #2a1818 0%, #121212 50%, #1f1414 100%);
 }
 
 .game-card__ph--b {
-    background: linear-gradient(145deg, #153d35 0%, #0a1418 50%, #1a3040 100%);
+    background: linear-gradient(145deg, #1a1a22 0%, #0f0f0f 50%, #181820 100%);
 }
 
 .game-card__ph--c {
-    background: linear-gradient(145deg, #3d3015 0%, #14100a 50%, #40301a 100%);
+    background: linear-gradient(145deg, #252018 0%, #121210 50%, #1c1812 100%);
 }
 
 .game-card__ph--d {
-    background: linear-gradient(145deg, #30153d 0%, #0f0a14 50%, #251a40 100%);
+    background: linear-gradient(145deg, #221a1a 0%, #0e0e0e 50%, #1a1416 100%);
 }
 
 .game-card__ph--e {
-    background: linear-gradient(145deg, #15303d 0%, #0a1218 50%, #1a2540 100%);
+    background: linear-gradient(145deg, #181c22 0%, #0c0c0c 50%, #14161c 100%);
 }
 
 .game-card__ph--f {
-    background: linear-gradient(145deg, #3d1530 0%, #180a0f 50%, #401a28 100%);
+    background: linear-gradient(145deg, #281414 0%, #100a0a 50%, #221010 100%);
 }
 
 .game-card__ph--felt {
-    background: linear-gradient(145deg, #0d2818 0%, #1a3d28 100%);
+    background: linear-gradient(145deg, #142018 0%, #1a2820 100%);
 }
 
 .game-card__ph::after {
@@ -137,20 +137,21 @@
 }
 
 .badge--exclusive {
-    background: linear-gradient(135deg, var(--gold), #c99220);
-    color: #1a1203;
+    background: linear-gradient(135deg, #404040, #2a2a2a);
+    color: #ececec;
+    border: 1px solid rgba(220, 38, 38, 0.25);
 }
 
 .badge--new {
     background: var(--accent-dim);
     color: var(--accent);
-    border: 1px solid rgba(255, 61, 140, 0.4);
+    border: 1px solid rgba(220, 38, 38, 0.4);
 }
 
 .badge--rtp {
-    background: rgba(46, 230, 199, 0.15);
-    color: #5ee9d4;
-    border: 1px solid rgba(94, 233, 212, 0.35);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--accent-muted);
+    border: 1px solid rgba(220, 38, 38, 0.28);
 }
 
 .game-card__body {
@@ -250,7 +251,7 @@
 
 .cat-tile:hover {
     transform: translateY(-2px);
-    border-color: rgba(255, 61, 140, 0.45);
+    border-color: rgba(220, 38, 38, 0.45);
 }
 
 .cat-tile__ph {
@@ -260,15 +261,15 @@
 }
 
 .cat-tile__ph--m {
-    background: linear-gradient(160deg, #2a1a35, #120a18);
+    background: linear-gradient(160deg, #222018, #0f0e0c);
 }
 
 .cat-tile__ph--h {
-    background: linear-gradient(160deg, #1a3528, #0a1812);
+    background: linear-gradient(160deg, #181c1a, #0c0e0d);
 }
 
 .cat-tile__ph--j {
-    background: linear-gradient(160deg, #352a1a, #18140a);
+    background: linear-gradient(160deg, #221818, #100c0c);
 }
 
 .cat-tile__label {
@@ -316,12 +317,12 @@
 
 .provider-logo--jili {
     color: var(--accent);
-    border-color: rgba(255, 61, 140, 0.35);
+    border-color: rgba(220, 38, 38, 0.35);
 }
 
 .provider-logo--live {
-    color: #5ee9d4;
-    border-color: rgba(94, 233, 212, 0.25);
+    color: var(--accent-muted);
+    border-color: rgba(220, 38, 38, 0.28);
 }
 
 /* Live casino category cards */
@@ -387,7 +388,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--gold);
+    color: var(--accent-muted);
 }
 
 .promo-pair-card h3 {
