@@ -991,6 +991,20 @@ main {
     user-select: none;
 }
 
+/* Inner pages: room below sticky header for banner (home relies on .hero top padding instead) */
+body:not([data-page="index"]) .hero-banner {
+    padding-top: clamp(1.25rem, 3.5vw, 2rem);
+    padding-bottom: 0.25rem;
+}
+
+body:not([data-page="index"]) .hero-banner__inner {
+    padding-bottom: clamp(0.85rem, 2vw, 1.35rem);
+}
+
+body:not([data-page="index"]) .hero-banner__frame {
+    min-height: clamp(120px, 22vw, 200px);
+}
+
 .page-hero {
     padding: 2rem 0 1rem;
     border-bottom: 1px solid var(--border);
