@@ -47,13 +47,16 @@
         injectSvgSprite();
         Promise.all([
             fetch(base + 'partials/header.html').then(function (r) { return r.text(); }),
-            fetch(base + 'partials/footer.html').then(function (r) { return r.text(); })
+            fetch(base + 'partials/footer.html').then(function (r) { return r.text(); }),
+            fetch(base + 'partials/hero-banner.html').then(function (r) { return r.ok ? r.text() : ''; })
         ])
             .then(function (parts) {
                 var h = rewriteLinks(parts[0]);
                 var f = rewriteLinks(parts[1]);
+                var bannerHtml = parts[2] ? rewriteLinks(parts[2]) : '';
                 var ph = document.getElementById('partial-header');
                 var pf = document.getElementById('partial-footer');
+                var pb = document.getElementById('partial-hero-banner');
                 if (ph) {
                     var t = document.createElement('div');
                     t.innerHTML = h;
@@ -62,6 +65,7 @@
                     ph.remove();
                 }
                 if (pf) pf.outerHTML = f;
+                if (pb && bannerHtml) pb.outerHTML = bannerHtml;
                 setActiveNav();
                 var btn = document.querySelector('[data-mobile-toggle]');
                 var panel = document.getElementById('mobile-menu');
