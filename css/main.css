@@ -364,27 +364,28 @@ main {
     max-width: 36rem;
 }
 
-.hero__tagline-tl {
-    font-size: 1.05rem;
+.hero__lead {
+    font-size: 1.08rem;
     font-weight: 600;
     color: var(--text);
-    line-height: 1.45;
+    line-height: 1.5;
     margin: 0 0 0.75rem;
-    max-width: 40rem;
+    max-width: 42rem;
 }
 
-.hero__tagline-tl em {
+.hero__lead em {
     font-style: normal;
     color: var(--accent);
 }
 
-.hero__tagline-en {
+.hero__note {
     font-size: 0.98rem;
     color: var(--muted);
     margin: 0 0 1.25rem;
-    max-width: 40rem;
+    max-width: 42rem;
     border-left: 3px solid var(--accent);
     padding-left: 1rem;
+    line-height: 1.55;
 }
 
 .hero__actions {
@@ -761,7 +762,7 @@ main {
     color: var(--text);
 }
 
-.trust-card .trust-card__tl {
+.trust-card .trust-card__kicker {
     margin: 0 0 0.5rem;
     font-size: 0.95rem;
     font-weight: 600;
