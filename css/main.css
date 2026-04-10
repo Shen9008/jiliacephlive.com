@@ -18,6 +18,8 @@
     --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
     --font: "Segoe UI", system-ui, -apple-system, Roboto, Ubuntu, Cantarell, sans-serif;
     --max: 1120px;
+    /* Wider than .shell for marketing hero strips on inner pages */
+    --hero-banner-max: min(96vw, 1400px);
     --space: clamp(1rem, 4vw, 2.5rem);
 }
 
@@ -965,44 +967,105 @@ main {
     background: linear-gradient(180deg, var(--bg-elev) 0%, var(--bg) 100%);
 }
 
+/* Default: same max width as rest of site (home keeps a compact strip above .hero) */
+.hero-banner .shell--hero-banner {
+    width: min(100% - var(--space) * 2, var(--max));
+}
+
 .hero-banner__inner {
     padding-bottom: 0.75rem;
 }
 
+.hero-banner__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+    display: block;
+}
+
 .hero-banner__frame {
+    width: 100%;
     min-height: clamp(100px, 18vw, 168px);
     border-radius: var(--radius);
     border: 1px dashed rgba(255, 255, 255, 0.14);
     background:
         linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, transparent 55%),
+        repeating-linear-gradient(
+            -12deg,
+            rgba(255, 255, 255, 0.02) 0 1px,
+            transparent 1px 14px
+        ),
         var(--surface);
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+}
+
+.hero-banner__placeholder-copy {
+    max-width: 36rem;
+    padding: 1rem 1.25rem;
 }
 
 .hero-banner--placeholder .hero-banner__placeholder-label {
-    margin: 0;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
+    margin: 0 0 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
+    color: var(--text);
+    user-select: none;
+}
+
+.hero-banner--placeholder .hero-banner__placeholder-hint {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.45;
     color: var(--muted);
     user-select: none;
 }
 
-/* Inner pages: room below sticky header for banner (home relies on .hero top padding instead) */
+/* Home: shorter banner so the main .hero block stays the focus */
+body[data-page="index"] .hero-banner {
+    padding-top: 0.75rem;
+}
+
+body[data-page="index"] .hero-banner__frame {
+    min-height: clamp(88px, 12vw, 132px);
+}
+
+/* Inner pages: wide strip + generous spacing (reads like a real marketing hero) */
 body:not([data-page="index"]) .hero-banner {
-    padding-top: clamp(1.25rem, 3.5vw, 2rem);
-    padding-bottom: 0.25rem;
+    padding-top: clamp(1.5rem, 4.5vw, 2.75rem);
+    padding-bottom: clamp(0.35rem, 1.2vw, 0.85rem);
+}
+
+body:not([data-page="index"]) .hero-banner .shell--hero-banner {
+    width: min(100% - var(--space) * 2, var(--hero-banner-max));
+    max-width: none;
 }
 
 body:not([data-page="index"]) .hero-banner__inner {
-    padding-bottom: clamp(0.85rem, 2vw, 1.35rem);
+    padding-bottom: clamp(1rem, 2.5vw, 1.75rem);
 }
 
 body:not([data-page="index"]) .hero-banner__frame {
-    min-height: clamp(120px, 22vw, 200px);
+    min-height: clamp(168px, 28vw, 280px);
+    aspect-ratio: 21 / 6;
+    max-height: 320px;
+}
+
+@media (max-width: 520px) {
+    body:not([data-page="index"]) .hero-banner__frame {
+        aspect-ratio: 4 / 3;
+        max-height: none;
+        min-height: 200px;
+    }
+}
+
+body:not([data-page="index"]) .hero-banner + .page-hero {
+    padding-top: clamp(2rem, 5vw, 3rem);
 }
 
 .page-hero {
