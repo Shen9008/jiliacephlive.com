@@ -48,7 +48,46 @@
     ]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"WebPage","name":"About JiliAce PH Live","description":"About jiliacephlive.com: independent JiliAce and JiliAce PH guides—what we publish, what we are not, and how we cite regulators and health resources.","url":"https://jiliacephlive.com/about.html","inLanguage":"en-PH","isPartOf":{"@type":"WebSite","name":"JiliAce PH Live","url":"https://jiliacephlive.com/"}}
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://jiliacephlive.com/#organization",
+                "name": "JiliAce PH Live",
+                "url": "https://jiliacephlive.com/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://jiliacephlive.com/images/favicon.svg"
+                }
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://jiliacephlive.com/#website",
+                "name": "JiliAce PH Live",
+                "url": "https://jiliacephlive.com/",
+                "publisher": { "@id": "https://jiliacephlive.com/#organization" }
+            },
+            {
+                "@type": ["WebPage", "AboutPage"],
+                "@id": "https://jiliacephlive.com/about.html#webpage",
+                "url": "https://jiliacephlive.com/about.html",
+                "name": "About JiliAce PH Live",
+                "headline": "About JiliAce PH Live",
+                "description": "About jiliacephlive.com: independent JiliAce and JiliAce PH guides—what we publish, what we are not, and how we cite regulators and health resources.",
+                "inLanguage": "en-PH",
+                "isPartOf": { "@id": "https://jiliacephlive.com/#website" },
+                "publisher": { "@id": "https://jiliacephlive.com/#organization" },
+                "author": { "@id": "https://jiliacephlive.com/#organization" },
+                "datePublished": "2026-04-01",
+                "dateModified": "2026-04-12",
+                "primaryImageOfPage": {
+                    "@type": "ImageObject",
+                    "url": "https://jiliacephlive.com/images/og-default.svg"
+                }
+            }
+        ]
+    }
     </script>
 </head>
 <body data-page="about">

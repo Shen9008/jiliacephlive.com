@@ -48,7 +48,92 @@
     ]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"WebPage","name":"Responsible gambling","description":"Responsible gambling for JiliAce and JiliAce PH players: warning signs, limits, self-exclusion, WHO and charity links.","url":"https://jiliacephlive.com/responsible-gambling.html","inLanguage":"en-PH","isPartOf":{"@type":"WebSite","name":"JiliAce PH Live","url":"https://jiliacephlive.com/"}}
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://jiliacephlive.com/#organization",
+                "name": "JiliAce PH Live",
+                "url": "https://jiliacephlive.com/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://jiliacephlive.com/images/favicon.svg"
+                }
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://jiliacephlive.com/#website",
+                "name": "JiliAce PH Live",
+                "url": "https://jiliacephlive.com/",
+                "publisher": { "@id": "https://jiliacephlive.com/#organization" }
+            },
+            {
+                "@type": ["WebPage", "Article"],
+                "@id": "https://jiliacephlive.com/responsible-gambling.html#webpage",
+                "url": "https://jiliacephlive.com/responsible-gambling.html",
+                "name": "Responsible gambling — keep JiliAce play healthy",
+                "headline": "Responsible gambling — keep JiliAce play healthy",
+                "description": "Responsible gambling for JiliAce and JiliAce PH players: warning signs, limits, self-exclusion, WHO and charity links.",
+                "inLanguage": "en-PH",
+                "isPartOf": { "@id": "https://jiliacephlive.com/#website" },
+                "publisher": { "@id": "https://jiliacephlive.com/#organization" },
+                "author": { "@id": "https://jiliacephlive.com/#organization" },
+                "datePublished": "2026-04-01",
+                "dateModified": "2026-04-12",
+                "mainEntityOfPage": { "@id": "https://jiliacephlive.com/responsible-gambling.html#webpage" },
+                "primaryImageOfPage": {
+                    "@type": "ImageObject",
+                    "url": "https://jiliacephlive.com/images/og-default.svg"
+                },
+                "articleSection": "Responsible gambling",
+                "about": {
+                    "@type": "Thing",
+                    "name": "Responsible gambling and harm reduction",
+                    "sameAs": "https://www.who.int/news-room/fact-sheets/detail/gambling"
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "@id": "https://jiliacephlive.com/responsible-gambling.html#howto",
+        "name": "If you need to regain control",
+        "description": "Pause deposits, talk to someone, use professional resources, and revisit hobbies outside gambling.",
+        "totalTime": "PT15M",
+        "isPartOf": { "@id": "https://jiliacephlive.com/responsible-gambling.html#webpage" },
+        "author": { "@id": "https://jiliacephlive.com/#organization" },
+        "publisher": { "@id": "https://jiliacephlive.com/#organization" },
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Pause deposits",
+                "text": "Stop funding until you have a clear plan—use operator limits or payment app controls."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Talk to someone",
+                "text": "A trusted friend, counselor, or national helpline can help you map next steps."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Use professional resources",
+                "text": "Search for accredited gambling support organizations in your country; many offer chat and phone support 24/7."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Revisit hobbies",
+                "text": "Replace scrolling the lobby with activities that restore energy—not adrenaline debt."
+            }
+        ]
+    }
     </script>
 </head>
 <body data-page="rg">

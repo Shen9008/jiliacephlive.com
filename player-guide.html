@@ -49,20 +49,91 @@
     ]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"WebPage","name":"JiliAce Player Guide","description":"JiliAce player guide: budgets, game choice, JiliAce PH habits, bonuses and mobile safety—clear help for new and existing players.","url":"https://jiliacephlive.com/player-guide.html","inLanguage":"en-PH","isPartOf":{"@type":"WebSite","name":"JiliAce PH Live","url":"https://jiliacephlive.com/"}}
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://jiliacephlive.com/#organization",
+                "name": "JiliAce PH Live",
+                "url": "https://jiliacephlive.com/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://jiliacephlive.com/images/favicon.svg"
+                }
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://jiliacephlive.com/#website",
+                "name": "JiliAce PH Live",
+                "url": "https://jiliacephlive.com/",
+                "publisher": { "@id": "https://jiliacephlive.com/#organization" }
+            },
+            {
+                "@type": ["WebPage", "Article"],
+                "@id": "https://jiliacephlive.com/player-guide.html#webpage",
+                "url": "https://jiliacephlive.com/player-guide.html",
+                "name": "JiliAce player guide — from first visit to confident sessions",
+                "headline": "JiliAce player guide — from first visit to confident sessions",
+                "description": "JiliAce player guide: budgets, game choice, JiliAce PH habits, bonuses and mobile safety—clear help for new and existing players.",
+                "inLanguage": "en-PH",
+                "isPartOf": { "@id": "https://jiliacephlive.com/#website" },
+                "publisher": { "@id": "https://jiliacephlive.com/#organization" },
+                "author": { "@id": "https://jiliacephlive.com/#organization" },
+                "datePublished": "2026-04-01",
+                "dateModified": "2026-04-12",
+                "mainEntityOfPage": { "@id": "https://jiliacephlive.com/player-guide.html#webpage" },
+                "primaryImageOfPage": {
+                    "@type": "ImageObject",
+                    "url": "https://jiliacephlive.com/images/og-default.svg"
+                },
+                "articleSection": "JiliAce player guide"
+            }
+        ]
+    }
     </script>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "HowTo",
-        "name": "How to start playing on JiliAce PH Live responsibly",
-        "description": "Steps to set a budget, choose games, understand bonuses, and keep JiliAce sessions entertaining.",
+        "@id": "https://jiliacephlive.com/player-guide.html#howto",
+        "name": "Five steps every new JiliAce player can follow",
+        "description": "Confirm eligibility, build a session plan, choose lanes, review promotions carefully, and keep mobile hygiene on JiliAce PH Live.",
+        "totalTime": "PT20M",
+        "isPartOf": { "@id": "https://jiliacephlive.com/player-guide.html#webpage" },
+        "author": { "@id": "https://jiliacephlive.com/#organization" },
+        "publisher": { "@id": "https://jiliacephlive.com/#organization" },
         "step": [
-            {"@type": "HowToStep", "position": 1, "name": "Confirm eligibility", "text": "Verify you are 18+ and allowed to play under local rules. Use only official operator links for registration."},
-            {"@type": "HowToStep", "position": 2, "name": "Create a session plan", "text": "Set a spend cap and time limit before you open JiliAce slots or live tables."},
-            {"@type": "HowToStep", "position": 3, "name": "Pick your lane", "text": "Choose slots for fast solo play or JiliAce live casino for streamed table pacing."},
-            {"@type": "HowToStep", "position": 4, "name": "Review promotions", "text": "Read wagering, game weighting, and expiry before opting into any JiliAce bonus."},
-            {"@type": "HowToStep", "position": 5, "name": "Pause and assess", "text": "Log out on schedule. Use responsible tools if play stops feeling fun."}
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Confirm eligibility and source",
+                "text": "18+ only. Bookmark the official site you trust for JiliAce login—avoid lookalike domains."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Build a session plan",
+                "text": "Write down a spend cap and a stop time. Treat it like a ticket to a show—not an income plan."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Choose your lane",
+                "text": "Use JiliAce slots for quick loops; JiliAce live for table rhythm and hosts."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Opt into promos carefully",
+                "text": "Read wagering, game weighting, and expiry before opting into any JiliAce bonus."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Mobile hygiene",
+                "text": "Charge your device, cut distractions if needed, and log out when your timer ends—especially on shared phones."
+            }
         ]
     }
     </script>

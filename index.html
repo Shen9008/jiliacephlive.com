@@ -50,60 +50,75 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "JiliAce PH Live",
-        "url": "https://jiliacephlive.com/",
-        "inLanguage": "en-PH",
-        "description": "Player hub with guides to JiliAce slots, live casino, and promotions at jiliacephlive.com—in line with the public JiliAce story on jiliace.win.",
-        "publisher": {
-            "@type": "Organization",
-            "name": "JiliAce PH Live",
-            "url": "https://jiliacephlive.com/",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://jiliacephlive.com/images/favicon.svg"
-            }
-        }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "JiliAce PH Live",
-        "url": "https://jiliacephlive.com/",
-        "description": "Informational website for eligible adult players interested in JiliAce-style online casino entertainment.",
-        "logo": "https://jiliacephlive.com/images/favicon.svg"
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
+        "@graph": [
             {
-                "@type": "Question",
-                "name": "What is JiliAce PH Live?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "JiliAce PH Live is a player guide that explains JiliAce slots, live dealer games, and promotions in plain English—with a layout tuned for phones and quick navigation."
+                "@type": "Organization",
+                "@id": "https://jiliacephlive.com/#organization",
+                "name": "JiliAce PH Live",
+                "url": "https://jiliacephlive.com/",
+                "description": "Independent player guides for JiliAce-style online casino entertainment in the Philippines.",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://jiliacephlive.com/images/favicon.svg",
+                    "contentUrl": "https://jiliacephlive.com/images/favicon.svg"
                 }
             },
             {
-                "@type": "Question",
-                "name": "Where do I log in or sign up?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Use the official JiliAce website (jiliace.win) for log in and registration. jiliacephlive.com is for information only—never share your password on third-party pages."
-                }
+                "@type": "WebSite",
+                "@id": "https://jiliacephlive.com/#website",
+                "name": "JiliAce PH Live",
+                "url": "https://jiliacephlive.com/",
+                "inLanguage": "en-PH",
+                "publisher": { "@id": "https://jiliacephlive.com/#organization" },
+                "description": "Player hub with guides to JiliAce slots, live casino, and promotions—in line with public information on jiliace.win."
             },
             {
-                "@type": "Question",
-                "name": "What does jiliace.win say about PAGCOR?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Public copy on jiliace.win describes JiliAce in relation to licensing and regulatory oversight including PAGCOR. Always confirm the latest status on the official operator site before you play."
-                }
+                "@type": "WebPage",
+                "@id": "https://jiliacephlive.com/#webpage",
+                "url": "https://jiliacephlive.com/",
+                "name": "JiliAce PH Live — slots, live tables & promos in one rhythm",
+                "description": "JiliAce and JiliAce PH guides: JILI slots, live casino, bonuses, and safe play for new and existing players.",
+                "inLanguage": "en-PH",
+                "isPartOf": { "@id": "https://jiliacephlive.com/#website" },
+                "publisher": { "@id": "https://jiliacephlive.com/#organization" },
+                "primaryImageOfPage": {
+                    "@type": "ImageObject",
+                    "url": "https://jiliacephlive.com/images/og-default.svg"
+                },
+                "datePublished": "2026-04-01",
+                "dateModified": "2026-04-12",
+                "mainEntity": { "@id": "https://jiliacephlive.com/#faq" }
+            },
+            {
+                "@type": "FAQPage",
+                "@id": "https://jiliacephlive.com/#faq",
+                "isPartOf": { "@id": "https://jiliacephlive.com/#website" },
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Is this the official JiliAce log in?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "No—account actions belong on the official JiliAce domain. Use jiliace.win for log in and sign up. jiliacephlive.com is a guide only."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What does jiliace.win say about PAGCOR?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Their public copy describes JiliAce as a licensed, accredited service provider recognized by PAGCOR, with monitored financial flows. Always verify the latest licensing and terms on the official site before you play."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "JILI Slot or live casino—which should I pick?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "JILI Slot is fast and solo; live tables add dealer pacing and table etiquette. Compare on the slots and live casino pages on this site."
+                        }
+                    }
+                ]
             }
         ]
     }

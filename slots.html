@@ -49,7 +49,48 @@
     ]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"WebPage","name":"JiliAce Slots","description":"JiliAce slots and JILI Slot guide: volatility, RTP context, Megaways-style picks, studio notes and safer play for Philippines players.","url":"https://jiliacephlive.com/slots.html","inLanguage":"en-PH","isPartOf":{"@type":"WebSite","name":"JiliAce PH Live","url":"https://jiliacephlive.com/"}}
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://jiliacephlive.com/#organization",
+                "name": "JiliAce PH Live",
+                "url": "https://jiliacephlive.com/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://jiliacephlive.com/images/favicon.svg"
+                }
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://jiliacephlive.com/#website",
+                "name": "JiliAce PH Live",
+                "url": "https://jiliacephlive.com/",
+                "publisher": { "@id": "https://jiliacephlive.com/#organization" }
+            },
+            {
+                "@type": ["WebPage", "Article"],
+                "@id": "https://jiliacephlive.com/slots.html#webpage",
+                "url": "https://jiliacephlive.com/slots.html",
+                "name": "JiliAce slots — themes, tempo, and smart picks",
+                "headline": "JiliAce slots — themes, tempo, and smart picks",
+                "description": "JiliAce slots and JILI Slot guide: volatility, RTP context, Megaways-style picks, studio notes and safer play for Philippines players.",
+                "inLanguage": "en-PH",
+                "isPartOf": { "@id": "https://jiliacephlive.com/#website" },
+                "publisher": { "@id": "https://jiliacephlive.com/#organization" },
+                "author": { "@id": "https://jiliacephlive.com/#organization" },
+                "datePublished": "2026-04-01",
+                "dateModified": "2026-04-12",
+                "mainEntityOfPage": { "@id": "https://jiliacephlive.com/slots.html#webpage" },
+                "primaryImageOfPage": {
+                    "@type": "ImageObject",
+                    "url": "https://jiliacephlive.com/images/og-default.svg"
+                },
+                "articleSection": "JiliAce slots"
+            }
+        ]
+    }
     </script>
 </head>
 <body data-page="slots">

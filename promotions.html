@@ -49,7 +49,48 @@
     ]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"WebPage","name":"JiliAce Promotions","description":"JiliAce promotions and JiliAce bonus guide: wagering, game weighting, free spins and live deals—with clear terms and safer-play context.","url":"https://jiliacephlive.com/promotions.html","inLanguage":"en-PH","isPartOf":{"@type":"WebSite","name":"JiliAce PH Live","url":"https://jiliacephlive.com/"}}
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://jiliacephlive.com/#organization",
+                "name": "JiliAce PH Live",
+                "url": "https://jiliacephlive.com/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://jiliacephlive.com/images/favicon.svg"
+                }
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://jiliacephlive.com/#website",
+                "name": "JiliAce PH Live",
+                "url": "https://jiliacephlive.com/",
+                "publisher": { "@id": "https://jiliacephlive.com/#organization" }
+            },
+            {
+                "@type": ["WebPage", "Article"],
+                "@id": "https://jiliacephlive.com/promotions.html#webpage",
+                "url": "https://jiliacephlive.com/promotions.html",
+                "name": "JiliAce promotions — read the headline and the fine print",
+                "headline": "JiliAce promotions — read the headline and the fine print",
+                "description": "JiliAce promotions and JiliAce bonus guide: wagering, game weighting, free spins and live deals—with clear terms and safer-play context.",
+                "inLanguage": "en-PH",
+                "isPartOf": { "@id": "https://jiliacephlive.com/#website" },
+                "publisher": { "@id": "https://jiliacephlive.com/#organization" },
+                "author": { "@id": "https://jiliacephlive.com/#organization" },
+                "datePublished": "2026-04-01",
+                "dateModified": "2026-04-12",
+                "mainEntityOfPage": { "@id": "https://jiliacephlive.com/promotions.html#webpage" },
+                "primaryImageOfPage": {
+                    "@type": "ImageObject",
+                    "url": "https://jiliacephlive.com/images/og-default.svg"
+                },
+                "articleSection": "JiliAce promotions"
+            }
+        ]
+    }
     </script>
 </head>
 <body data-page="promo">
