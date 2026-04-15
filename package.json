@@ -1,0 +1,10 @@
+{
+  "name": "jiliacephlive-static",
+  "private": true,
+  "scripts": {
+    "images:webp": "node scripts/convert-webp.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.1"
+  }
+}

@@ -64,6 +64,14 @@
     height: 100%;
 }
 
+.game-card__media .game-card__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .game-card__ph-title {
     position: absolute;
     bottom: 0;
@@ -278,9 +286,19 @@
 }
 
 .cat-tile__ph {
+    position: relative;
     aspect-ratio: 4 / 3;
     width: 100%;
     background: linear-gradient(160deg, var(--bg-elev), var(--surface));
+    overflow: hidden;
+}
+
+.cat-tile__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .cat-tile__ph--m {
@@ -336,6 +354,15 @@
     letter-spacing: 0.04em;
     color: var(--muted);
     background: var(--bg-elev);
+    overflow: hidden;
+    padding: 0.35rem;
+    box-sizing: border-box;
+}
+
+.provider-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .provider-logo--jili {
@@ -363,8 +390,18 @@
 }
 
 .live-cat-card__ph {
+    position: relative;
     aspect-ratio: 16 / 9;
     background: linear-gradient(145deg, #1a0f14 0%, #2a1a22 100%);
+    overflow: hidden;
+}
+
+.live-cat-card__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .live-cat-card__ph--felt {
@@ -439,6 +476,15 @@
     inset: 0;
     width: 100%;
     height: 100%;
+    border-radius: inherit;
+}
+
+.promo-pair-card__visual .promo-pair-card__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: inherit;
 }
 
