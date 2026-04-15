@@ -1,7 +1,7 @@
 /**
  * Recursively converts .jpg / .jpeg / .png under ./images to .webp (quality 82).
  * Skips if .webp exists and is newer than the source.
- * Also writes images/og-default.webp from Hero Banner/Home.png (1200×630 cover).
+ * Also writes images/og-default.webp from hero-banner/home.png (1200×630 cover).
  */
 import fs from 'fs/promises';
 import path from 'path';
@@ -45,7 +45,7 @@ async function walk(dir) {
 }
 
 async function writeOgDefault() {
-  const src = path.join(root, 'Hero Banner', 'Home.png');
+  const src = path.join(root, 'hero-banner', 'home.png');
   const dest = path.join(root, 'og-default.webp');
   if (!(await exists(src))) {
     console.warn('Skip og-default.webp: missing', src);

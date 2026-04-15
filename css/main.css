@@ -1013,28 +1013,28 @@ main {
 }
 
 body[data-page="index"] .hero-banner__frame {
-    background-image: url("../images/Hero%20Banner/Home.webp");
+    background-image: url("/images/hero-banner/home.webp");
 }
 
 body[data-page="slots"] .hero-banner__frame {
-    background-image: url("../images/Hero%20Banner/Slots.webp");
+    background-image: url("/images/hero-banner/slots.webp");
 }
 
 body[data-page="live"] .hero-banner__frame {
-    background-image: url("../images/Hero%20Banner/Live%20Casino.webp");
+    background-image: url("/images/hero-banner/live-casino.webp");
 }
 
 body[data-page="promo"] .hero-banner__frame {
-    background-image: url("../images/Hero%20Banner/Promo.webp");
+    background-image: url("/images/hero-banner/promo.webp");
 }
 
 body[data-page="guide"] .hero-banner__frame {
-    background-image: url("../images/Hero%20Banner/Player%20Guide.webp");
+    background-image: url("/images/hero-banner/player-guide.webp");
 }
 
 body[data-page="about"] .hero-banner__frame,
 body[data-page="rg"] .hero-banner__frame {
-    background-image: url("../images/Hero%20Banner/Home.webp");
+    background-image: url("/images/hero-banner/home.webp");
 }
 
 /* Home: shorter banner so the main .hero block stays the focus */
