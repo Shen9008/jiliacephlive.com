@@ -1,4 +1,5 @@
 # Deploys static files to the existing Cloudflare Pages project "jiliacephlive".
+# Runs only when triggered manually (no deploy on git push).
 #
 # Repository secrets (Settings → Secrets and variables → Actions):
 #   CLOUDFLARE_API_TOKEN   — Custom API token with Account → Cloudflare Pages → Edit
@@ -7,8 +8,6 @@
 name: Deploy to Cloudflare Pages
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 concurrency:
