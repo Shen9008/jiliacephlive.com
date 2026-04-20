@@ -6,6 +6,19 @@
 
     var base = '';
 
+    /** If edge/browser cached old HTML with jiliace.win hrefs, rewrite to the affiliate URL. */
+    var AFFILIATE_HREF = 'https://reffpa.com/L?tag=d_5503298m_1236c_&site=5503298&ad=1236';
+
+    function patchAffiliateLinks() {
+        document.querySelectorAll('a[href]').forEach(function (a) {
+            var h = a.getAttribute('href');
+            if (!h || h.indexOf('reffpa.com') !== -1) return;
+            if (/jiliace\.win/i.test(h)) {
+                a.setAttribute('href', AFFILIATE_HREF);
+            }
+        });
+    }
+
     function rewriteLinks(html) {
         return html;
     }
@@ -44,6 +57,7 @@
     }
 
     function run() {
+        patchAffiliateLinks();
         injectSvgSprite();
         Promise.all([
             fetch(base + 'partials/header.html').then(function (r) { return r.text(); }),
@@ -66,6 +80,7 @@
                 }
                 if (pf) pf.outerHTML = f;
                 if (pb && bannerHtml) pb.outerHTML = bannerHtml;
+                patchAffiliateLinks();
                 setActiveNav();
                 var btn = document.querySelector('[data-mobile-toggle]');
                 var panel = document.getElementById('mobile-menu');
@@ -80,6 +95,7 @@
                 }
             })
             .catch(function () {
+                patchAffiliateLinks();
                 setActiveNav();
             });
     }
