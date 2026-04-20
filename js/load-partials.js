@@ -59,18 +59,28 @@
     function run() {
         patchAffiliateLinks();
         injectSvgSprite();
+        var pageKey = document.body.getAttribute('data-page') || '';
+        var topPromoPath =
+            pageKey === 'rg' ? 'partials/promo-affiliate-top-rg.html' : 'partials/promo-affiliate-top.html';
+
         Promise.all([
             fetch(base + 'partials/header.html').then(function (r) { return r.text(); }),
             fetch(base + 'partials/footer.html').then(function (r) { return r.text(); }),
-            fetch(base + 'partials/hero-banner.html').then(function (r) { return r.ok ? r.text() : ''; })
+            fetch(base + 'partials/hero-banner.html').then(function (r) { return r.ok ? r.text() : ''; }),
+            fetch(base + topPromoPath).then(function (r) { return r.ok ? r.text() : ''; }),
+            fetch(base + 'partials/promo-affiliate-mid.html').then(function (r) { return r.ok ? r.text() : ''; })
         ])
             .then(function (parts) {
                 var h = rewriteLinks(parts[0]);
                 var f = rewriteLinks(parts[1]);
                 var bannerHtml = parts[2] ? rewriteLinks(parts[2]) : '';
+                var topPromoHtml = parts[3] ? rewriteLinks(parts[3]) : '';
+                var midPromoHtml = parts[4] ? rewriteLinks(parts[4]) : '';
                 var ph = document.getElementById('partial-header');
                 var pf = document.getElementById('partial-footer');
                 var pb = document.getElementById('partial-hero-banner');
+                var pTop = document.getElementById('partial-promo-top');
+                var pMid = document.getElementById('partial-promo-mid');
                 if (ph) {
                     var t = document.createElement('div');
                     t.innerHTML = h;
@@ -80,6 +90,8 @@
                 }
                 if (pf) pf.outerHTML = f;
                 if (pb && bannerHtml) pb.outerHTML = bannerHtml;
+                if (pTop && topPromoHtml) pTop.outerHTML = topPromoHtml;
+                if (pMid && midPromoHtml) pMid.outerHTML = midPromoHtml;
                 patchAffiliateLinks();
                 setActiveNav();
                 var btn = document.querySelector('[data-mobile-toggle]');

@@ -865,6 +865,114 @@ main {
     align-items: center;
 }
 
+/* Injected affiliate promo strips (see partials/promo-affiliate-*.html) */
+#main-content > #partial-promo-top:empty,
+#main-content > #partial-promo-mid:empty {
+    display: none;
+}
+
+.promo-affiliate {
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(105deg, rgba(220, 38, 38, 0.14), rgba(26, 26, 26, 0.92) 45%, rgba(18, 18, 18, 0.98));
+}
+
+.promo-affiliate--mid {
+    background: linear-gradient(105deg, rgba(37, 99, 235, 0.1), rgba(220, 38, 38, 0.08), rgba(18, 18, 18, 0.98));
+    margin: 1.5rem 0;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
+.promo-affiliate--top {
+    padding: clamp(0.85rem, 2.5vw, 1.15rem) 0;
+}
+
+.promo-affiliate--top + .hero {
+    border-top: none;
+}
+
+.promo-affiliate--rg {
+    background: linear-gradient(105deg, rgba(75, 85, 99, 0.35), rgba(18, 18, 18, 0.98));
+}
+
+.promo-affiliate--rg .promo-affiliate__title {
+    font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+}
+
+.promo-affiliate__inner {
+    display: grid;
+    gap: 1rem 1.25rem;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .promo-affiliate__inner {
+        grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    .promo-affiliate__inner--mid {
+        grid-template-columns: minmax(0, 1fr) auto;
+    }
+}
+
+.promo-affiliate__eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent-muted);
+    margin-bottom: 0.35rem;
+}
+
+.promo-affiliate__title {
+    margin: 0 0 0.35rem;
+    font-size: clamp(1.05rem, 2.4vw, 1.35rem);
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.promo-affiliate__text {
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--muted);
+    line-height: 1.55;
+    max-width: 52ch;
+}
+
+.promo-affiliate__text a {
+    color: var(--accent-muted);
+}
+
+.promo-affiliate__18 {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.promo-affiliate__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+@media (min-width: 768px) {
+    .promo-affiliate__actions {
+        justify-content: flex-end;
+    }
+}
+
+.promo-affiliate--mid .promo-affiliate__actions {
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .promo-affiliate--mid .promo-affiliate__actions {
+        justify-content: flex-end;
+    }
+}
+
 /* Footer */
 .site-footer {
     background: var(--bg-elev);
