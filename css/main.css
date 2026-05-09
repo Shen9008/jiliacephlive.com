@@ -988,8 +988,32 @@ main {
 
 @media (min-width: 720px) {
     .footer-grid {
-        grid-template-columns: 1.4fr 1fr 1fr;
+        grid-template-columns: 1.35fr 1fr 1fr 1fr;
     }
+}
+
+.footer-contact {
+    margin: 0 0 0.5rem;
+    font-size: 0.95rem;
+    word-break: break-word;
+}
+
+.footer-contact a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer-contact a:hover {
+    color: var(--accent);
+}
+
+.footer-contact-hint {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.45;
+    max-width: 22rem;
 }
 
 .footer-brand {
