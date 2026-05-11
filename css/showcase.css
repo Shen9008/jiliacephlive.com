@@ -162,7 +162,7 @@
 }
 
 .badge--hot {
-    background: linear-gradient(135deg, #ff4444, #cc0000);
+    background: var(--gradient-primary);
     color: #fff;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
 }
@@ -170,19 +170,19 @@
 .badge--exclusive {
     background: linear-gradient(135deg, #404040, #2a2a2a);
     color: #ececec;
-    border: 1px solid rgba(220, 38, 38, 0.25);
+    border: 1px solid rgb(var(--primary-rgb) / 0.25);
 }
 
 .badge--new {
     background: var(--accent-dim);
     color: var(--accent);
-    border: 1px solid rgba(220, 38, 38, 0.4);
+    border: 1px solid rgb(var(--primary-rgb) / 0.4);
 }
 
 .badge--rtp {
     background: rgba(255, 255, 255, 0.06);
     color: var(--accent-muted);
-    border: 1px solid rgba(220, 38, 38, 0.28);
+    border: 1px solid rgb(var(--primary-rgb) / 0.28);
 }
 
 .game-card__body {
@@ -282,7 +282,7 @@
 
 .cat-tile:hover {
     transform: translateY(-2px);
-    border-color: rgba(220, 38, 38, 0.45);
+    border-color: rgb(var(--primary-rgb) / 0.45);
 }
 
 .cat-tile__ph {
@@ -367,12 +367,12 @@
 
 .provider-logo--jili {
     color: var(--accent);
-    border-color: rgba(220, 38, 38, 0.35);
+    border-color: rgb(var(--primary-rgb) / 0.35);
 }
 
 .provider-logo--live {
     color: var(--accent-muted);
-    border-color: rgba(220, 38, 38, 0.28);
+    border-color: rgb(var(--primary-rgb) / 0.28);
 }
 
 /* Live casino category cards */

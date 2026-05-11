@@ -1,0 +1,92 @@
+/* Design tokens — brand.md (spacing, type, radius, color, motion) */
+
+:root {
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+
+    /* Typography */
+    --font-primary: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, sans-serif;
+    --font-heading: "Outfit", var(--font-primary);
+    --tracking-tight: -0.02em;
+
+    /* Radius */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-xl: 20px;
+
+    /* Surfaces & text */
+    --dark-bg: #0f0f10;
+    --darker-bg: #0a0a0b;
+    --card-bg: #1c1c1f;
+    --card-bg-hover: #252528;
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+
+    /* Accent (gold) */
+    --primary: #d4af37;
+    --primary-light: #e8c547;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --primary-rgb: 212 175 55;
+
+    --gradient-primary: linear-gradient(148deg, #f3e078 0%, #e2bc3d 32%, #c49a24 62%, #856514 100%);
+    --gradient-gold-bright: linear-gradient(135deg, #ffe066 0%, #e8c547 35%, #c9a020 100%);
+
+    --shadow-sm: 0 4px 14px rgb(0 0 0 / 0.25);
+    --shadow-md: 0 18px 50px rgb(0 0 0 / 0.45);
+    --shadow-glow-primary: 0 8px 28px rgb(var(--primary-rgb) / 0.35);
+
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.2s ease;
+
+    /* Main nav (header) */
+    --nav-bg: #000000;
+    --nav-border: rgb(255 255 255 / 0.07);
+    --nav-link: rgb(244 244 245 / 0.82);
+    --nav-link-hover: #f5f5f5;
+    --nav-active-pill-bg: rgb(var(--primary-rgb) / 0.16);
+    --nav-active-pill-border: rgb(var(--primary-rgb) / 0.28);
+    --nav-cta-text: #ffffff;
+    --nav-cta-bg: linear-gradient(180deg, #eecf52 0%, #c9a020 48%, #a67c12 100%);
+
+    /* Layout */
+    --container-max-width: 1200px;
+    --hero-banner-max: min(96vw, 1400px);
+
+    /* Buttons */
+    --btn-padding-y: 0.85rem;
+    --btn-padding-x: 1.35rem;
+    --btn-font-size: 0.875rem;
+    --btn-padding-y-sm: 0.55rem;
+    --btn-padding-x-sm: 1rem;
+    --btn-font-size-sm: 0.8125rem;
+    --btn-padding-y-lg: 1rem;
+    --btn-padding-x-lg: 1.5rem;
+    --btn-font-size-lg: 0.9375rem;
+
+    /* Legacy aliases — existing pages & partials */
+    --bg: var(--dark-bg);
+    --bg-elev: #161618;
+    --surface: var(--card-bg);
+    --border: var(--border-color);
+    --text: var(--text-primary);
+    --muted: var(--text-secondary);
+    --accent: var(--primary);
+    --accent-strong: #8a6b12;
+    --accent-muted: var(--primary-light);
+    --accent-dim: rgb(var(--primary-rgb) / 0.18);
+    --gold: var(--primary-light);
+    --gold-dim: rgb(var(--primary-rgb) / 0.06);
+    --danger: #ef4444;
+    --shadow: var(--shadow-md);
+    --font: var(--font-primary);
+    --max: var(--container-max-width);
+    --space: clamp(1rem, 4vw, 2.5rem);
+    --radius: var(--radius-lg);
+}

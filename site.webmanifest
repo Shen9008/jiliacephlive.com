@@ -5,14 +5,14 @@
   "start_url": "/",
   "scope": "/",
   "display": "browser",
-  "background_color": "#121212",
-  "theme_color": "#121212",
+  "background_color": "#0f0f10",
+  "theme_color": "#0f0f10",
   "lang": "en-PH",
   "icons": [
     {
-      "src": "images/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
+      "src": "images/favicon.png",
+      "sizes": "245x206",
+      "type": "image/png",
       "purpose": "any"
     }
   ]

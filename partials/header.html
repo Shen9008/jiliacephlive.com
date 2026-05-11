@@ -1,16 +1,16 @@
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header class="site-header" role="banner">
     <div class="shell site-header__inner">
-        <a class="brand" href="index.html" title="JiliAce PH Live — home">
-            <img class="brand__logo" src="/images/logo.webp" width="40" height="40" alt="JiliAce PH Live">
-            <span class="brand__text">JiliAce<span class="brand__accent"> PH Live</span></span>
+        <a class="brand" href="/" title="JiliAce PH Live — home">
+            <img class="brand__logo brand__logo--wordmark" src="/images/logo.png" alt="JiliAce" width="240" height="96" decoding="async" fetchpriority="high">
         </a>
         <nav class="nav nav--desktop" aria-label="Main">
-            <a class="nav__link nav__link--icon" data-nav="index" href="index.html" title="Home"><span class="nav__link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><use href="#i-home"></use></svg></span>Home</a>
-            <a class="nav__link nav__link--icon" data-nav="slots" href="slots.html" title="JiliAce slots"><span class="nav__link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><use href="#i-slots"></use></svg></span>Slots</a>
-            <a class="nav__link nav__link--icon" data-nav="live" href="live-casino.html" title="Live casino"><span class="nav__link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><use href="#i-live"></use></svg></span>Live casino</a>
-            <a class="nav__link nav__link--icon" data-nav="promo" href="promotions.html" title="Promotions"><span class="nav__link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><use href="#i-gift"></use></svg></span>Promotions</a>
-            <a class="nav__link nav__link--icon" data-nav="guide" href="player-guide.html" title="Player guide"><span class="nav__link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><use href="#i-star"></use></svg></span>Player guide</a>
+            <a class="nav__link nav__link--icon" data-nav="index" href="/index.html" title="Home"><span class="nav__link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><use href="#i-home"></use></svg></span>Home</a>
+            <a class="nav__link nav__link--icon" data-nav="slots" href="/slots.html" title="JiliAce slots"><span class="nav__link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><use href="#i-slots"></use></svg></span>Slots</a>
+            <a class="nav__link nav__link--icon" data-nav="live" href="/live-casino.html" title="Live casino"><span class="nav__link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><use href="#i-live"></use></svg></span>Live casino</a>
+            <a class="nav__link nav__link--icon" data-nav="promo" href="/promotions.html" title="Promotions"><span class="nav__link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><use href="#i-gift"></use></svg></span>Promotions</a>
+            <a class="nav__link nav__link--icon" data-nav="guide" href="/player-guide.html" title="Player guide"><span class="nav__link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><use href="#i-star"></use></svg></span>Player guide</a>
+            <a class="nav__link nav__link--icon" data-nav="blog" href="/blog/" title="Blog"><span class="nav__link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><use href="#i-chat"></use></svg></span>Blog</a>
             <span class="nav__sep" aria-hidden="true"></span>
             <a class="nav__link nav__link--cta" href="https://reffpa.com/L?tag=d_5503298m_1236c_&amp;site=5503298&amp;ad=1236" target="_blank" rel="noopener noreferrer" title="Bonuses and offers">Play now</a>
         </nav>
@@ -18,15 +18,28 @@
             <svg class="icon" width="24" height="24" aria-hidden="true"><use href="#i-menu"></use></svg>
         </button>
     </div>
-    <div class="mobile-panel" id="mobile-menu" aria-hidden="true" role="dialog" aria-label="Menu">
-        <div class="shell mobile-panel__inner">
-            <a class="mm__link" data-nav="index" href="index.html">Home</a>
-            <a class="mm__link" data-nav="slots" href="slots.html">Slots</a>
-            <a class="mm__link" data-nav="live" href="live-casino.html">Live casino</a>
-            <a class="mm__link" data-nav="promo" href="promotions.html">Promotions</a>
-            <a class="mm__link" data-nav="guide" href="player-guide.html">Player guide</a>
-            <a class="mm__link mm__link--cta" href="https://reffpa.com/L?tag=d_5503298m_1236c_&amp;site=5503298&amp;ad=1236" target="_blank" rel="noopener noreferrer">Play now — promos &amp; guides</a>
-            <a class="mm__link mm__link--muted" data-nav="rg" href="responsible-gambling.html">Responsible play</a>
+    <div class="mobile-panel" id="mobile-menu" aria-hidden="true" role="dialog" aria-modal="true"
+        aria-label="Site menu">
+        <div class="mobile-panel__backdrop" data-mobile-close tabindex="-1"></div>
+        <div class="mobile-panel__drawer">
+            <div class="mobile-panel__drawer-top">
+                <a class="mobile-panel__brand-link" href="/" title="JiliAce PH Live — home">
+                    <img class="mobile-panel__brand-logo" src="/images/logo.png" alt="JiliAce" width="240" height="96" decoding="async">
+                </a>
+                <button type="button" class="mobile-panel__close" data-mobile-close aria-label="Close menu">
+                    <svg class="icon" width="22" height="22" aria-hidden="true"><use href="#i-close"></use></svg>
+                </button>
+            </div>
+            <nav class="mobile-panel__nav" aria-label="Site">
+                <a class="mm__link" data-nav="index" href="/index.html">Home</a>
+                <a class="mm__link" data-nav="slots" href="/slots.html">Slots</a>
+                <a class="mm__link" data-nav="live" href="/live-casino.html">Live casino</a>
+                <a class="mm__link" data-nav="promo" href="/promotions.html">Promotions</a>
+                <a class="mm__link" data-nav="guide" href="/player-guide.html">Player guide</a>
+                <a class="mm__link" data-nav="blog" href="/blog/">Blog</a>
+                <a class="mm__link mm__link--muted" data-nav="rg" href="/responsible-gambling.html">Responsible play</a>
+                <a class="mm__link mm__link--cta" href="https://reffpa.com/L?tag=d_5503298m_1236c_&amp;site=5503298&amp;ad=1236" target="_blank" rel="noopener noreferrer" title="Open official JiliAce — bonuses &amp; games"><span class="mm__cta-primary">Play now</span><span class="mm__cta-secondary">Official site · Bonuses &amp; games</span></a>
+            </nav>
         </div>
     </div>
 </header>

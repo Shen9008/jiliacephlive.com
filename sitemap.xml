@@ -7,4 +7,49 @@
   <url><loc>https://jiliacephlive.com/player-guide.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://jiliacephlive.com/responsible-gambling.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://jiliacephlive.com/about.html</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://jiliacephlive.com/blog/</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://jiliacephlive.com/blog/bonus-opportunities-players-commonly-explore-on-jiliacephlive/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jiliacephlive.com/blog/understanding-member-benefits-available-on-jiliacephlive/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jiliacephlive.com/blog/understanding-jiliacephlive-casino-reward-campaigns/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jiliacephlive.com/blog/key-features-that-players-notice-first-on-jiliacephlive/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jiliacephlive.com/blog/how-jiliacephlive-delivers-a-modern-online-gaming-experience/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jiliacephlive.com/blog/a-beginner-overview-of-the-jiliacephlive-gaming-platform/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jiliacephlive.com/blog/why-jiliacephlive-is-becoming-popular-among-online-casino-players/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- /Blog Posts -->
 </urlset>

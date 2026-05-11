@@ -4,7 +4,14 @@
 (function () {
     'use strict';
 
-    var base = '';
+    /** Root-relative fetch when pages live under /blog/ so partials resolve to /partials/… */
+    function getFetchBase() {
+        var p = window.location.pathname.replace(/\\/g, '/');
+        if (p.indexOf('/blog') !== -1) return '/';
+        return '';
+    }
+
+    var base = getFetchBase();
 
     /** If edge/browser cached old HTML with jiliace.win hrefs, rewrite to the affiliate URL. */
     var AFFILIATE_HREF = 'https://reffpa.com/L?tag=d_5503298m_1236c_&site=5503298&ad=1236';
@@ -60,16 +67,21 @@
         patchAffiliateLinks();
         injectSvgSprite();
         var pageKey = document.body.getAttribute('data-page') || '';
+        var skipTopPromo =
+            document.body.getAttribute('data-blog-layout') === 'index' ||
+            Boolean(document.body.getAttribute('data-blog-slug'));
         var topPromoPath =
             pageKey === 'rg' ? 'partials/promo-affiliate-top-rg.html' : 'partials/promo-affiliate-top.html';
 
-        Promise.all([
-            fetch(base + 'partials/header.html').then(function (r) { return r.text(); }),
-            fetch(base + 'partials/footer.html').then(function (r) { return r.text(); }),
-            fetch(base + 'partials/hero-banner.html').then(function (r) { return r.ok ? r.text() : ''; }),
-            fetch(base + topPromoPath).then(function (r) { return r.ok ? r.text() : ''; }),
-            fetch(base + 'partials/promo-affiliate-mid.html').then(function (r) { return r.ok ? r.text() : ''; })
-        ])
+        var headerP = fetch(base + 'partials/header.html').then(function (r) { return r.text(); });
+        var footerP = fetch(base + 'partials/footer.html').then(function (r) { return r.text(); });
+        var bannerP = fetch(base + 'partials/hero-banner.html').then(function (r) { return r.ok ? r.text() : ''; });
+        var topPromoP = skipTopPromo
+            ? Promise.resolve('')
+            : fetch(base + topPromoPath).then(function (r) { return r.ok ? r.text() : ''; });
+        var midPromoP = fetch(base + 'partials/promo-affiliate-mid.html').then(function (r) { return r.ok ? r.text() : ''; });
+
+        Promise.all([headerP, footerP, bannerP, topPromoP, midPromoP])
             .then(function (parts) {
                 var h = rewriteLinks(parts[0]);
                 var f = rewriteLinks(parts[1]);
@@ -97,12 +109,60 @@
                 var btn = document.querySelector('[data-mobile-toggle]');
                 var panel = document.getElementById('mobile-menu');
                 var use = btn && btn.querySelector('use');
+                var closeBtn = panel ? panel.querySelector('.mobile-panel__close') : null;
+
+                function setMenuOpen(open) {
+                    if (!btn || !panel) return;
+                    if (open) {
+                        panel.classList.add('is-open');
+                        panel.setAttribute('aria-hidden', 'false');
+                        btn.setAttribute('aria-expanded', 'true');
+                        btn.setAttribute('aria-label', 'Close menu');
+                        document.body.classList.add('mobile-nav-open');
+                        if (use) use.setAttribute('href', '#i-close');
+                        requestAnimationFrame(function () {
+                            if (closeBtn) closeBtn.focus();
+                        });
+                    } else {
+                        panel.classList.remove('is-open');
+                        panel.setAttribute('aria-hidden', 'true');
+                        btn.setAttribute('aria-expanded', 'false');
+                        btn.setAttribute('aria-label', 'Open menu');
+                        document.body.classList.remove('mobile-nav-open');
+                        if (use) use.setAttribute('href', '#i-menu');
+                        btn.focus();
+                    }
+                }
+
                 if (btn && panel) {
                     btn.addEventListener('click', function () {
-                        var open = panel.classList.toggle('is-open');
-                        panel.setAttribute('aria-hidden', open ? 'false' : 'true');
-                        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-                        if (use) use.setAttribute('href', open ? '#i-close' : '#i-menu');
+                        setMenuOpen(!panel.classList.contains('is-open'));
+                    });
+
+                    panel.querySelectorAll('[data-mobile-close]').forEach(function (el) {
+                        el.addEventListener('click', function () {
+                            setMenuOpen(false);
+                        });
+                    });
+
+                    panel.querySelectorAll('.mm__link').forEach(function (link) {
+                        link.addEventListener('click', function () {
+                            setMenuOpen(false);
+                        });
+                    });
+
+                    var brandLink = panel.querySelector('.mobile-panel__brand-link');
+                    if (brandLink) {
+                        brandLink.addEventListener('click', function () {
+                            setMenuOpen(false);
+                        });
+                    }
+
+                    document.addEventListener('keydown', function (e) {
+                        if (e.key === 'Escape' && panel.classList.contains('is-open')) {
+                            e.preventDefault();
+                            setMenuOpen(false);
+                        }
                     });
                 }
             })

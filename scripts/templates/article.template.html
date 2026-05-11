@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en-PH">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-TS95HFR5');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f0f10">
+  <meta name="color-scheme" content="dark">
+  <meta name="format-detection" content="telephone=no">
+  <title>{{META_TITLE}}</title>
+  <meta name="description" content="{{META_DESCRIPTION}}">
+  <meta name="keywords" content="{{KEYWORDS}}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="{{SHARE_URL}}">
+  <link rel="alternate" hreflang="en-PH" href="{{SHARE_URL}}">
+  <link rel="alternate" hreflang="x-default" href="{{SHARE_URL}}">
+  <link rel="icon" href="/images/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/images/favicon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="{{SITE_ORIGIN}}/sitemap.xml">
+
+  <meta property="og:title" content="{{META_TITLE}}">
+  <meta property="og:description" content="{{META_DESCRIPTION}}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="{{SHARE_URL}}">
+  <meta property="og:image" content="{{OG_IMAGE_URL}}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="JiliAce PH Live">
+  <meta property="og:locale" content="en_PH">
+  <meta property="article:published_time" content="{{PUBLISHED_DATE_ISO}}">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{META_TITLE}}">
+  <meta name="twitter:description" content="{{META_DESCRIPTION}}">
+  <meta name="twitter:image" content="{{OG_IMAGE_URL}}">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/showcase.css">
+  <link rel="stylesheet" href="/css/animations.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{TITLE}}",
+    "description": "{{META_DESCRIPTION}}",
+    "datePublished": "{{PUBLISHED_DATE_ISO}}",
+    "dateModified": "{{UPDATED_DATE_ISO}}",
+    "author": {
+      "@type": "Organization",
+      "name": "JiliAce PH Live",
+      "url": "{{SITE_ORIGIN}}/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "JiliAce PH Live",
+      "url": "{{SITE_ORIGIN}}/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{SITE_ORIGIN}}/images/favicon.png"
+      }
+    },
+    "image": "{{OG_IMAGE_URL}}",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{SHARE_URL}}"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "{{SITE_ORIGIN}}/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "{{SITE_ORIGIN}}/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "{{TITLE}}",
+        "item": "{{SHARE_URL}}"
+      }
+    ]
+  }
+  </script>
+
+  {{FAQ_SCHEMA_SCRIPT}}
+
+</head>
+
+<body data-page="blog" data-blog-slug="{{SLUG}}" data-related-slugs="{{RELATED_POST_SLUGS}}">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TS95HFR5" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div id="partial-header"></div>
+
+  <main id="main-content">
+    <div id="partial-promo-top"></div>
+
+    <section class="hero section section--tight blog-article-hero" aria-labelledby="blog-article-title">
+      <div class="container">
+        <nav class="blog-breadcrumb" aria-label="Breadcrumb">
+          <ol class="blog-breadcrumb__list">
+            <li><a href="/">Home</a></li>
+            <li aria-hidden="true">/</li>
+            <li><a href="/blog/">Blog</a></li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page">{{TITLE}}</li>
+          </ol>
+        </nav>
+        <div class="blog-article-meta">
+          <span class="blog-meta-chip blog-meta-chip--accent">{{CATEGORY}}</span>
+          <span class="blog-meta-chip">{{READING_TIME}}</span>
+          <time class="blog-meta-chip blog-meta-chip--date" datetime="{{PUBLISHED_DATE_ISO}}">{{PUBLISHED_DATE_FORMATTED}}</time>
+        </div>
+        <h1 id="blog-article-title" class="hero__title">{{TITLE}}</h1>
+        <p class="hero__subtitle blog-article-lead">{{EXCERPT}}</p>
+        <div class="blog-share" aria-label="Share article">
+          <span class="blog-share__label">Share</span>
+          <div class="blog-share__links">
+            <a class="blog-share__btn" href="https://twitter.com/intent/tweet?url={{SHARE_URL_ENCODED}}&amp;text={{SHARE_TITLE}}"
+              target="_blank" rel="noopener noreferrer">Twitter</a>
+            <a class="blog-share__btn" href="https://www.facebook.com/sharer/sharer.php?u={{SHARE_URL_ENCODED}}"
+              target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a class="blog-share__btn" href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{SHARE_URL_ENCODED}}"
+              target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section section--tight blog-featured-section">
+      <figure class="blog-featured blog-featured--media">
+        <!-- SEO: explicit dimensions on LCP hero image reduce CLS (matches default blog cover asset). -->
+        <img class="blog-featured__img" src="{{FEATURED_IMAGE}}" alt="{{IMAGE_ALT}}" width="1536" height="1024" loading="eager" decoding="async">
+      </figure>
+    </section>
+
+    <article class="container section">
+      <div class="blog-article-layout">
+        <div class="blog-article-main">
+          <div class="article-prose blog-prose">
+            {{TOC_HTML}}
+
+            {{ARTICLE_BODY}}
+          </div>
+
+          <section class="section section--tight blog-inline-cta">
+            <div class="cta-banner blog-inline-cta__inner">
+              <h2 class="section__title blog-inline-cta__title">Play at JiliAce</h2>
+              <p>Open <a href="https://reffpa.com/L?tag=d_5503298m_1236c_&amp;site=5503298&amp;ad=1236" target="_blank" rel="noopener noreferrer sponsored"><strong>JiliAce</strong></a> for slots, live tables, and promos—and keep play within limits you set.</p>
+              <div class="hero__actions blog-inline-cta__actions">
+                <a href="https://reffpa.com/L?tag=d_5503298m_1236c_&amp;site=5503298&amp;ad=1236" class="btn btn--primary" target="_blank" rel="noopener noreferrer sponsored">Play now</a>
+                <a href="/responsible-gambling.html" class="btn btn--outline">Responsible gambling</a>
+              </div>
+            </div>
+          </section>
+
+          <section class="article-related blog-related" id="related-posts" aria-label="Related posts">
+            <h2 class="section__title blog-related__title">Related posts</h2>
+            <p class="blog-related-placeholder">Loading related posts…</p>
+            <ul class="blog-related-list" hidden></ul>
+          </section>
+        </div>
+
+        <aside class="blog-sidebar" aria-label="More from the blog">
+          <div class="feature-card blog-sidebar-card blog-sidebar-card--recent">
+            <h3 class="blog-sidebar__heading">Recent posts</h3>
+            <ul class="blog-sidebar-list" id="sidebar-posts">
+              <li class="blog-sidebar-placeholder">Loading…</li>
+            </ul>
+          </div>
+          <div class="feature-card blog-sidebar-card blog-sidebar-cta">
+            <h3 class="blog-sidebar__heading">Explore the site</h3>
+            <p class="blog-sidebar-cta__text">Slots, live casino, and promotions on JiliAce PH Live.</p>
+            <a href="/promotions.html" class="btn btn--gold">View promotions</a>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </main>
+
+  <div id="partial-footer"></div>
+
+  <script defer src="/js/load-partials.js"></script>
+  <script defer src="/js/main.js"></script>
+  <script defer src="/js/blog-article.js"></script>
+</body>
+
+</html>

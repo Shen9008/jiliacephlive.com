@@ -1,0 +1,65 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+# Scheduled pull from Strapi → static HTML + blogs.json, then SEO hygiene checks.
+# Secrets / vars: same as local sync (see scripts/sync-doctor.js output).
+name: Daily Sync
+
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: daily-sync-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    env:
+      NODE_OPTIONS: --no-deprecation
+      STRAPI_API_URL: ${{ secrets.STRAPI_API_URL }}
+      STRAPI_API_TOKEN: ${{ secrets.STRAPI_API_TOKEN }}
+      SITE_DOMAIN: ${{ vars.SITE_DOMAIN }}
+      SITE_BASE_URL: ${{ vars.SITE_BASE_URL }}
+      BLOG_BASE_PATH: ${{ vars.BLOG_BASE_PATH }}
+      POSTS_COLLECTION: ${{ vars.STRAPI_COLLECTION }}
+      SKIP_POSTS_SITE_FILTER: ${{ vars.SKIP_POSTS_SITE_FILTER }}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify Strapi sync configuration
+        run: npm run sync:doctor
+
+      - name: Sync content from Strapi
+        run: npm run sync
+
+      # Keeps <title>, meta, OG/Twitter, and JSON-LD in blog/*.html aligned with assets/data/blogs.json.
+      - name: Apply blog HTML meta from blogs.json
+        run: npm run sync:blog-meta
+
+      - name: Refresh internal links in articles
+        run: npm run backfill:force
+
+      # Fails the job on broken root-relative href/src or sitemap <loc> targets (see seo-task.md Step 7).
+      - name: SEO maintenance check (internal links + sitemap parity)
+        shell: pwsh
+        run: ./scripts/seo-maintain.ps1 -CheckSitemap
+
+      - name: Internal link density report
+        run: npm run audit:links
