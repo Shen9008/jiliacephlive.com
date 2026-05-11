@@ -99,10 +99,11 @@ function Resolve-HrefFromFile {
 }
 
 # Exclude dependency / tooling HTML (e.g. miniflare explorer) — not part of the published site.
+# Match both Windows (\) and Linux/macOS (/) path separators so CI passes on ubuntu-latest.
 $htmlFiles = Get-ChildItem -Path $SiteRoot -Recurse -Filter "*.html" -File |
     Where-Object {
-        $_.FullName -notmatch '\\\.git\\' -and
-        $_.FullName -notmatch '\\node_modules\\'
+        $_.FullName -notmatch '[\\/]\.git[\\/]' -and
+        $_.FullName -notmatch '[\\/]node_modules[\\/]'
     }
 
 $attrPattern = '(?:href|src)=["'']([^"'']+)["'']'
