@@ -30,7 +30,7 @@ function getPostsSyncConfig(opts = {}) {
   if (rawKey === undefined || rawKey === null) {
     filterKey = DEFAULT_FILTER_KEY;
   } else {
-    filterKey = String(rawKey).trim();
+    filterKey = String(rawKey).trim() || DEFAULT_FILTER_KEY;
   }
 
   const applySiteFilter = Boolean(siteDomain && !skipFilter && filterKey);
@@ -70,7 +70,27 @@ function buildSamplePostsUrl(cfg, page = 1) {
  * @param {string} [opts.siteDomain]
  * @returns {Promise<Array>} Normalised post objects
  */
+function assertPostsSiteFilter() {
+  if (!/^1|true|yes$/i.test(String(process.env.SYNC_REQUIRE_SITE_FILTER || '').trim())) {
+    return;
+  }
+  const cfg = getPostsSyncConfig();
+  if (!cfg.siteDomain) {
+    throw new Error('SYNC_REQUIRE_SITE_FILTER: SITE_DOMAIN must be set.');
+  }
+  if (cfg.skipFilter) {
+    throw new Error('SYNC_REQUIRE_SITE_FILTER: SKIP_POSTS_SITE_FILTER must not be enabled.');
+  }
+  if (!cfg.filterKey) {
+    throw new Error('SYNC_REQUIRE_SITE_FILTER: POSTS_SITE_FILTER_KEY is empty.');
+  }
+  if (!cfg.applySiteFilter) {
+    throw new Error('SYNC_REQUIRE_SITE_FILTER: site filter is not applied.');
+  }
+}
+
 async function fetchPosts(opts = {}) {
+  assertPostsSiteFilter();
   const cfg = getPostsSyncConfig(opts);
   const allPosts = [];
   let page = 1;
@@ -134,4 +154,5 @@ module.exports = {
   fetchPosts,
   getPostsSyncConfig,
   buildSamplePostsUrl,
+  assertPostsSiteFilter,
 };

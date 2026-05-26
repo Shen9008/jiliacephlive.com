@@ -1,4 +1,4 @@
-/* Design tokens — brand.md (spacing, type, radius, color, motion) */
+/* Design tokens — spacing, type, radius, color, motion (charcoal + red accent) */
 
 :root {
     /* Spacing */
@@ -10,53 +10,53 @@
     --space-2xl: 3rem;
 
     /* Typography */
-    --font-primary: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, sans-serif;
+    --font-primary: "Segoe UI", system-ui, -apple-system, Roboto, Ubuntu, Cantarell, sans-serif;
     --font-heading: "Outfit", var(--font-primary);
     --tracking-tight: -0.02em;
 
     /* Radius */
-    --radius-sm: 6px;
+    --radius-sm: 10px;
     --radius-md: 10px;
     --radius-lg: 14px;
     --radius-xl: 20px;
 
     /* Surfaces & text */
-    --dark-bg: #0f0f10;
-    --darker-bg: #0a0a0b;
-    --card-bg: #1c1c1f;
-    --card-bg-hover: #252528;
-    --text-primary: #f4f4f5;
-    --text-secondary: #a1a1aa;
+    --dark-bg: #121212;
+    --darker-bg: #0e0e0e;
+    --card-bg: #252525;
+    --card-bg-hover: #2e2e2e;
+    --text-primary: #ececec;
+    --text-secondary: #9ca3af;
     --text-muted: #71717a;
 
-    /* Accent (gold) */
-    --primary: #d4af37;
-    --primary-light: #e8c547;
+    /* Primary accent (maps into gradients & glows; semantic aliases below) */
+    --primary: #dc2626;
+    --primary-light: #f87171;
     --border-color: rgba(255, 255, 255, 0.08);
-    --primary-rgb: 212 175 55;
+    --primary-rgb: 220 38 38;
 
-    --gradient-primary: linear-gradient(148deg, #f3e078 0%, #e2bc3d 32%, #c49a24 62%, #856514 100%);
-    --gradient-gold-bright: linear-gradient(135deg, #ffe066 0%, #e8c547 35%, #c9a020 100%);
+    --gradient-primary: linear-gradient(148deg, #fecaca 0%, #f87171 28%, #dc2626 55%, #991b1b 100%);
+    --gradient-gold-bright: linear-gradient(135deg, #fca5a5 0%, #ef4444 40%, #dc2626 100%);
 
     --shadow-sm: 0 4px 14px rgb(0 0 0 / 0.25);
-    --shadow-md: 0 18px 50px rgb(0 0 0 / 0.45);
+    --shadow-md: 0 18px 50px rgba(0, 0, 0, 0.45);
     --shadow-glow-primary: 0 8px 28px rgb(var(--primary-rgb) / 0.35);
 
     --transition-fast: 0.15s ease;
     --transition-base: 0.2s ease;
 
     /* Main nav (header) */
-    --nav-bg: #000000;
+    --nav-bg: #121212;
     --nav-border: rgb(255 255 255 / 0.07);
-    --nav-link: rgb(244 244 245 / 0.82);
-    --nav-link-hover: #f5f5f5;
+    --nav-link: rgb(236 236 236 / 0.82);
+    --nav-link-hover: #ececec;
     --nav-active-pill-bg: rgb(var(--primary-rgb) / 0.16);
     --nav-active-pill-border: rgb(var(--primary-rgb) / 0.28);
     --nav-cta-text: #ffffff;
-    --nav-cta-bg: linear-gradient(180deg, #eecf52 0%, #c9a020 48%, #a67c12 100%);
+    --nav-cta-bg: linear-gradient(180deg, #f87171 0%, #dc2626 48%, #991b1b 100%);
 
     /* Layout */
-    --container-max-width: 1200px;
+    --container-max-width: 1120px;
     --hero-banner-max: min(96vw, 1400px);
 
     /* Buttons */
@@ -70,23 +70,26 @@
     --btn-padding-x-lg: 1.5rem;
     --btn-font-size-lg: 0.9375rem;
 
-    /* Legacy aliases — existing pages & partials */
-    --bg: var(--dark-bg);
-    --bg-elev: #161618;
-    --surface: var(--card-bg);
-    --border: var(--border-color);
-    --text: var(--text-primary);
-    --muted: var(--text-secondary);
-    --accent: var(--primary);
-    --accent-strong: #8a6b12;
-    --accent-muted: var(--primary-light);
-    --accent-dim: rgb(var(--primary-rgb) / 0.18);
-    --gold: var(--primary-light);
-    --gold-dim: rgb(var(--primary-rgb) / 0.06);
+    /*
+     * Semantic aliases — shared across pages/partials
+     * (matches requested charcoal + red scheme)
+     */
+    --bg: #121212;
+    --bg-elev: #1a1a1a;
+    --surface: #252525;
+    --border: rgba(255, 255, 255, 0.08);
+    --text: #ececec;
+    --muted: #9ca3af;
+    --accent: #dc2626;
+    --accent-strong: #991b1b;
+    --accent-muted: #f87171;
+    --accent-dim: rgba(220, 38, 38, 0.18);
+    --gold: #d4d4d4;
+    --gold-dim: rgba(255, 255, 255, 0.06);
     --danger: #ef4444;
-    --shadow: var(--shadow-md);
+    --radius: 14px;
+    --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
     --font: var(--font-primary);
-    --max: var(--container-max-width);
+    --max: 1120px;
     --space: clamp(1rem, 4vw, 2.5rem);
-    --radius: var(--radius-lg);
 }

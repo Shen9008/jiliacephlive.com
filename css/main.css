@@ -4,7 +4,7 @@
 
 /* JiliAce PH Live — layout & page-specific blocks */
 
-/* Header — solid bar, gold active pill, solid CTA (see menu reference) */
+/* Header — solid bar, accent pill, solid CTA */
 .site-header {
     position: sticky;
     top: 0;
@@ -63,7 +63,7 @@
     width: 40px;
     height: 40px;
     border-radius: var(--radius-md);
-    background: linear-gradient(145deg, #3a3528 0%, var(--primary) 50%, var(--accent-strong) 100%);
+    background: linear-gradient(145deg, var(--accent-strong) 0%, var(--primary) 52%, var(--accent-muted) 100%);
     display: grid;
     place-items: center;
     font-size: 0.72rem;
