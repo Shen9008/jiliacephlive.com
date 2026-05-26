@@ -22,19 +22,6 @@
             .replace(/"/g, '&quot;');
     }
 
-    /** blogs.json `published_date` is typically YYYY-MM-DD */
-    function formatSidebarDate(iso) {
-        if (!iso || typeof iso !== 'string') return '';
-        var clean = iso.trim().slice(0, 10);
-        var d = new Date(clean + 'T12:00:00');
-        if (isNaN(d.getTime())) return '';
-        return d.toLocaleDateString('en-US', {
-            month: 'short',
-            day: 'numeric',
-            year: 'numeric',
-        });
-    }
-
     function run() {
         var slug = document.body.getAttribute('data-blog-slug');
         var relatedRaw = document.body.getAttribute('data-related-slugs') || '';
@@ -66,19 +53,7 @@
                 } else {
                     recent.forEach(function (p) {
                         var title = escapeHtml(p.title || p.slug);
-                        var dateStr = formatSidebarDate(p.published_date);
-                        var dateAttr = escapeHtml(
-                            p.published_date ? String(p.published_date).trim().slice(0, 10) : ''
-                        );
                         var li = document.createElement('li');
-                        var dateHtml =
-                            dateStr && dateAttr
-                                ? '<time class="blog-sidebar-link__date" datetime="' +
-                                  dateAttr +
-                                  '">' +
-                                  escapeHtml(dateStr) +
-                                  '</time>'
-                                : '';
                         li.innerHTML =
                             '<a class="blog-sidebar-link" href="/blog/' +
                             encodeURIComponent(p.slug) +
@@ -87,7 +62,6 @@
                             '<span class="blog-sidebar-link__title">' +
                             title +
                             '</span>' +
-                            dateHtml +
                             '</span>' +
                             '</a>';
                         sidebar.appendChild(li);
