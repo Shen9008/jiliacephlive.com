@@ -1787,3 +1787,66 @@ body:not([data-page="index"]) .hero-banner+.page-hero {
     font-size: 1.05rem;
     color: var(--text);
 }
+
+/* Author profile — EEAT headshot on About */
+.author-profile {
+    display: grid;
+    gap: var(--space-lg);
+    align-items: start;
+    margin: 1.25rem 0 2rem;
+}
+
+@media (min-width: 640px) {
+    .author-profile {
+        grid-template-columns: min(220px, 34%) 1fr;
+    }
+}
+
+.author-profile__photo {
+    margin: 0;
+}
+
+.author-profile__photo img {
+    display: block;
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    box-shadow: 0 12px 40px rgb(0 0 0 / 0.35);
+}
+
+.author-profile__body p:last-child {
+    margin-bottom: 0;
+}
+
+.blog-meta-chip--author {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.blog-author-avatar {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.blog-author-line {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 0.35rem 0 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.blog-author-line a {
+    color: var(--text);
+    font-weight: 600;
+}
