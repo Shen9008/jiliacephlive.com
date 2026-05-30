@@ -39,6 +39,7 @@
   <meta property="og:site_name" content="JiliAce PH Live">
   <meta property="og:locale" content="en_PH">
   <meta property="article:published_time" content="{{PUBLISHED_DATE_ISO}}">
+  <meta property="article:author" content="{{SITE_ORIGIN}}/about.html#author-profile">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{META_TITLE}}">
@@ -58,9 +59,11 @@
     "datePublished": "{{PUBLISHED_DATE_ISO}}",
     "dateModified": "{{UPDATED_DATE_ISO}}",
     "author": {
-      "@type": "Organization",
-      "name": "JiliAce PH Live",
-      "url": "{{SITE_ORIGIN}}/"
+      "@id": "https://jiliacephlive.com/#author",
+      "@type": "Person",
+      "name": "Andrei Santos",
+      "url": "{{SITE_ORIGIN}}/about.html#author-profile",
+      "jobTitle": "Lead Casino Editor"
     },
     "publisher": {
       "@type": "Organization",
@@ -136,6 +139,7 @@
           <span class="blog-meta-chip blog-meta-chip--accent">{{CATEGORY}}</span>
           <span class="blog-meta-chip">{{READING_TIME}}</span>
           <time class="blog-meta-chip blog-meta-chip--date" datetime="{{PUBLISHED_DATE_ISO}}">{{PUBLISHED_DATE_FORMATTED}}</time>
+          <span class="blog-meta-chip blog-meta-chip--author">By <a href="/about.html#author-profile">Andrei Santos</a></span>
         </div>
         <h1 id="blog-article-title" class="hero__title">{{TITLE}}</h1>
         <p class="hero__subtitle blog-article-lead">{{EXCERPT}}</p>

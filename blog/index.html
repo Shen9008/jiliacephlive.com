@@ -34,6 +34,37 @@
         {"@type":"ListItem","position":2,"name":"Blog","item":"https://jiliacephlive.com/blog/"}
     ]}
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://jiliacephlive.com/#organization",
+                "name": "JiliAce PH Live",
+                "url": "https://jiliacephlive.com/"
+            },
+            {
+                "@type": "Person",
+                "@id": "https://jiliacephlive.com/#author",
+                "name": "Andrei Santos",
+                "jobTitle": "Lead Casino Editor",
+                "url": "https://jiliacephlive.com/about.html#author-profile",
+                "worksFor": { "@id": "https://jiliacephlive.com/#organization" }
+            },
+            {
+                "@type": "Blog",
+                "@id": "https://jiliacephlive.com/blog/#blog",
+                "name": "JiliAce Blog",
+                "url": "https://jiliacephlive.com/blog/",
+                "description": "Guides and articles on JiliAce slots, live casino, promotions, and playing smart on mobile.",
+                "inLanguage": "en-PH",
+                "publisher": { "@id": "https://jiliacephlive.com/#organization" },
+                "author": { "@id": "https://jiliacephlive.com/#author" }
+            }
+        ]
+    }
+    </script>
 </head>
 <body data-page="blog" data-blog-layout="index">
     <!-- Google Tag Manager (noscript) -->
