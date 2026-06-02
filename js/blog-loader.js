@@ -10,12 +10,12 @@
     var DEFAULT_BLOG_IMAGE = '/images/blog-default.png';
 
     function sortBlogsByLatestSyncFirst(a, b) {
-        var pd = new Date(b.published_date || 0).getTime() - new Date(a.published_date || 0).getTime();
-        if (pd !== 0) return pd;
-        var cu = new Date(b.cms_updated_at || 0).getTime() - new Date(a.cms_updated_at || 0).getTime();
-        if (cu !== 0) return cu;
         var sa = new Date(b.synced_at || 0).getTime() - new Date(a.synced_at || 0).getTime();
         if (sa !== 0) return sa;
+        var cu = new Date(b.cms_updated_at || 0).getTime() - new Date(a.cms_updated_at || 0).getTime();
+        if (cu !== 0) return cu;
+        var pd = new Date(b.published_date || 0).getTime() - new Date(a.published_date || 0).getTime();
+        if (pd !== 0) return pd;
         return String(a.slug || '').localeCompare(String(b.slug || ''));
     }
 

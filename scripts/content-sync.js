@@ -54,12 +54,12 @@ function hashContent(content) {
 }
 
 function sortBlogsForIndex(a, b) {
-  const pd = new Date(b.published_date || 0).getTime() - new Date(a.published_date || 0).getTime();
-  if (pd !== 0) return pd;
-  const cu = new Date(b.cms_updated_at || 0).getTime() - new Date(a.cms_updated_at || 0).getTime();
-  if (cu !== 0) return cu;
   const sa = new Date(b.synced_at || 0).getTime() - new Date(a.synced_at || 0).getTime();
   if (sa !== 0) return sa;
+  const cu = new Date(b.cms_updated_at || 0).getTime() - new Date(a.cms_updated_at || 0).getTime();
+  if (cu !== 0) return cu;
+  const pd = new Date(b.published_date || 0).getTime() - new Date(a.published_date || 0).getTime();
+  if (pd !== 0) return pd;
   return String(a.slug).localeCompare(String(b.slug));
 }
 
