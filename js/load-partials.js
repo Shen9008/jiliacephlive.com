@@ -63,6 +63,15 @@
         document.body.insertBefore(wrap.firstChild, document.body.firstChild);
     }
 
+    function loadShaderBg() {
+        if (document.querySelector('script[data-shader-bg]')) return;
+        var s = document.createElement('script');
+        s.src = base + 'js/shader-bg.js';
+        s.defer = true;
+        s.setAttribute('data-shader-bg', '');
+        document.body.appendChild(s);
+    }
+
     function loadFutureUi() {
         if (document.querySelector('script[data-future-ui]')) return;
         var s = document.createElement('script');
@@ -73,6 +82,7 @@
     }
 
     function run() {
+        loadShaderBg();
         loadFutureUi();
         patchAffiliateLinks();
         injectSvgSprite();
