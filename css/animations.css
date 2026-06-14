@@ -536,27 +536,25 @@ body.js-motion .section.fade-reveal.is-visible {
     }
 }
 
-/* --- Shader + rolling text visibility (loads after main.css) --- */
-body.has-shader-bg {
-    background: var(--dark-bg);
+/* --- Shader visibility (loads after main.css) --- */
+body.has-shader-bg .hero {
+    background: linear-gradient(180deg, rgb(26 25 21 / 0.82) 0%, rgb(3 3 8 / 0.78) 100%) !important;
 }
 
-body.has-shader-bg .hero {
-    background:
-        radial-gradient(ellipse 85% 55% at 78% 8%, rgb(var(--primary-rgb) / 0.16), transparent 55%),
-        radial-gradient(ellipse 50% 40% at 12% 88%, rgb(255 255 255 / 0.04), transparent),
-        linear-gradient(180deg, rgb(26 25 21 / 0.94) 0%, rgb(3 3 8 / 0.9) 45%) !important;
+body.has-shader-bg .shader-host.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgb(26 25 21 / 0.55) 0%, rgb(3 3 8 / 0.72) 100%);
 }
 
 body.has-shader-bg .hero-banner {
-    background: linear-gradient(180deg, rgb(14 14 22 / 0.94) 0%, rgb(3 3 8 / 0.9) 100%);
+    background: linear-gradient(180deg, var(--bg-elev) 0%, var(--bg) 100%);
 }
 
 body.has-shader-bg .section--alt,
 body.has-shader-bg .section--dark {
-    background: linear-gradient(180deg, rgb(12 12 18 / 0.88) 0%, rgb(3 3 8 / 0.82) 100%);
-}
-
-body.has-shader-bg .site-footer {
-    background: linear-gradient(180deg, rgb(3 3 8 / 0.92) 0%, rgb(1 1 2 / 0.98) 100%);
+    background: linear-gradient(180deg, var(--bg-elev) 0%, var(--bg) 100%);
 }

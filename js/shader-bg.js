@@ -1,5 +1,5 @@
 /**
- * Animated WebGL shader background — JiliAce neon aurora (site-wide).
+ * Animated WebGL shader background — scoped to hero zones (not full viewport).
  */
 (function () {
     'use strict';
@@ -57,12 +57,12 @@
         '',
         '  vec3 crimson = vec3(1.0, 0.12, 0.28);',
         '  vec3 cyan = vec3(0.13, 0.83, 0.93);',
-        '  vec3 voidCol = vec3(0.012, 0.012, 0.028);',
+        '  vec3 voidCol = vec3(0.03, 0.03, 0.06);',
         '',
         '  vec3 col = voidCol;',
-        '  col = mix(col, crimson, clamp(f * f * 1.35, 0.0, 1.0) * 0.55);',
-        '  col = mix(col, cyan, clamp(length(q + r) * 0.38, 0.0, 1.0) * 0.32);',
-        '  col = mix(col, vec3(0.08, 0.02, 0.04), clamp(pow(f, 3.0) * 1.2, 0.0, 1.0) * 0.4);',
+        '  col = mix(col, crimson, clamp(f * f * 1.35, 0.0, 1.0) * 0.62);',
+        '  col = mix(col, cyan, clamp(length(q + r) * 0.38, 0.0, 1.0) * 0.38);',
+        '  col = mix(col, vec3(0.1, 0.03, 0.05), clamp(pow(f, 3.0) * 1.2, 0.0, 1.0) * 0.35);',
         '',
         '  float vign = smoothstep(1.35, 0.25, length(p * vec2(0.95, 1.05)));',
         '  col *= mix(vign, 1.0, smoothstep(0.0, 0.55, uv.y) * 0.45);',
@@ -70,7 +70,7 @@
         '  float scan = 0.96 + 0.04 * sin((uv.y + t * 0.5) * u_resolution.y * 0.65);',
         '  col *= scan;',
         '',
-        '  float topGlow = smoothstep(0.85, 0.0, uv.y) * 0.12;',
+        '  float topGlow = smoothstep(0.85, 0.0, uv.y) * 0.16;',
         '  col += crimson * topGlow;',
         '',
         '  gl_FragColor = vec4(col, 1.0);',
@@ -79,6 +79,10 @@
 
     function prefersReducedMotion() {
         return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+
+    function findHeroHost() {
+        return document.querySelector('.hero, .page-hero, .blog-index-masthead, .blog-article-hero');
     }
 
     function createShader(gl, type, source) {
@@ -106,17 +110,22 @@
     function init() {
         if (document.querySelector('#shader-bg')) return;
 
+        var host = findHeroHost();
+        if (!host) return;
+
         document.body.classList.add('has-shader-bg');
+        host.classList.add('shader-host');
 
         var canvas = document.createElement('canvas');
         canvas.id = 'shader-bg';
         canvas.className = 'shader-bg';
         canvas.setAttribute('aria-hidden', 'true');
-        document.body.prepend(canvas);
+        host.insertBefore(canvas, host.firstChild);
 
         var gl = canvas.getContext('webgl', { alpha: false, antialias: false, powerPreference: 'low-power' });
         if (!gl) {
             canvas.remove();
+            host.classList.remove('shader-host');
             document.body.classList.add('has-shader-bg--static');
             return;
         }
@@ -124,6 +133,7 @@
         var program = createProgram(gl, VERT, FRAG);
         if (!program) {
             canvas.remove();
+            host.classList.remove('shader-host');
             document.body.classList.add('has-shader-bg--static');
             return;
         }
@@ -145,10 +155,10 @@
         var reduced = prefersReducedMotion();
 
         function resize() {
-            var dpr = Math.min(window.devicePixelRatio || 1, reduced ? 1 : 1.75);
-            if (window.innerWidth < 768) dpr = Math.min(dpr, 1.15);
-            var w = Math.floor(window.innerWidth * dpr);
-            var h = Math.floor(window.innerHeight * dpr);
+            var dpr = Math.min(window.devicePixelRatio || 1, reduced ? 1 : 1.5);
+            if (window.innerWidth < 768) dpr = Math.min(dpr, 1.1);
+            var w = Math.max(Math.floor(host.offsetWidth * dpr), 1);
+            var h = Math.max(Math.floor(host.offsetHeight * dpr), 1);
             if (canvas.width !== w || canvas.height !== h) {
                 canvas.width = w;
                 canvas.height = h;
@@ -159,8 +169,10 @@
         }
 
         function onMove(e) {
-            mouse.x = e.clientX / window.innerWidth;
-            mouse.y = 1.0 - e.clientY / window.innerHeight;
+            var r = host.getBoundingClientRect();
+            if (!r.width || !r.height) return;
+            mouse.x = (e.clientX - r.left) / r.width;
+            mouse.y = 1.0 - (e.clientY - r.top) / r.height;
         }
 
         function draw(now) {
@@ -183,9 +195,12 @@
         }
 
         resize();
+        if (typeof ResizeObserver !== 'undefined') {
+            new ResizeObserver(resize).observe(host);
+        }
         window.addEventListener('resize', resize, { passive: true });
         if (!reduced && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-            window.addEventListener('mousemove', onMove, { passive: true });
+            host.addEventListener('mousemove', onMove, { passive: true });
         }
 
         document.addEventListener('visibilitychange', function () {

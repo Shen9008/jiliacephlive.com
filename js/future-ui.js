@@ -290,7 +290,7 @@
     }
 
     var ROLLING_HEADING_SELECTORS =
-        '.hero__h1, .page-hero h1, .hero__title, .blog-index-masthead h1, .section__title, .info-visual__title, main .prose h2';
+        '.blog-index-masthead h1, .section__title, .info-visual__title, main .prose h2';
 
     var rollObserver;
 
@@ -365,11 +365,7 @@
             return;
         }
 
-        var instant =
-            el.classList.contains('hero__h1') ||
-            el.closest('.page-hero') ||
-            el.closest('.blog-index-masthead') ||
-            el.classList.contains('hero__title');
+        var instant = el.closest('.blog-index-masthead');
 
         if (instant) {
             window.requestAnimationFrame(function () {
