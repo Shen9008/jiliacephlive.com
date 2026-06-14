@@ -1,35 +1,5 @@
 /* Futuristic UI layer — glass, neon, grid, motion (loads after main.css) */
 
-/* --- WebGL shader canvas (see js/shader-bg.js) — hero-scoped only --- */
-.shader-host {
-    position: relative;
-    overflow: hidden;
-}
-
-.shader-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    display: block;
-}
-
-.shader-host > *:not(.shader-bg):not(.hero__scanline):not(.hero__blobs) {
-    position: relative;
-    z-index: 1;
-}
-
-body.has-shader-bg--static::before {
-    opacity: 1;
-    background: var(--gradient-mesh);
-}
-
-body.has-shader-bg--static::after {
-    opacity: 0.35;
-}
-
 /* --- Global ambient canvas (fallback + grid overlay) --- */
 body::before {
     content: "";
@@ -219,10 +189,6 @@ body.future-ui-ready {
     isolation: isolate;
     border-bottom: 1px solid rgb(var(--primary-rgb) / 0.12);
     overflow: hidden;
-}
-
-body.has-shader-bg .hero__blobs {
-    display: none;
 }
 
 .hero::before {

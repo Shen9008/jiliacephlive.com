@@ -540,26 +540,3 @@ body.js-motion .section.fade-reveal.is-visible {
     background-image: none;
     padding-bottom: 0;
 }
-
-/* --- Shader visibility (loads after main.css) --- */
-body.has-shader-bg .hero {
-    background: linear-gradient(180deg, rgb(26 25 21 / 0.82) 0%, rgb(3 3 8 / 0.78) 100%) !important;
-}
-
-body.has-shader-bg .shader-host.hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    background: linear-gradient(180deg, rgb(26 25 21 / 0.55) 0%, rgb(3 3 8 / 0.72) 100%);
-}
-
-body.has-shader-bg .hero-banner {
-    background: linear-gradient(180deg, var(--bg-elev) 0%, var(--bg) 100%);
-}
-
-body.has-shader-bg .section--alt,
-body.has-shader-bg .section--dark {
-    background: linear-gradient(180deg, var(--bg-elev) 0%, var(--bg) 100%);
-}
