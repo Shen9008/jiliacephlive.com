@@ -112,6 +112,15 @@ h4 {
     top: var(--space-md);
 }
 
+:focus {
+    outline: none;
+}
+
+:focus-visible {
+    outline: 2px solid var(--neon-cyan);
+    outline-offset: 2px;
+}
+
 .visually-hidden {
     position: absolute;
     width: 1px;

@@ -536,6 +536,11 @@ body.js-motion .section.fade-reveal.is-visible {
     }
 }
 
+.section__title.roll-text {
+    background-image: none;
+    padding-bottom: 0;
+}
+
 /* --- Shader visibility (loads after main.css) --- */
 body.has-shader-bg .hero {
     background: linear-gradient(180deg, rgb(26 25 21 / 0.82) 0%, rgb(3 3 8 / 0.78) 100%) !important;

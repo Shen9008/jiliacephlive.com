@@ -21,11 +21,6 @@
     z-index: 1;
 }
 
-body.has-shader-bg:not(.has-shader-bg--static)::before,
-body.has-shader-bg:not(.has-shader-bg--static)::after {
-    display: none;
-}
-
 body.has-shader-bg--static::before {
     opacity: 1;
     background: var(--gradient-mesh);
@@ -519,11 +514,6 @@ body.has-shader-bg .hero__blobs {
     }
 }
 
-/* --- Page enter transition (all pages) --- */
-body.page-enter main {
-    animation: none;
-}
-
 /* --- Spotlight zones (hero, page-hero, blog, banner) --- */
 .spotlight-zone {
     position: relative;
@@ -563,15 +553,6 @@ body.page-enter main {
 
 .hero-banner {
     position: relative;
-}
-
-.hero-banner__frame {
-    border-radius: var(--radius-lg);
-    border: 1px solid rgb(var(--neon-cyan-rgb) / 0.2);
-    box-shadow:
-        inset 0 1px 0 rgb(255 255 255 / 0.06),
-        0 20px 50px rgb(0 0 0 / 0.45),
-        0 0 40px rgb(var(--primary-rgb) / 0.08);
 }
 
 /* --- Scroll reveal items --- */
@@ -686,10 +667,6 @@ body.js-future-ui .future-reveal.is-in {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    body.page-enter main {
-        animation: none;
-    }
-
     body.js-future-ui .future-reveal:not(.is-in) {
         opacity: 1;
         transform: none;

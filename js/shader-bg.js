@@ -82,7 +82,13 @@
     }
 
     function findHeroHost() {
-        return document.querySelector('.hero, .page-hero, .blog-index-masthead, .blog-article-hero');
+        return (
+            document.querySelector('section.hero') ||
+            document.querySelector('.blog-index-masthead') ||
+            document.querySelector('.blog-article-hero') ||
+            document.querySelector('.hero-banner') ||
+            document.querySelector('.page-hero')
+        );
     }
 
     function createShader(gl, type, source) {
@@ -215,9 +221,5 @@
         }
     }
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-    } else {
-        init();
-    }
+    window.addEventListener('future-ui:refresh', init);
 })();

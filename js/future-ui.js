@@ -273,13 +273,6 @@
             .forEach(bindMagnetic);
     }
 
-    function initPageEnter() {
-        document.body.classList.add('page-enter');
-        window.setTimeout(function () {
-            document.body.classList.add('page-enter--done');
-        }, 650);
-    }
-
     function initTableGlow() {
         document.querySelectorAll('.facts-table tbody tr').forEach(function (row) {
             if (!isBound(row, 'row')) {
@@ -290,7 +283,7 @@
     }
 
     var ROLLING_HEADING_SELECTORS =
-        '.blog-index-masthead h1, .section__title, .info-visual__title, main .prose h2';
+        '.blog-index-masthead h1, .section__title, .info-visual__title';
 
     var rollObserver;
 
@@ -396,6 +389,7 @@
     }
 
     function refreshDynamic() {
+        initHeaderScroll();
         initSpotlightZones();
         initTiltCards();
         initStaggerReveal();
@@ -407,9 +401,7 @@
     }
 
     function run() {
-        initPageEnter();
         initScrollProgress();
-        initHeaderScroll();
         refreshDynamic();
     }
 

@@ -13,18 +13,6 @@
 
     var base = getFetchBase();
 
-    /** Dynamically inserted scripts must NOT use defer (they never run after parse). */
-    function ensureUiScript(src, marker) {
-        if (document.querySelector('script[' + marker + ']')) return;
-        var s = document.createElement('script');
-        s.src = src;
-        s.setAttribute(marker, '');
-        document.head.appendChild(s);
-    }
-
-    ensureUiScript(base + 'js/shader-bg.js', 'data-shader-bg');
-    ensureUiScript(base + 'js/future-ui.js', 'data-future-ui');
-
     /** If edge/browser cached old HTML with jiliace.win hrefs, rewrite to the affiliate URL. */
     var AFFILIATE_HREF = 'https://reffpa.com/L?tag=d_5503298m_1236c_&site=5503298&ad=1236';
 
@@ -75,17 +63,12 @@
         document.body.insertBefore(wrap.firstChild, document.body.firstChild);
     }
 
-    function loadShaderBg() {
-        ensureUiScript(base + 'js/shader-bg.js', 'data-shader-bg');
-    }
-
-    function loadFutureUi() {
-        ensureUiScript(base + 'js/future-ui.js', 'data-future-ui');
+    function setFooterYear() {
+        var y = document.querySelector('[data-year]');
+        if (y) y.textContent = String(new Date().getFullYear());
     }
 
     function run() {
-        loadShaderBg();
-        loadFutureUi();
         patchAffiliateLinks();
         injectSvgSprite();
         var pageKey = document.body.getAttribute('data-page') || '';
@@ -128,6 +111,7 @@
                 if (pMid && midPromoHtml) pMid.outerHTML = midPromoHtml;
                 patchAffiliateLinks();
                 setActiveNav();
+                setFooterYear();
                 window.dispatchEvent(new Event('future-ui:refresh'));
                 var btn = document.querySelector('[data-mobile-toggle]');
                 var panel = document.getElementById('mobile-menu');
@@ -192,6 +176,8 @@
             .catch(function () {
                 patchAffiliateLinks();
                 setActiveNav();
+                setFooterYear();
+                window.dispatchEvent(new Event('future-ui:refresh'));
             });
     }
 
