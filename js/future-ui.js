@@ -289,6 +289,121 @@
         });
     }
 
+    var ROLLING_HEADING_SELECTORS =
+        '.hero__h1, .page-hero h1, .hero__title, .blog-index-masthead h1, .section__title, .info-visual__title, main .prose h2';
+
+    var rollObserver;
+
+    function decodeEntities(str) {
+        var el = document.createElement('textarea');
+        el.innerHTML = str;
+        return el.value;
+    }
+
+    function getHeadingSource(el) {
+        var hidden = el.querySelector('.visually-hidden');
+        if (hidden && hidden.textContent.trim()) return hidden.textContent.trim();
+
+        var typewriter = el.querySelector('[data-typewriter]');
+        if (typewriter) {
+            var raw = typewriter.getAttribute('data-typewriter');
+            if (raw) return decodeEntities(raw).trim();
+        }
+
+        return el.textContent.replace(/\s+/g, ' ').trim();
+    }
+
+    function buildRollingHeading(el, text, mode) {
+        el.textContent = '';
+        el.classList.add('roll-text', mode === 'char' ? 'roll-text--chars' : 'roll-text--words');
+
+        var units = mode === 'char' ? text.split('') : text.split(/\s+/).filter(Boolean);
+        var delayIndex = 0;
+
+        units.forEach(function (unit, idx) {
+            if (mode === 'char' && unit === ' ') {
+                el.appendChild(document.createTextNode(' '));
+                return;
+            }
+
+            if (mode === 'words' && idx > 0) {
+                el.appendChild(document.createTextNode(' '));
+            }
+
+            var wrap = document.createElement('span');
+            wrap.className = 'roll-text__unit';
+            wrap.style.setProperty('--i', String(delayIndex));
+            delayIndex += 1;
+
+            var slice = document.createElement('span');
+            slice.className = 'roll-text__slice';
+            slice.textContent = unit;
+            wrap.appendChild(slice);
+            el.appendChild(wrap);
+        });
+    }
+
+    function playRollingHeading(el) {
+        el.classList.add('is-in');
+    }
+
+    function bindRollingHeading(el) {
+        if (isBound(el, 'roll')) return;
+
+        var text = getHeadingSource(el);
+        if (!text) return;
+
+        markBound(el, 'roll');
+
+        var mode =
+            el.classList.contains('hero__h1') ||
+            el.classList.contains('hero__title') ||
+            el.closest('.page-hero') ||
+            el.closest('.blog-index-masthead')
+                ? 'char'
+                : 'word';
+
+        buildRollingHeading(el, text, mode);
+
+        if (prefersReducedMotion()) {
+            playRollingHeading(el);
+            return;
+        }
+
+        var instant =
+            el.classList.contains('hero__h1') ||
+            el.closest('.page-hero') ||
+            el.closest('.blog-index-masthead') ||
+            el.classList.contains('hero__title');
+
+        if (instant) {
+            window.requestAnimationFrame(function () {
+                playRollingHeading(el);
+            });
+            return;
+        }
+
+        if (!rollObserver) {
+            rollObserver = new IntersectionObserver(
+                function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            playRollingHeading(entry.target);
+                            rollObserver.unobserve(entry.target);
+                        }
+                    });
+                },
+                { rootMargin: '0px 0px -8% 0px', threshold: 0.12 }
+            );
+        }
+
+        rollObserver.observe(el);
+    }
+
+    function initRollingHeadings() {
+        document.querySelectorAll(ROLLING_HEADING_SELECTORS).forEach(bindRollingHeading);
+    }
+
     function refreshDynamic() {
         initSpotlightZones();
         initTiltCards();
@@ -297,6 +412,7 @@
         initStatCounters();
         initMagneticButtons();
         initTableGlow();
+        initRollingHeadings();
     }
 
     function run() {

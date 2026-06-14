@@ -128,6 +128,63 @@ body.future-ui-ready {
     background-clip: text;
 }
 
+/* --- Rolling text headings --- */
+.roll-text {
+    perspective: 900px;
+}
+
+.roll-text__unit {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    line-height: 1.12;
+}
+
+.roll-text--chars .roll-text__unit {
+    vertical-align: top;
+}
+
+.roll-text__slice {
+    display: inline-block;
+    transform: translate3d(0, 118%, 0) rotateX(-88deg);
+    transform-origin: 50% 100%;
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+.roll-text--words .roll-text__slice {
+    transform: translate3d(0, 115%, 0);
+}
+
+.roll-text.is-in .roll-text__slice {
+    transform: translate3d(0, 0, 0) rotateX(0deg);
+    opacity: 1;
+    transition:
+        transform 0.72s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.45s ease;
+    transition-delay: calc(var(--i, 0) * 0.045s);
+}
+
+.roll-text--chars.is-in .roll-text__slice {
+    transition-delay: calc(var(--i, 0) * 0.028s);
+}
+
+.hero__h1.roll-text .roll-text__slice,
+.page-hero h1.roll-text .roll-text__slice,
+.hero__title.roll-text .roll-text__slice {
+    background: linear-gradient(120deg, #fff 0%, #ffe4e8 35%, var(--neon-cyan) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.section__title.roll-text .roll-text__slice {
+    background: linear-gradient(120deg, #fff 0%, #ffd6de 45%, #fff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
 .section__eyebrow {
     position: relative;
     padding-left: 1.1rem;
@@ -641,5 +698,11 @@ body.js-future-ui .future-reveal.is-in {
     body.js-future-ui .future-reveal:not(.is-in) {
         opacity: 1;
         transform: none;
+    }
+
+    .roll-text__slice {
+        transform: none !important;
+        opacity: 1 !important;
+        transition: none !important;
     }
 }
