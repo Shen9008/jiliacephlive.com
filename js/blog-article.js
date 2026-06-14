@@ -109,6 +109,7 @@
                         });
                     }
                 }
+                window.dispatchEvent(new CustomEvent('future-ui:refresh'));
             })
             .catch(function () {
                 sidebar.innerHTML =

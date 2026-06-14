@@ -91,6 +91,7 @@
                 '</a>';
             gridEl.appendChild(card);
         });
+        window.dispatchEvent(new CustomEvent('future-ui:refresh'));
     }
 
     function renderPager(navEl, metaEl, totalPages, page) {
