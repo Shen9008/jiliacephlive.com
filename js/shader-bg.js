@@ -106,6 +106,8 @@
     function init() {
         if (document.querySelector('#shader-bg')) return;
 
+        document.body.classList.add('has-shader-bg');
+
         var canvas = document.createElement('canvas');
         canvas.id = 'shader-bg';
         canvas.className = 'shader-bg';
@@ -115,18 +117,16 @@
         var gl = canvas.getContext('webgl', { alpha: false, antialias: false, powerPreference: 'low-power' });
         if (!gl) {
             canvas.remove();
-            document.body.classList.add('has-shader-bg', 'has-shader-bg--static');
+            document.body.classList.add('has-shader-bg--static');
             return;
         }
 
         var program = createProgram(gl, VERT, FRAG);
         if (!program) {
             canvas.remove();
-            document.body.classList.add('has-shader-bg', 'has-shader-bg--static');
+            document.body.classList.add('has-shader-bg--static');
             return;
         }
-
-        document.body.classList.add('has-shader-bg');
 
         var buf = gl.createBuffer();
         gl.bindBuffer(gl.ARRAY_BUFFER, buf);

@@ -13,6 +13,18 @@
 
     var base = getFetchBase();
 
+    /** Dynamically inserted scripts must NOT use defer (they never run after parse). */
+    function ensureUiScript(src, marker) {
+        if (document.querySelector('script[' + marker + ']')) return;
+        var s = document.createElement('script');
+        s.src = src;
+        s.setAttribute(marker, '');
+        document.head.appendChild(s);
+    }
+
+    ensureUiScript(base + 'js/shader-bg.js', 'data-shader-bg');
+    ensureUiScript(base + 'js/future-ui.js', 'data-future-ui');
+
     /** If edge/browser cached old HTML with jiliace.win hrefs, rewrite to the affiliate URL. */
     var AFFILIATE_HREF = 'https://reffpa.com/L?tag=d_5503298m_1236c_&site=5503298&ad=1236';
 
@@ -64,21 +76,11 @@
     }
 
     function loadShaderBg() {
-        if (document.querySelector('script[data-shader-bg]')) return;
-        var s = document.createElement('script');
-        s.src = base + 'js/shader-bg.js';
-        s.defer = true;
-        s.setAttribute('data-shader-bg', '');
-        document.body.appendChild(s);
+        ensureUiScript(base + 'js/shader-bg.js', 'data-shader-bg');
     }
 
     function loadFutureUi() {
-        if (document.querySelector('script[data-future-ui]')) return;
-        var s = document.createElement('script');
-        s.src = base + 'js/future-ui.js';
-        s.defer = true;
-        s.setAttribute('data-future-ui', '');
-        document.body.appendChild(s);
+        ensureUiScript(base + 'js/future-ui.js', 'data-future-ui');
     }
 
     function run() {
@@ -126,6 +128,7 @@
                 if (pMid && midPromoHtml) pMid.outerHTML = midPromoHtml;
                 patchAffiliateLinks();
                 setActiveNav();
+                window.dispatchEvent(new Event('future-ui:refresh'));
                 var btn = document.querySelector('[data-mobile-toggle]');
                 var panel = document.getElementById('mobile-menu');
                 var use = btn && btn.querySelector('use');
