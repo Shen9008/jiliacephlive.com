@@ -15,8 +15,8 @@
 .hero__blob {
     position: absolute;
     border-radius: 50%;
-    filter: blur(40px);
-    opacity: 0.45;
+    filter: blur(52px);
+    opacity: 0.55;
     will-change: transform;
     animation: hero-float 18s ease-in-out infinite;
 }
@@ -60,7 +60,7 @@
 .hero__blob--5 {
     width: min(90px, 16vw);
     height: min(90px, 16vw);
-    background: radial-gradient(circle, rgb(138 107 18 / 0.45), transparent 70%);
+    background: radial-gradient(circle, rgb(var(--neon-cyan-rgb) / 0.35), transparent 70%);
     top: 15%;
     left: 10%;
     animation-delay: -2s;

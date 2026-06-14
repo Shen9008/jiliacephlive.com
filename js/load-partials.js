@@ -63,7 +63,17 @@
         document.body.insertBefore(wrap.firstChild, document.body.firstChild);
     }
 
+    function loadFutureUi() {
+        if (document.querySelector('script[data-future-ui]')) return;
+        var s = document.createElement('script');
+        s.src = base + 'js/future-ui.js';
+        s.defer = true;
+        s.setAttribute('data-future-ui', '');
+        document.body.appendChild(s);
+    }
+
     function run() {
+        loadFutureUi();
         patchAffiliateLinks();
         injectSvgSprite();
         var pageKey = document.body.getAttribute('data-page') || '';
