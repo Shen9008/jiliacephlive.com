@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var SPOTLIGHT_SELECTORS = '.hero, .page-hero, .blog-index-masthead, .blog-article-hero, .hero-banner';
+    var SPOTLIGHT_SELECTORS = '.hero, .page-hero, .blog-index-masthead, .blog-article-hero';
     var TILT_SELECTORS =
         '.game-card, .feature-card, .stat-card, .trust-card, .step-card, .live-cat-card, .cat-tile, .blog-card, .blog-related-card, .feature-card, .blog-sidebar-card, .listicle > li';
     var REVEAL_SELECTORS =
@@ -356,12 +356,7 @@
         markBound(el, 'roll');
 
         var mode =
-            el.classList.contains('hero__h1') ||
-            el.classList.contains('hero__title') ||
-            el.closest('.page-hero') ||
-            el.closest('.blog-index-masthead')
-                ? 'char'
-                : 'word';
+            el.classList.contains('hero__title') || el.closest('.blog-index-masthead') ? 'char' : 'word';
 
         buildRollingHeading(el, text, mode);
 

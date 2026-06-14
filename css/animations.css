@@ -538,20 +538,25 @@ body.js-motion .section.fade-reveal.is-visible {
 
 /* --- Shader + rolling text visibility (loads after main.css) --- */
 body.has-shader-bg {
-    background: transparent;
+    background: var(--dark-bg);
 }
 
 body.has-shader-bg .hero {
     background:
-        radial-gradient(ellipse 85% 55% at 78% 8%, rgb(var(--primary-rgb) / 0.1), transparent 55%),
-        linear-gradient(180deg, rgb(26 25 21 / 0.28) 0%, rgb(3 3 8 / 0.12) 45%) !important;
+        radial-gradient(ellipse 85% 55% at 78% 8%, rgb(var(--primary-rgb) / 0.16), transparent 55%),
+        radial-gradient(ellipse 50% 40% at 12% 88%, rgb(255 255 255 / 0.04), transparent),
+        linear-gradient(180deg, rgb(26 25 21 / 0.94) 0%, rgb(3 3 8 / 0.9) 45%) !important;
+}
+
+body.has-shader-bg .hero-banner {
+    background: linear-gradient(180deg, rgb(14 14 22 / 0.94) 0%, rgb(3 3 8 / 0.9) 100%);
 }
 
 body.has-shader-bg .section--alt,
 body.has-shader-bg .section--dark {
-    background: linear-gradient(180deg, rgb(10 10 16 / 0.62) 0%, rgb(3 3 8 / 0.48) 100%);
+    background: linear-gradient(180deg, rgb(12 12 18 / 0.88) 0%, rgb(3 3 8 / 0.82) 100%);
 }
 
 body.has-shader-bg .site-footer {
-    background: linear-gradient(180deg, rgb(3 3 8 / 0.55) 0%, rgb(1 1 2 / 0.92) 100%);
+    background: linear-gradient(180deg, rgb(3 3 8 / 0.92) 0%, rgb(1 1 2 / 0.98) 100%);
 }

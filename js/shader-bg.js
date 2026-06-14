@@ -65,7 +65,7 @@
         '  col = mix(col, vec3(0.08, 0.02, 0.04), clamp(pow(f, 3.0) * 1.2, 0.0, 1.0) * 0.4);',
         '',
         '  float vign = smoothstep(1.35, 0.25, length(p * vec2(0.95, 1.05)));',
-        '  col *= vign;',
+        '  col *= mix(vign, 1.0, smoothstep(0.0, 0.55, uv.y) * 0.45);',
         '',
         '  float scan = 0.96 + 0.04 * sin((uv.y + t * 0.5) * u_resolution.y * 0.65);',
         '  col *= scan;',

@@ -12,12 +12,12 @@
 }
 
 body.has-shader-bg::before {
-    opacity: 0.18;
-    background: linear-gradient(180deg, rgb(3 3 8 / 0.05) 0%, rgb(3 3 8 / 0.5) 100%);
+    opacity: 0.42;
+    background: linear-gradient(180deg, rgb(3 3 8 / 0.15) 0%, rgb(3 3 8 / 0.72) 100%);
 }
 
 body.has-shader-bg::after {
-    opacity: 0.18;
+    opacity: 0.28;
 }
 
 body.has-shader-bg--static::before {
@@ -147,22 +147,23 @@ body.future-ui-ready {
 .roll-text__slice {
     display: inline-block;
     color: var(--text-primary);
-    transform: translate3d(0, 118%, 0) rotateX(-88deg);
+    transform: translate3d(0, 105%, 0);
     transform-origin: 50% 100%;
-    opacity: 0;
-    will-change: transform, opacity;
+    opacity: 1;
+    will-change: transform;
+}
+
+.roll-text--chars .roll-text__slice {
+    transform: translate3d(0, 108%, 0) rotateX(-82deg);
 }
 
 .roll-text--words .roll-text__slice {
-    transform: translate3d(0, 115%, 0);
+    transform: translate3d(0, 105%, 0);
 }
 
 .roll-text.is-in .roll-text__slice {
     transform: translate3d(0, 0, 0) rotateX(0deg);
-    opacity: 1;
-    transition:
-        transform 0.72s cubic-bezier(0.16, 1, 0.3, 1),
-        opacity 0.45s ease;
+    transition: transform 0.72s cubic-bezier(0.16, 1, 0.3, 1);
     transition-delay: calc(var(--i, 0) * 0.045s);
 }
 
@@ -564,7 +565,6 @@ body.page-enter main {
 
 .hero-banner {
     position: relative;
-    padding: 0.75rem 0 0;
 }
 
 .hero-banner__frame {
@@ -574,10 +574,6 @@ body.page-enter main {
         inset 0 1px 0 rgb(255 255 255 / 0.06),
         0 20px 50px rgb(0 0 0 / 0.45),
         0 0 40px rgb(var(--primary-rgb) / 0.08);
-    min-height: clamp(120px, 22vw, 200px);
-    background:
-        linear-gradient(135deg, rgb(var(--primary-rgb) / 0.12), rgb(var(--neon-cyan-rgb) / 0.06)),
-        var(--glass-bg);
 }
 
 /* --- Scroll reveal items --- */
