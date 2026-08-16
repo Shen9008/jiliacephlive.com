@@ -44,3 +44,6 @@ jobs:
 
       - name: Deployment URL
         run: echo "${{ steps.deploy.outputs.deployment-url }}"
+
+      - name: Notify search engines via IndexNow
+        run: node scripts/indexnow-submit.js
