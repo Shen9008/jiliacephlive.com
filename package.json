@@ -14,6 +14,7 @@
     "backfill:force": "node scripts/backfill-internal-links.js --force",
     "audit:links": "node scripts/audit-internal-links.js",
     "sync:blog-meta": "node scripts/sync-blog-html-meta.js",
+    "indexnow": "node scripts/indexnow-submit.js",
     "deploy": "wrangler pages deploy . --project-name=jiliacephlive"
   },
   "devDependencies": {
