@@ -7,12 +7,12 @@
 }
 
 .section {
-    padding: var(--space-2xl) 0;
+    padding: clamp(3rem, 7vw, 5rem) 0;
 }
 
 .section--tight {
-    padding-top: var(--space-xl);
-    padding-bottom: var(--space-xl);
+    padding-top: clamp(2rem, 5vw, 3rem);
+    padding-bottom: clamp(2rem, 5vw, 3rem);
 }
 
 .section--alt,
@@ -47,9 +47,10 @@
 
 .section__subtitle,
 .section__lead {
-    margin: 0;
+    margin: var(--space-md) 0 0;
     color: var(--text-secondary);
     font-size: 1rem;
+    line-height: 1.7;
 }
 
 .section__header--with-icon {

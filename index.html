@@ -43,9 +43,12 @@
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/showcase.css">
-    <link rel="stylesheet" href="css/animations.css">    <script defer src="js/future-ui.js" data-future-ui></script>
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="js/react/assets/style.css">
+    <script defer src="js/future-ui.js" data-future-ui></script>
     <script defer src="js/load-partials.js"></script>
     <script defer src="js/main.js"></script>
+    <script defer src="js/react/hero.js"></script>
 
     <script type="application/ld+json">
     {
@@ -159,7 +162,7 @@
     }
     </script>
 </head>
-<body data-page="index">
+<body data-page="index" class="has-react-hero">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TS95HFR5"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -181,61 +184,9 @@
         <symbol id="i-wallet" viewBox="0 0 24 24"><path fill="currentColor" d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h9V8h-9v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></symbol>
     </defs></svg>
     <div id="partial-header"></div>
+    <div id="hero-root" aria-label="JiliAce PH homepage hero"></div>
 
     <main id="main-content">
-        <div id="partial-hero-banner"></div>
-        <div id="partial-promo-top"></div>
-        <section class="hero">
-            <div class="hero__blobs" aria-hidden="true">
-                <span class="hero__blob hero__blob--1"></span>
-                <span class="hero__blob hero__blob--2"></span>
-                <span class="hero__blob hero__blob--3"></span>
-                <span class="hero__blob hero__blob--4"></span>
-                <span class="hero__blob hero__blob--5"></span>
-            </div>
-            <div class="shell hero__grid">
-                <div>
-                    <span class="hero__badge">
-                        <svg class="icon" aria-hidden="true"><use href="#i-star"></use></svg>
-                        Philippines · JiliAce casino guide
-                    </span>
-                    <h1 class="hero__h1">JiliAce PH — one lobby, zero boring nights</h1>
-                    <p class="hero__lead"><strong>JiliAce</strong> stacks <strong>JILI Slot</strong> speed, streamed live dealers, and a promo hub into one mobile-friendly lobby—so you're not juggling five apps to find a good time. We've picked it apart so you know exactly what you're walking into before <strong>JiliAce login</strong>.</p>
-                    <p class="hero__note">On the official <a href="https://reffpa.com/L?tag=d_5503298m_1236c_&amp;site=5503298&amp;ad=1236" target="_blank" rel="noopener noreferrer sponsored">JiliAce site</a>, public copy highlights hundreds of titles—from baccarat and blackjack to slots, video poker, and specialty games—plus cashier tools and support. Always verify live counts, limits, and licensing on the operator domain.</p>
-                    <div class="hero__actions">
-                        <a class="btn btn--primary" href="https://reffpa.com/L?tag=d_5503298m_1236c_&amp;site=5503298&amp;ad=1236" target="_blank" rel="noopener noreferrer">
-                            <svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>
-                            Play now
-                        </a>
-                        <a class="btn btn--ghost" href="promotions.html">
-                            <svg class="icon" aria-hidden="true"><use href="#i-gift"></use></svg>
-                            Promotions guide
-                        </a>
-                    </div>
-                </div>
-                <aside class="info-visual" aria-label="Session flow infographic">
-                    <p class="info-visual__title">Your session in three beats</p>
-                    <div class="info-flow">
-                        <div class="info-flow__step">
-                            <div class="info-flow__n">1</div>
-                            <p class="info-flow__label">Pick a game</p>
-                            <p class="info-flow__hint">Slots or live</p>
-                        </div>
-                        <div class="info-flow__step">
-                            <div class="info-flow__n">2</div>
-                            <p class="info-flow__label">Set limits</p>
-                            <p class="info-flow__hint">Time &amp; budget</p>
-                        </div>
-                        <div class="info-flow__step">
-                            <div class="info-flow__n">3</div>
-                            <p class="info-flow__label">Play for fun</p>
-                            <p class="info-flow__hint">Entertainment first</p>
-                        </div>
-                    </div>
-                </aside>
-            </div>
-        </section>
-
         <section class="section section--alt showcase" aria-labelledby="hl-picks">
             <div class="shell">
                 <header class="section__head">

@@ -101,34 +101,25 @@ body.future-ui-ready::before {
         0 0 0 1px rgb(var(--primary-rgb) / 0.1);
 }
 
-/* --- Typography: gold display gradients --- */
+/* --- Typography: readable solid display (gradient text removed) --- */
 .hero h1 .typewriter,
 .hero__h1 .typewriter,
 .hero__h1.roll-text .roll-text__slice,
 .page-hero h1.roll-text .roll-text__slice,
-.hero__title.roll-text .roll-text__slice {
-    background: linear-gradient(120deg, #fff8e7 0%, var(--primary-light) 40%, #fff8e7 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
+.hero__title.roll-text .roll-text__slice,
 .section__title.roll-text .roll-text__slice {
-    background: linear-gradient(120deg, #fff8e7 0%, var(--primary) 50%, #fff8e7 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: var(--text-primary);
 }
 
 .hero__h1,
 .page-hero h1,
 .hero h1 {
-    font-weight: 600;
-    letter-spacing: -0.02em;
+    font-weight: 300;
+    letter-spacing: -0.03em;
 }
 
 .section__title {
-    font-weight: 600;
+    font-weight: 300;
 }
 
 .section__eyebrow {
@@ -488,4 +479,18 @@ body.future-ui-ready::before {
     .site-header {
         top: 0.65rem;
     }
+}
+
+/* React hero-3 homepage — hide duplicate static chrome */
+body.has-react-hero .site-header,
+body.has-react-hero .skip-link {
+    display: none !important;
+}
+
+body.has-react-hero #main-content {
+    padding-top: 0;
+}
+
+body.has-react-hero .site-header--floating {
+    position: static;
 }
