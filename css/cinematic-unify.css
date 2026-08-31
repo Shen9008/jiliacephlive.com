@@ -10,8 +10,8 @@
     --section-pad-y: clamp(3.5rem, 8vw, 5.75rem);
     --section-gap: clamp(1.25rem, 3vw, 2rem);
     --content-gap: clamp(0.85rem, 2vw, 1.25rem);
-    --ink-soft: #d4cfc4;
-    --ink-muted: #a39a8c;
+    --ink-soft: #ebe5db;
+    --ink-muted: #cfc7bb;
     --surface-glass: rgba(10, 8, 6, 0.72);
     --surface-glass-border: rgba(212, 175, 55, 0.18);
 }
@@ -141,7 +141,7 @@ h4,
     font-weight: 500;
     font-size: 0.875rem;
     letter-spacing: 0.01em;
-    color: rgba(248, 244, 236, 0.72);
+    color: rgba(248, 244, 236, 0.9);
     padding: 0.45rem 0.85rem;
     border-radius: 999px;
 }
@@ -822,4 +822,42 @@ body.has-react-hero #main-content {
 body.has-react-hero #main-content > .section:first-child {
     padding-top: clamp(3.5rem, 8vw, 5rem);
     border-top: none;
+}
+
+/* --- Readability: brighter body copy on dark velvet --- */
+.trust-card p,
+.listicle p,
+.step-card p,
+.stat-card__hint,
+.facts-note,
+.showcase-note,
+.promo-affiliate__text,
+.game-card__meta,
+.feature-card p,
+.faq p,
+.cta-strip p,
+.cta-strip .cta-strip__lead,
+.content-page p,
+.content-page li,
+.page-hero .lead,
+.hero__lead {
+    color: var(--ink-soft);
+}
+
+.stat-card__label,
+.stat-card__hint,
+.game-card__meta,
+.facts-note,
+.showcase-note {
+    color: var(--ink-muted);
+}
+
+.faq summary {
+    color: var(--text-primary);
+}
+
+.promo-affiliate__text a,
+.faq p a,
+.content-page a:not(.btn) {
+    color: var(--primary-light);
 }

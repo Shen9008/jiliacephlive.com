@@ -217,7 +217,7 @@ export function Hero3({
             {description && (
               <motion.p
                 variants={item}
-                className="sm:text-md md:text-md leading-wide mx-auto mb-4 max-w-2xl text-base text-zinc-300"
+                className="sm:text-md md:text-md leading-wide mx-auto mb-4 max-w-2xl text-base text-zinc-100"
               >
                 {description}
               </motion.p>
@@ -268,7 +268,7 @@ export function Hero3({
                       {stat.value}
                     </span>
 
-                    <span className="text-xs text-zinc-300 sm:text-sm">
+                    <span className="text-xs text-zinc-200 sm:text-sm">
                       {stat.label}
                     </span>
                   </motion.div>
@@ -280,7 +280,7 @@ export function Hero3({
               <motion.a
                 variants={item}
                 href={scrollHref}
-                className="text-muted-foreground/80 hover:text-foreground flex items-center justify-center gap-2 self-center text-xs font-semibold transition-colors sm:text-sm md:self-auto"
+                className="text-muted-foreground hover:text-foreground flex items-center justify-center gap-2 self-center text-xs font-semibold transition-colors sm:text-sm md:self-auto"
               >
                 <span>{scrollText}</span>
                 <FaArrowDown className="h-4 w-4 fill-current" />

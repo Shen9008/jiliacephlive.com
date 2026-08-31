@@ -30,8 +30,8 @@
     --card-bg: rgba(18, 14, 10, 0.92);
     --card-bg-hover: rgba(26, 20, 14, 0.96);
     --text-primary: #f8f4ec;
-    --text-secondary: #c9c0b4;
-    --text-muted: #8a8278;
+    --text-secondary: #e2dbd0;
+    --text-muted: #c8c0b4;
 
     /* Primary accent — champagne gold */
     --primary: #d4af37;
@@ -72,7 +72,7 @@
     /* Main nav */
     --nav-bg: rgba(8, 6, 4, 0.82);
     --nav-border: rgb(212 175 55 / 0.1);
-    --nav-link: rgb(248 244 236 / 0.78);
+    --nav-link: rgb(248 244 236 / 0.92);
     --nav-link-hover: #fff8e7;
     --nav-active-pill-bg: rgb(var(--primary-rgb) / 0.12);
     --nav-active-pill-border: rgb(var(--primary-rgb) / 0.38);
@@ -100,7 +100,7 @@
     --surface: rgba(18, 14, 10, 0.92);
     --border: rgba(212, 175, 55, 0.12);
     --text: #f8f4ec;
-    --muted: #b8ad9c;
+    --muted: #d4cdc2;
     --accent: #d4af37;
     --accent-strong: #b8941f;
     --accent-muted: #f0c75a;
