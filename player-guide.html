@@ -63,6 +63,22 @@
                 }
             },
             {
+                "@type": "Person",
+                "@id": "https://jiliacephlive.com/#author",
+                "name": "Andrei Santos",
+                "jobTitle": "Lead Casino Editor",
+                "url": "https://jiliacephlive.com/about.html#author-profile",
+                "worksFor": { "@id": "https://jiliacephlive.com/#organization" }
+            },
+            {
+                "@type": "Person",
+                "@id": "https://jiliacephlive.com/#reviewer",
+                "name": "Ronald Gema",
+                "jobTitle": "Senior Casino Reviewer",
+                "url": "https://jiliacephlive.com/about.html#reviewer-profile",
+                "worksFor": { "@id": "https://jiliacephlive.com/#organization" }
+            },
+            {
                 "@type": "WebSite",
                 "@id": "https://jiliacephlive.com/#website",
                 "name": "JiliAce PH Live",
@@ -80,13 +96,62 @@
                 "isPartOf": { "@id": "https://jiliacephlive.com/#website" },
                 "publisher": { "@id": "https://jiliacephlive.com/#organization" },
                 "author": { "@id": "https://jiliacephlive.com/#author" },
+                "contributor": { "@id": "https://jiliacephlive.com/#reviewer" },
                 "datePublished": "2026-04-01",
-                "dateModified": "2026-05-29",
+                "dateModified": "2026-08-31",
                 "primaryImageOfPage": {
                     "@type": "ImageObject",
                     "url": "https://jiliacephlive.com/images/og-default.webp"
                 },
-                "articleSection": "JiliAce player guide"
+                "articleSection": "JiliAce player guide",
+                "mainEntity": { "@id": "https://jiliacephlive.com/player-guide.html#faq" }
+            },
+            {
+                "@type": "FAQPage",
+                "@id": "https://jiliacephlive.com/player-guide.html#faq",
+                "isPartOf": { "@id": "https://jiliacephlive.com/#website" },
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "How do I register a JiliAce account?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Go to the official JiliAce site, click Register, and provide the requested details (phone/email and a password). Complete any KYC steps requested before your first withdrawal—do this early, not the day you want to cash out."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "I forgot my JiliAce login—what do I do?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Use the official site's password recovery flow (usually SMS or email code). We are an independent guide and cannot reset passwords or access your account—only operator support can do that."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How long do JiliAce withdrawals take?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "E-wallet withdrawals are commonly same-day to 24 hours once KYC is cleared; bank routes may take 1–5 business days. Exact timing is account- and method-specific—check the cashier for your current status."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can I deposit with GCash?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Where the cashier lists GCash or Maya, deposits often credit within minutes. Availability varies by account and region—open your JiliAce wallet after login to see enabled rails and fees."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What if I think I'm playing too much?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Chasing losses, secrecy, or irritability about money are signals to pause. Use operator deposit limits and cool-off tools, and visit our responsible gambling page for support links—reaching out early is the easiest time to fix it."
+                        }
+                    }
+                ]
             }
         ]
     }
@@ -148,7 +213,7 @@
         <div id="partial-promo-top"></div>
         <div class="shell page-hero">
             <h1>JiliAce player guide — from first login to confident sessions</h1>
-            <p class="lead">Whether you are verifying <strong>JiliAce login</strong> links or refining bankroll habits, this roadmap covers eligibility, payments, game choice, and promos—without replacing official support on the <a href="https://reffpa.com/L?tag=d_5503298m_1236c_&amp;site=5503298&amp;ad=1236" target="_blank" rel="noopener noreferrer sponsored">JiliAce operator site</a>.</p>
+            <p class="lead">Whether you are verifying <strong>JiliAce login</strong> links or refining bankroll habits, this roadmap covers eligibility, payments, game choice, and promos—the stuff we wish someone had told us before our first session. It won't replace official support on the <a href="https://reffpa.com/L?tag=d_5503298m_1236c_&amp;site=5503298&amp;ad=1236" target="_blank" rel="noopener noreferrer sponsored">JiliAce operator site</a>, but it'll get you there faster.</p>
             <div class="guide-chip-strip" aria-label="Explore game types">
                 <a class="chip" href="slots.html#slot-categories">Megaways</a>
                 <a class="chip" href="slots.html#slot-categories">Jackpot</a>
@@ -221,6 +286,7 @@
                 <header class="section__head">
                     <span class="section__eyebrow">Listicle</span>
                     <h2 class="section__title">6 micro-habits that keep JiliAce fun</h2>
+                    <p class="section__lead">Small, boring habits that quietly do more work than any lucky streak.</p>
                 </header>
                 <ol class="listicle">
                     <li><div><h3>Hydrate between sessions</h3><p>Small physical resets break autopilot clicking.</p></div></li>
@@ -293,19 +359,51 @@
                     <span class="section__eyebrow">Long read</span>
                     <h2 id="player-long-heading" class="section__title" style="margin: 0;">JiliAce onboarding for Philippines players</h2>
                 </header>
-                <p>New players ask “is JiliAce legit?” and “how do I deposit with GCash?” Returning players ask how to keep promos from hijacking session length. Both need the same foundation: 18+ eligibility, verified operator URLs, entertainment budgets, and limits set before the first spin.</p>
+                <p class="facts-note" style="margin-top: 0;">Written by <a href="about.html#author-profile">Andrei Santos</a>, reviewed by <a href="about.html#reviewer-profile">Ronald Gema</a> · Last updated August 2026.</p>
+                <p>New players ask "is JiliAce legit?" and "how do I deposit with GCash?" Returning players ask how to keep promos from hijacking their session length. Both need the same foundation: 18+ eligibility, verified operator URLs, entertainment budgets, and limits set <em>before</em> the first spin—not negotiated with yourself mid-session.</p>
                 <h2>Phase one — verify the brand &amp; login path</h2>
-                <p>Bookmark the <a href="https://reffpa.com/L?tag=d_5503298m_1236c_&amp;site=5503298&amp;ad=1236" target="_blank" rel="noopener noreferrer sponsored">official JiliAce login</a>. Avoid APKs from forums; use app links inside the client. Cross-check licensing footer text and read <a href="https://www.pagcor.ph/" target="_blank" rel="noopener noreferrer">PAGCOR</a> for domestic context—not as legal advice, but as primary-source orientation.</p>
+                <p>Bookmark the <a href="https://reffpa.com/L?tag=d_5503298m_1236c_&amp;site=5503298&amp;ad=1236" target="_blank" rel="noopener noreferrer sponsored">official JiliAce login</a>. Avoid APKs from forums; use app links inside the client. Look up the operator's Curaçao Gaming Authority licence—OGL/2024/1262/0493—at <a href="https://cert.cga.cw/" target="_blank" rel="noopener noreferrer">cert.cga.cw</a>, and read <a href="https://www.pagcor.ph/" target="_blank" rel="noopener noreferrer">PAGCOR</a> for PH consumer context—not as legal advice, but as primary-source orientation.</p>
                 <h2>Phase two — fund responsibly</h2>
-                <p>Decide a weekly entertainment cap before opening the cashier. Where enabled, GCash and Maya suit many PH players; screenshot fee tables and withdrawal limits. Never chase losses with credit or borrowed money.</p>
+                <p>Decide a weekly entertainment cap before you even open the cashier—not after you see the balance. Where enabled, GCash and Maya suit many PH players; screenshot fee tables and withdrawal limits so you're not guessing later. Never chase losses with credit or borrowed money—that's the one rule with zero exceptions.</p>
                 <h2>Phase three — pick your game lane</h2>
-                <p><a href="slots.html">JiliAce slots</a> for fast solo loops; <a href="live-casino.html">JiliAce live casino</a> for dealer-paced shoes. Match mood to mode instead of autopiloting trending thumbnails.</p>
+                <p><a href="slots.html">JiliAce slots</a> for fast solo loops when you've got ten minutes; <a href="live-casino.html">JiliAce live casino</a> for dealer-paced shoes when you've got an hour and want company. Match mood to mode instead of just autopiloting whatever thumbnail is trending.</p>
                 <h2>Phase four — promos as optional math</h2>
                 <p>Read <a href="promotions.html">promotion terms</a> before ticking any bonus box. If wagering volume exceeds your real schedule, decline—no offer is mandatory.</p>
                 <h2>Phase five — privacy &amp; household hygiene</h2>
                 <p>Use password managers, separate device profiles, and never share OTPs in live chat. Minors must not access your <strong>JiliAce login</strong>—regulators including PAGCOR emphasise protection of vulnerable groups.</p>
                 <h2>When fun fades</h2>
                 <p>Chasing losses, secrecy, or irritability are signals to pause—not moral failures. Use operator limits and our <a href="responsible-gambling.html">responsible gambling</a> hub; the <a href="https://www.who.int/news-room/fact-sheets/detail/gambling" target="_blank" rel="noopener noreferrer">WHO gambling Q&amp;A</a> explains why early help works.</p>
+            </div>
+        </section>
+
+        <section class="section section--alt" aria-labelledby="guide-faq-heading">
+            <div class="shell">
+                <header class="section__head">
+                    <span class="section__eyebrow">FAQ</span>
+                    <h2 id="guide-faq-heading" class="section__title">Player guide — quick answers</h2>
+                </header>
+                <div class="faq">
+                    <details>
+                        <summary>How do I register a JiliAce account?</summary>
+                        <p>Go to the official JiliAce site, click Register, and provide the requested details. Complete any KYC steps requested before your first withdrawal—do this early, not the day you want to cash out.</p>
+                    </details>
+                    <details>
+                        <summary>I forgot my JiliAce login—what do I do?</summary>
+                        <p>Use the official site's password recovery flow (usually SMS or email code). We're an independent guide and cannot reset passwords or access your account—only operator support can do that.</p>
+                    </details>
+                    <details>
+                        <summary>How long do withdrawals take?</summary>
+                        <p>E-wallet withdrawals are commonly same-day to 24 hours once KYC is cleared; bank routes may take 1–5 business days. Check the cashier for your current status.</p>
+                    </details>
+                    <details>
+                        <summary>Can I deposit with GCash?</summary>
+                        <p>Where the cashier lists GCash or Maya, deposits often credit within minutes. Availability varies by account—open your wallet after login to see enabled rails and fees.</p>
+                    </details>
+                    <details>
+                        <summary>What if I think I'm playing too much?</summary>
+                        <p>Chasing losses, secrecy, or irritability about money are signals to pause. Use operator limits and cool-off tools, and visit our <a href="responsible-gambling.html">responsible gambling</a> page for support links.</p>
+                    </details>
+                </div>
             </div>
         </section>
 

@@ -181,6 +181,17 @@
     background: rgb(var(--primary-rgb) / 0.08);
 }
 
+.nav__link--muted {
+    color: var(--muted);
+    font-size: 0.8rem;
+    opacity: 0.85;
+}
+
+.nav__link--muted:hover {
+    color: var(--nav-link-hover);
+    opacity: 1;
+}
+
 .nav__link--outline:hover {
     background: var(--accent-dim);
     color: #fff !important;

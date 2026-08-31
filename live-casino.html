@@ -63,6 +63,22 @@
                 }
             },
             {
+                "@type": "Person",
+                "@id": "https://jiliacephlive.com/#author",
+                "name": "Andrei Santos",
+                "jobTitle": "Lead Casino Editor",
+                "url": "https://jiliacephlive.com/about.html#author-profile",
+                "worksFor": { "@id": "https://jiliacephlive.com/#organization" }
+            },
+            {
+                "@type": "Person",
+                "@id": "https://jiliacephlive.com/#reviewer",
+                "name": "Ronald Gema",
+                "jobTitle": "Senior Casino Reviewer",
+                "url": "https://jiliacephlive.com/about.html#reviewer-profile",
+                "worksFor": { "@id": "https://jiliacephlive.com/#organization" }
+            },
+            {
                 "@type": "WebSite",
                 "@id": "https://jiliacephlive.com/#website",
                 "name": "JiliAce PH Live",
@@ -80,13 +96,62 @@
                 "isPartOf": { "@id": "https://jiliacephlive.com/#website" },
                 "publisher": { "@id": "https://jiliacephlive.com/#organization" },
                 "author": { "@id": "https://jiliacephlive.com/#author" },
+                "contributor": { "@id": "https://jiliacephlive.com/#reviewer" },
                 "datePublished": "2026-04-01",
-                "dateModified": "2026-05-29",
+                "dateModified": "2026-08-31",
                 "primaryImageOfPage": {
                     "@type": "ImageObject",
                     "url": "https://jiliacephlive.com/images/og-default.webp"
                 },
-                "articleSection": "JiliAce live casino"
+                "articleSection": "JiliAce live casino",
+                "mainEntity": { "@id": "https://jiliacephlive.com/live-casino.html#faq" }
+            },
+            {
+                "@type": "FAQPage",
+                "@id": "https://jiliacephlive.com/live-casino.html#faq",
+                "isPartOf": { "@id": "https://jiliacephlive.com/#website" },
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "What live dealer games does JiliAce offer?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Publicly listed categories include baccarat, roulette, blackjack, and game-show formats (wheels, dice, money-drop style) streamed with real dealers. Exact table counts vary by region—check the lobby after login."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What are the table limits on JiliAce live casino?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Limits vary by table and provider, typically ranging from low-stake classic rooms to VIP high-roller tables. Confirm min/max on the table info panel before you join—don't assume it matches a table you played last week."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Are the dealers real people or is it computer-generated?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Live casino tables use real human dealers streamed via HD video, unlike RNG slots which are computer-generated. That's the core appeal—visible shuffles, real betting windows, and a pace you can actually watch."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can I play JiliAce live casino on mobile data?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes, but HD dealer video is bandwidth-heavy. Stable Wi‑Fi or strong 4G/5G is recommended to avoid stream buffering that can cost you a betting window."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "JiliAce slots or live casino—which should I pick tonight?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Pick slots for a fast, solo session with instant rounds; pick live casino when you want dealer pacing, visible odds, and a social feel. Compare both on our slots and live casino guides."
+                        }
+                    }
+                ]
             }
         ]
     }
@@ -103,7 +168,7 @@
         <div id="partial-promo-top"></div>
         <div class="shell page-hero">
             <h1>JiliAce live casino — dealers, table limits &amp; session flow</h1>
-            <p class="lead"><strong>JiliAce live</strong> streams real dealers for baccarat, roulette, blackjack, and game-show formats—ideal when you want visible betting windows instead of instant RNG spins. Compare categories below, then join tables on the <a href="https://reffpa.com/L?tag=d_5503298m_1236c_&amp;site=5503298&amp;ad=1236" target="_blank" rel="noopener noreferrer sponsored">official JiliAce lobby</a>.</p>
+            <p class="lead"><strong>JiliAce live</strong> streams real dealers for baccarat, roulette, blackjack, and game-show formats—the closest thing to a casino floor without putting on shoes. Compare categories below, then join tables on the <a href="https://reffpa.com/L?tag=d_5503298m_1236c_&amp;site=5503298&amp;ad=1236" target="_blank" rel="noopener noreferrer sponsored">official JiliAce lobby</a>.</p>
         </div>
 
         <section class="section section--alt" id="live-categories">
@@ -111,7 +176,7 @@
                 <header class="section__head">
                     <span class="section__eyebrow">Live lobby</span>
                     <h2 class="section__title">Hot live games by category</h2>
-                    <p class="section__lead">Each card is a <em>category lens</em>—roulette, baccarat, blackjack, poker, game shows, sic bo, dragon tiger, and fishing-style game shows are how most players filter.</p>
+                    <p class="section__lead">Each card is a <em>category lens</em>—roulette, baccarat, blackjack, poker, game shows, sic bo, dragon tiger, and fishing-style hybrids are how most players actually filter, not by scrolling every table one by one.</p>
                 </header>
                 <p class="showcase-note"><strong>Illustrative scenes.</strong> Table names, limits, and side bets vary by provider and region.</p>
 
@@ -222,7 +287,7 @@
                 <header class="section__head">
                     <span class="section__eyebrow">Live lobby map</span>
                     <h2 id="live-facts-heading" class="section__title">Tables &amp; shows: illustrative counts</h2>
-                    <p class="section__lead">Major Asian-facing lobbies often carry <strong>80–250+</strong> live tables when aggregated across providers. Split by genre is <strong>indicative</strong>—use it to plan what to explore first.</p>
+                    <p class="section__lead">Major Asian-facing lobbies often carry <strong>80–250+</strong> live tables when aggregated across providers—plenty to get lost in. Split by genre is <strong>indicative</strong>—use it to plan what to explore first instead of doom-scrolling the lobby.</p>
                 </header>
                 <p class="facts-note"><strong>Reminder:</strong> Stream quality, seat limits, and regional availability change daily. Open the official client to see real table counts.</p>
                 <div class="facts-table-wrap">
@@ -277,7 +342,7 @@
                     <div>
                         <span class="section__eyebrow">At a glance</span>
                         <h2 class="section__title">Live vs RNG in one glance</h2>
-                        <p class="section__lead">RNG slots are instant; <strong>JiliAce live casino</strong> rounds respect dealer cadence, shoe changes, and seat etiquette.</p>
+                        <p class="section__lead">RNG slots are instant gratification; <strong>JiliAce live casino</strong> rounds respect dealer cadence, shoe changes, and seat etiquette—more of a slow burn, in a good way.</p>
                         <div class="feature-grid" style="margin-top: 1rem;">
                             <article class="feature-card">
                                 <h3>Social layer</h3>
@@ -312,6 +377,7 @@
                 <header class="section__head">
                     <span class="section__eyebrow">Listicle</span>
                     <h2 class="section__title">4 habits of calm JiliAce live players</h2>
+                    <p class="section__lead">None of these require willpower of steel—just a plan you made before you sat down, not while three hands deep in a shoe.</p>
                 </header>
                 <ol class="listicle">
                     <li><div><h3>Pre-set stop rules</h3><p>Exit after a time limit or a pre-agreed win/loss margin—live games make it tempting to play “one more shoe.”</p></div></li>
@@ -333,15 +399,47 @@
                     <span class="section__eyebrow">Guide</span>
                     <h2 id="live-long-heading" class="section__title" style="margin: 0;">JiliAce live casino: what PH players should expect</h2>
                 </header>
-                <p><strong>JiliAce live casino</strong> combines HD streams with classic table rules—speed baccarat for quick shoes, roulette with multiplier variants, blackjack with bet-behind, and game-show wheels when you want spectacle. Sessions feel social even on a phone; that is the product’s strength and its pacing risk.</p>
+                <p class="facts-note" style="margin-top: 0;">Written by <a href="about.html#author-profile">Andrei Santos</a>, reviewed by <a href="about.html#reviewer-profile">Ronald Gema</a> · Last updated August 2026.</p>
+                <p><strong>JiliAce live casino</strong> combines HD streams with classic table rules—speed baccarat for quick shoes, roulette with multiplier variants, blackjack with bet-behind, and game-show wheels when you want a bit of spectacle. Sessions feel social even on a phone; that's the product's biggest strength, and honestly, its biggest pacing risk too.</p>
                 <h2>Live vs JiliAce slots — pick the right tempo</h2>
-                <p>Slots optimise for rapid spins; live games optimise for transparency. A single baccarat shoe can outlast dozens of slot rounds, so bankroll and timers should reflect dealer cadence. When promos are active, confirm live weighting in Promosyon terms—many bundles favour <a href="slots.html">JiliAce slots</a>.</p>
+                <p>Slots optimise for rapid spins; live games optimise for transparency and drama. A single baccarat shoe can outlast dozens of slot rounds, so your bankroll and timers should reflect dealer cadence, not slot-speed math. When promos are active, confirm live weighting in Promosyon terms—many bundles quietly favour <a href="slots.html">JiliAce slots</a> over live tables.</p>
                 <h2>Mobile streaming &amp; etiquette</h2>
-                <p>Use stable Wi‑Fi or strong mobile data, landscape mode on small screens, and headphones if others are nearby. Chat is optional; never share credentials or OTPs in public lobbies. Official play and deposits stay on the <a href="https://reffpa.com/L?tag=d_5503298m_1236c_&amp;site=5503298&amp;ad=1236" target="_blank" rel="noopener noreferrer sponsored">JiliAce operator site</a>.</p>
-                <h2>Trust, PAGCOR context &amp; safer play</h2>
-                <p>Licensed positioning is stated on the operator domain—verify footer licensing text and read <a href="https://www.pagcor.ph/" target="_blank" rel="noopener noreferrer">PAGCOR</a> for domestic policy context. For harm reduction, use operator limits and our <a href="responsible-gambling.html">responsible gambling</a> hub; the <a href="https://www.who.int/news-room/fact-sheets/detail/gambling" target="_blank" rel="noopener noreferrer">WHO gambling Q&amp;A</a> explains why early pauses matter.</p>
+                <p>Use stable Wi‑Fi or strong mobile data, landscape mode on small screens, and headphones if others are nearby—nobody wants your dealer's voice blasting on the jeepney. Chat is optional; never share credentials or OTPs in public lobbies, no matter how friendly the room feels. Official play and deposits stay on the <a href="https://reffpa.com/L?tag=d_5503298m_1236c_&amp;site=5503298&amp;ad=1236" target="_blank" rel="noopener noreferrer sponsored">JiliAce operator site</a>.</p>
+                <h2>Licensing, PH context &amp; safer play</h2>
+                <p>JiliAce is publicly listed under Curaçao Gaming Authority licence OGL/2024/1262/0493—check its status at <a href="https://cert.cga.cw/" target="_blank" rel="noopener noreferrer">cert.cga.cw</a> rather than trusting a footer badge. <a href="https://www.pagcor.ph/" target="_blank" rel="noopener noreferrer">PAGCOR</a> adds domestic PH policy context but is not this operator's regulator. For harm reduction, use operator limits and our <a href="responsible-gambling.html">responsible gambling</a> hub; the <a href="https://www.who.int/news-room/fact-sheets/detail/gambling" target="_blank" rel="noopener noreferrer">WHO gambling Q&amp;A</a> explains why early pauses matter.</p>
                 <h2>Before you sit down — checklist</h2>
                 <p>Confirm table min/max, mute chat if it distracts you, set a stop time, and treat roadmaps as history—not predictions. Pair this page with the <a href="player-guide.html">player guide</a> and <a href="about.html">editorial standards</a> for how we source information.</p>
+            </div>
+        </section>
+
+        <section class="section section--alt" aria-labelledby="live-faq-heading">
+            <div class="shell">
+                <header class="section__head">
+                    <span class="section__eyebrow">FAQ</span>
+                    <h2 id="live-faq-heading" class="section__title">JiliAce live casino — quick answers</h2>
+                </header>
+                <div class="faq">
+                    <details>
+                        <summary>What live dealer games does JiliAce offer?</summary>
+                        <p>Publicly listed categories include baccarat, roulette, blackjack, and game-show formats (wheels, dice, money-drop style) streamed with real dealers. Exact table counts vary by region—check the lobby after login.</p>
+                    </details>
+                    <details>
+                        <summary>What are the table limits?</summary>
+                        <p>Limits vary by table and provider, from low-stake classic rooms to VIP high-roller tables. Confirm min/max on the table info panel before you join.</p>
+                    </details>
+                    <details>
+                        <summary>Are the dealers real people?</summary>
+                        <p>Yes—live tables stream real human dealers via HD video, unlike RNG slots which are computer-generated. That's the whole appeal: visible shuffles and a pace you can actually watch.</p>
+                    </details>
+                    <details>
+                        <summary>Can I play on mobile data?</summary>
+                        <p>You can, but HD dealer video is bandwidth-heavy. Stable Wi‑Fi or strong 4G/5G is recommended so you don't miss a betting window to buffering.</p>
+                    </details>
+                    <details>
+                        <summary>JiliAce slots or live casino—which should I pick tonight?</summary>
+                        <p>Slots for a fast, solo session with instant rounds; live casino when you want dealer pacing and a social feel. See our <a href="slots.html">slots</a> guide too.</p>
+                    </details>
+                </div>
             </div>
         </section>
     </main>
