@@ -114,7 +114,7 @@ export function Hero3({
           <div className="hidden md:block">
             <a
               href={signInHref}
-              className="border-border/80 bg-background/20 text-foreground hover:bg-accent hover:text-accent-foreground rounded-full border px-6 py-2 text-sm font-medium backdrop-blur-sm transition-all duration-200"
+              className="border-primary/50 bg-gradient-to-r from-rose-500 via-red-600 to-rose-800 text-white hover:from-rose-400 hover:via-red-500 hover:to-rose-700 rounded-full border px-6 py-2 text-sm font-medium shadow-lg shadow-red-900/30 backdrop-blur-sm transition-all duration-200"
             >
               {signInText}
             </a>
@@ -179,7 +179,7 @@ export function Hero3({
             <a
               href={signInHref}
               onClick={() => setMobileMenuOpen(false)}
-              className="border-border bg-background text-foreground hover:bg-accent flex w-full items-center justify-center rounded-full border py-3 text-base font-medium transition-colors"
+              className="bg-gradient-to-r from-rose-500 via-red-600 to-rose-800 text-white hover:from-rose-400 hover:via-red-500 hover:to-rose-700 flex w-full items-center justify-center rounded-full border border-red-500/40 py-3 text-base font-semibold transition-colors"
             >
               {signInText}
             </a>
@@ -230,7 +230,7 @@ export function Hero3({
               {primaryCtaText && (
                 <a
                   href={primaryCtaHref}
-                  className="rounded-full bg-white px-8 py-3.5 text-sm font-normal text-black shadow-lg transition-all duration-200 sm:text-base"
+                  className="rounded-full bg-gradient-to-r from-rose-500 via-red-600 to-rose-800 px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-red-900/35 transition-all duration-200 hover:from-rose-400 hover:via-red-500 hover:to-rose-700 sm:text-base"
                 >
                   {primaryCtaText}
                 </a>

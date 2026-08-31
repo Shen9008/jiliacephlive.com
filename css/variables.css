@@ -1,4 +1,4 @@
-/* Design tokens — Velvet Noir Casino: deep black + champagne gold + crimson accent */
+/* Design tokens — Crimson Velvet: deep black-red + ruby gradient */
 
 :root {
     /* Spacing */
@@ -25,44 +25,44 @@
     --radius-xl: 24px;
 
     /* Surfaces & text */
-    --dark-bg: #0a0806;
-    --darker-bg: #050403;
-    --card-bg: rgba(18, 14, 10, 0.92);
-    --card-bg-hover: rgba(26, 20, 14, 0.96);
+    --dark-bg: #0c0608;
+    --darker-bg: #060304;
+    --card-bg: rgba(20, 8, 10, 0.92);
+    --card-bg-hover: rgba(32, 12, 16, 0.96);
     --text-primary: #faf7f2;
     --text-secondary: #f0ebe3;
     --text-muted: #e8e2d8;
 
-    /* Primary accent — champagne gold */
-    --primary: #d4af37;
-    --primary-light: #f0c75a;
-    --primary-rgb: 212 175 55;
-    --border-color: rgba(212, 175, 55, 0.12);
+    /* Primary accent — ruby red gradient */
+    --primary: #e11d48;
+    --primary-light: #fb7185;
+    --primary-rgb: 225 29 72;
+    --border-color: rgba(225, 29, 72, 0.15);
 
-    /* Secondary glow — warm champagne highlight */
-    --neon-cyan: #e8c872;
-    --neon-cyan-dim: rgba(232, 200, 114, 0.14);
-    --neon-cyan-rgb: 232 200 114;
+    /* Secondary glow — warm rose highlight */
+    --neon-cyan: #ff8a9b;
+    --neon-cyan-dim: rgba(255, 138, 155, 0.14);
+    --neon-cyan-rgb: 255 138 155;
 
-    /* Casino crimson (badges, hot labels) */
-    --crimson: #a31621;
-    --crimson-rgb: 163 22 33;
+    /* Deep crimson (badges, hot labels) */
+    --crimson: #be123c;
+    --crimson-rgb: 190 18 60;
 
-    --gradient-primary: linear-gradient(135deg, #f5d76e 0%, #d4af37 38%, #b8941f 72%, #8a6f15 100%);
-    --gradient-gold-bright: linear-gradient(135deg, #fff8e7 0%, #f0c75a 35%, #d4af37 65%, #b8941f 100%);
+    --gradient-primary: linear-gradient(135deg, #ff6b7a 0%, #e11d48 32%, #be123c 68%, #881337 100%);
+    --gradient-gold-bright: linear-gradient(135deg, #ffe4e8 0%, #fb7185 35%, #e11d48 65%, #be123c 100%);
     --gradient-mesh:
-        radial-gradient(ellipse 70% 55% at 15% -5%, rgb(var(--primary-rgb) / 0.18), transparent 52%),
-        radial-gradient(ellipse 55% 45% at 92% 8%, rgb(var(--crimson-rgb) / 0.08), transparent 48%),
-        radial-gradient(ellipse 40% 35% at 50% 100%, rgb(var(--primary-rgb) / 0.06), transparent 55%),
-        linear-gradient(180deg, #12100e 0%, #0a0806 100%);
+        radial-gradient(ellipse 70% 55% at 15% -5%, rgb(var(--primary-rgb) / 0.22), transparent 52%),
+        radial-gradient(ellipse 55% 45% at 92% 8%, rgb(var(--crimson-rgb) / 0.14), transparent 48%),
+        radial-gradient(ellipse 40% 35% at 50% 100%, rgb(var(--primary-rgb) / 0.1), transparent 55%),
+        linear-gradient(180deg, #14080c 0%, #0c0608 100%);
 
     --shadow-sm: 0 4px 24px rgb(0 0 0 / 0.45);
     --shadow-md: 0 24px 64px rgb(0 0 0 / 0.6);
-    --shadow-glow-primary: 0 0 48px rgb(var(--primary-rgb) / 0.28), 0 12px 36px rgb(0 0 0 / 0.45);
-    --shadow-glow-cyan: 0 0 36px rgb(var(--neon-cyan-rgb) / 0.18);
+    --shadow-glow-primary: 0 0 48px rgb(var(--primary-rgb) / 0.32), 0 12px 36px rgb(0 0 0 / 0.45);
+    --shadow-glow-cyan: 0 0 36px rgb(var(--neon-cyan-rgb) / 0.2);
 
-    --glass-bg: rgba(14, 11, 8, 0.72);
-    --glass-border: rgba(212, 175, 55, 0.14);
+    --glass-bg: rgba(16, 6, 8, 0.72);
+    --glass-border: rgba(225, 29, 72, 0.16);
     --glass-blur: 20px;
 
     --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
@@ -70,14 +70,14 @@
     --transition-spring: 0.48s cubic-bezier(0.34, 1.56, 0.64, 1);
 
     /* Main nav */
-    --nav-bg: rgba(8, 6, 4, 0.82);
-    --nav-border: rgb(212 175 55 / 0.1);
+    --nav-bg: rgba(10, 4, 6, 0.82);
+    --nav-border: rgb(225 29 72 / 0.12);
     --nav-link: rgb(248 244 236 / 0.92);
-    --nav-link-hover: #fff8e7;
-    --nav-active-pill-bg: rgb(var(--primary-rgb) / 0.12);
-    --nav-active-pill-border: rgb(var(--primary-rgb) / 0.38);
-    --nav-cta-text: #1a1408;
-    --nav-cta-bg: linear-gradient(135deg, #f5d76e 0%, #d4af37 45%, #b8941f 100%);
+    --nav-link-hover: #fff5f5;
+    --nav-active-pill-bg: rgb(var(--primary-rgb) / 0.14);
+    --nav-active-pill-border: rgb(var(--primary-rgb) / 0.42);
+    --nav-cta-text: #fff;
+    --nav-cta-bg: var(--gradient-primary);
 
     /* Layout */
     --container-max-width: 1200px;
@@ -95,19 +95,19 @@
     --btn-font-size-lg: 0.9375rem;
 
     /* Semantic aliases */
-    --bg: #0a0806;
-    --bg-elev: #12100e;
-    --surface: rgba(18, 14, 10, 0.92);
-    --border: rgba(212, 175, 55, 0.12);
+    --bg: #0c0608;
+    --bg-elev: #14080c;
+    --surface: rgba(20, 8, 10, 0.92);
+    --border: rgba(225, 29, 72, 0.14);
     --text: #faf7f2;
     --muted: #f0ebe3;
-    --accent: #d4af37;
-    --accent-strong: #b8941f;
-    --accent-muted: #f0c75a;
-    --accent-dim: rgba(212, 175, 55, 0.14);
-    --gold: #d4af37;
-    --gold-dim: rgba(212, 175, 55, 0.1);
-    --danger: #c41e3a;
+    --accent: #e11d48;
+    --accent-strong: #be123c;
+    --accent-muted: #fb7185;
+    --accent-dim: rgba(225, 29, 72, 0.14);
+    --gold: #e11d48;
+    --gold-dim: rgba(225, 29, 72, 0.1);
+    --danger: #f43f5e;
     --radius: 14px;
     --shadow: var(--shadow-md);
     --font: var(--font-primary);
