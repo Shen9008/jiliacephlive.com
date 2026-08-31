@@ -388,6 +388,51 @@
         document.querySelectorAll(ROLLING_HEADING_SELECTORS).forEach(bindRollingHeading);
     }
 
+    function initPremiumGrain() {
+        if (document.querySelector('.premium-grain')) return;
+        var grain = document.createElement('div');
+        grain.className = 'premium-grain';
+        grain.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(grain);
+    }
+
+    function initAmbienceSparkles() {
+        if (prefersReducedMotion() || document.querySelector('.ambience-sparkles')) return;
+        var wrap = document.createElement('div');
+        wrap.className = 'ambience-sparkles';
+        wrap.setAttribute('aria-hidden', 'true');
+        var count = window.innerWidth < 768 ? 18 : 32;
+        for (var i = 0; i < count; i++) {
+            var s = document.createElement('span');
+            s.className = 'ambience-sparkle';
+            s.style.left = Math.random() * 100 + '%';
+            s.style.top = Math.random() * 100 + '%';
+            s.style.setProperty('--dur', (4 + Math.random() * 8).toFixed(1) + 's');
+            s.style.setProperty('--delay', (Math.random() * 6).toFixed(1) + 's');
+            s.style.setProperty('--peak', (0.3 + Math.random() * 0.5).toFixed(2));
+            var size = 2 + Math.random() * 2;
+            s.style.width = size + 'px';
+            s.style.height = size + 'px';
+            wrap.appendChild(s);
+        }
+        document.body.prepend(wrap);
+    }
+
+    function initGameCardPlayOverlay() {
+        document.querySelectorAll('.game-card').forEach(function (card) {
+            if (isBound(card, 'play')) return;
+            var media = card.querySelector('.game-card__media');
+            if (!media || media.querySelector('.game-card__play')) return;
+            markBound(card, 'play');
+            var overlay = document.createElement('div');
+            overlay.className = 'game-card__play';
+            overlay.setAttribute('aria-hidden', 'true');
+            overlay.innerHTML =
+                '<span class="game-card__play-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>';
+            media.appendChild(overlay);
+        });
+    }
+
     function refreshDynamic() {
         initHeaderScroll();
         initSpotlightZones();
@@ -398,10 +443,13 @@
         initMagneticButtons();
         initTableGlow();
         initRollingHeadings();
+        initGameCardPlayOverlay();
     }
 
     function run() {
         initScrollProgress();
+        initPremiumGrain();
+        initAmbienceSparkles();
         refreshDynamic();
     }
 

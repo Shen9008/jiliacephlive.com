@@ -2,13 +2,14 @@
 @import url("base.css");
 @import url("components.css");
 @import url("future-ui.css");
+@import url("premium-casino.css");
 
 /* JiliAce PH Live — layout & page-specific blocks */
 
 /* Header — solid bar, accent pill, solid CTA */
 .site-header {
     position: sticky;
-    top: 0;
+    top: 0.65rem;
     z-index: 110;
     background: var(--nav-bg);
     border-bottom: 1px solid var(--nav-border);
@@ -488,10 +489,10 @@ body.mobile-nav-open {
     position: relative;
     padding: clamp(2.5rem, 8vw, 5rem) 0;
     background:
-        radial-gradient(ellipse 85% 55% at 78% 8%, rgb(var(--primary-rgb) / 0.16), transparent 55%),
-        radial-gradient(ellipse 50% 40% at 12% 88%, rgba(255, 255, 255, 0.04), transparent),
-        linear-gradient(180deg, #1a1915 0%, var(--bg) 45%);
-    border-bottom: 1px solid var(--border);
+        radial-gradient(ellipse 85% 55% at 78% 8%, rgb(var(--primary-rgb) / 0.14), transparent 55%),
+        radial-gradient(ellipse 50% 40% at 12% 88%, rgb(var(--crimson-rgb) / 0.05), transparent),
+        linear-gradient(180deg, #12100e 0%, var(--bg) 45%);
+    border-bottom: 1px solid rgb(var(--primary-rgb) / 0.1);
 }
 
 .hero__grid {
