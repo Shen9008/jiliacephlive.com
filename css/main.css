@@ -184,9 +184,9 @@
 }
 
 .nav__link--muted {
-    color: var(--muted);
+    color: var(--text-secondary);
     font-size: 0.8rem;
-    opacity: 0.85;
+    opacity: 1;
 }
 
 .nav__link--muted:hover {
@@ -1763,6 +1763,10 @@ body:not([data-page="index"]) .hero-banner+.page-hero {
     border-bottom: none;
 }
 
+.facts-table td {
+    color: var(--text-body);
+}
+
 .facts-table td:first-child {
     font-weight: 600;
     color: var(--text);
@@ -1864,4 +1868,85 @@ body:not([data-page="index"]) .hero-banner+.page-hero {
 .blog-author-line a {
     color: var(--text);
     font-weight: 600;
+}
+
+/* Readability — must load last; overrides earlier muted text rules */
+body,
+#main-content,
+.section,
+.section p,
+.section li,
+.section__lead,
+.section__subtitle,
+.trust-card p,
+.listicle p,
+.step-card p,
+.stat-card__label,
+.stat-card__hint,
+.facts-note,
+.facts-list,
+.facts-list li,
+.facts-table td,
+.facts-panel p,
+.showcase-note,
+.game-card__meta,
+.promo-affiliate__text,
+.feature-card p,
+.faq p,
+.faq summary,
+.cta-strip p,
+.cta-strip .cta-strip__lead,
+.content-page p,
+.content-page li,
+.page-hero .lead,
+.hero__lead,
+.footer-lead,
+.footer-disclosure,
+.footer-contact-hint,
+.footer-heading,
+.footer-copy,
+.footer-nav a,
+.chip--ghost,
+.blog-author-line {
+    color: var(--text-body);
+}
+
+.provider-logo:not(.provider-logo--jili):not(.provider-logo--live) {
+    color: var(--text-body);
+}
+
+.section__title,
+.section h2,
+.section h3,
+.game-card__title,
+.feature-card h3,
+.trust-card h3,
+.listicle h3,
+.step-card h3,
+.faq summary,
+.cta-strip h2,
+.promo-affiliate__title,
+.stat-card__value,
+.footer-brand,
+.facts-panel h3,
+.facts-table td:first-child,
+.facts-table th {
+    color: var(--text-primary);
+}
+
+.promo-affiliate__text a,
+.faq p a,
+.content-page a:not(.btn),
+.footer-disclosure a,
+.footer-nav a:hover {
+    color: var(--primary-light);
+}
+
+.promo-affiliate--with-banner .promo-affiliate__inner,
+.cta-strip--with-banner .cta-strip__content {
+    background: rgba(10, 8, 6, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.25rem, 3vw, 1.75rem);
+    backdrop-filter: blur(8px);
 }

@@ -66,7 +66,7 @@ export function Hero3({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <section className="dark bg-background text-foreground relative min-h-screen w-full overflow-hidden font-sans">
+    <section className="dark bg-background text-foreground relative min-h-screen w-full overflow-hidden font-sans [&_h1]:drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] [&_p]:drop-shadow-[0_1px_8px_rgba(0,0,0,0.75)]">
       {backgroundImage && (
         <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
           <img
@@ -101,11 +101,11 @@ export function Hero3({
               <a
                 key={item.label}
                 href={item.href}
-                className="group text-muted-foreground hover:text-foreground flex items-center gap-1.5 text-sm font-medium transition-colors duration-200"
+                className="group text-zinc-100 hover:text-white flex items-center gap-1.5 text-sm font-medium transition-colors duration-200"
               >
                 <span>{item.label}</span>
                 {item.hasDropdown && (
-                  <FaChevronDown className="text-muted-foreground h-3 w-3 fill-current transition-transform duration-200 group-hover:translate-y-0.5" />
+                  <FaChevronDown className="text-zinc-200 h-3 w-3 fill-current transition-transform duration-200 group-hover:translate-y-0.5" />
                 )}
               </a>
             ))}
@@ -200,7 +200,7 @@ export function Hero3({
             {tagline && (
               <motion.p
                 variants={item}
-                className="sm:text-md mb-4 font-light tracking-wide text-white/90"
+                className="sm:text-md mb-4 font-light tracking-wide text-white"
               >
                 {tagline}
               </motion.p>
@@ -217,7 +217,7 @@ export function Hero3({
             {description && (
               <motion.p
                 variants={item}
-                className="sm:text-md md:text-md leading-wide mx-auto mb-4 max-w-2xl text-base text-zinc-100"
+                className="sm:text-md md:text-md leading-wide mx-auto mb-4 max-w-2xl text-base text-zinc-50"
               >
                 {description}
               </motion.p>
@@ -268,7 +268,7 @@ export function Hero3({
                       {stat.value}
                     </span>
 
-                    <span className="text-xs text-zinc-200 sm:text-sm">
+                    <span className="text-xs text-zinc-100 sm:text-sm">
                       {stat.label}
                     </span>
                   </motion.div>
@@ -280,7 +280,7 @@ export function Hero3({
               <motion.a
                 variants={item}
                 href={scrollHref}
-                className="text-muted-foreground hover:text-foreground flex items-center justify-center gap-2 self-center text-xs font-semibold transition-colors sm:text-sm md:self-auto"
+                className="text-zinc-100 hover:text-white flex items-center justify-center gap-2 self-center text-xs font-semibold transition-colors sm:text-sm md:self-auto"
               >
                 <span>{scrollText}</span>
                 <FaArrowDown className="h-4 w-4 fill-current" />

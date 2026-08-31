@@ -10,8 +10,9 @@
     --section-pad-y: clamp(3.5rem, 8vw, 5.75rem);
     --section-gap: clamp(1.25rem, 3vw, 2rem);
     --content-gap: clamp(0.85rem, 2vw, 1.25rem);
-    --ink-soft: #ebe5db;
-    --ink-muted: #cfc7bb;
+    --ink-soft: #f5f0e8;
+    --ink-muted: #eee8de;
+    --text-body: #f0ebe3;
     --surface-glass: rgba(10, 8, 6, 0.72);
     --surface-glass-border: rgba(212, 175, 55, 0.18);
 }
