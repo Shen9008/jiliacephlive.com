@@ -481,10 +481,13 @@ body.future-ui-ready::before {
     }
 }
 
-/* React hero-3 homepage — hide duplicate static chrome */
+/* React hero-3 homepage — hide duplicate static chrome (backup if partials load) */
 body.has-react-hero .site-header,
-body.has-react-hero .skip-link {
+body.has-react-hero .skip-link,
+body.has-react-hero .mobile-panel {
     display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
 }
 
 body.has-react-hero #main-content {

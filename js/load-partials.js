@@ -68,23 +68,41 @@
         if (y) y.textContent = String(new Date().getFullYear());
     }
 
+    /** Homepage uses Watermelon hero-3 with its own nav — skip static header/banner. */
+    function usesReactHero() {
+        return (
+            document.body.classList.contains('has-react-hero') ||
+            Boolean(document.getElementById('hero-root'))
+        );
+    }
+
     function run() {
         patchAffiliateLinks();
         injectSvgSprite();
         var pageKey = document.body.getAttribute('data-page') || '';
+        var reactHero = usesReactHero();
         var skipTopPromo =
+            reactHero ||
             document.body.getAttribute('data-blog-layout') === 'index' ||
             Boolean(document.body.getAttribute('data-blog-slug'));
         var topPromoPath =
             pageKey === 'rg' ? 'partials/promo-affiliate-top-rg.html' : 'partials/promo-affiliate-top.html';
 
-        var headerP = fetch(base + 'partials/header.html').then(function (r) { return r.text(); });
+        var headerP = reactHero
+            ? Promise.resolve('')
+            : fetch(base + 'partials/header.html').then(function (r) { return r.text(); });
         var footerP = fetch(base + 'partials/footer.html').then(function (r) { return r.text(); });
-        var bannerP = fetch(base + 'partials/hero-banner.html').then(function (r) { return r.ok ? r.text() : ''; });
+        var bannerP = reactHero
+            ? Promise.resolve('')
+            : fetch(base + 'partials/hero-banner.html').then(function (r) { return r.ok ? r.text() : ''; });
         var topPromoP = skipTopPromo
             ? Promise.resolve('')
             : fetch(base + topPromoPath).then(function (r) { return r.ok ? r.text() : ''; });
-        var midPromoP = fetch(base + 'partials/promo-affiliate-mid.html').then(function (r) { return r.ok ? r.text() : ''; });
+        var midPromoPath =
+            pageKey === 'index'
+                ? 'partials/promo-home-mid.html'
+                : 'partials/promo-affiliate-mid.html';
+        var midPromoP = fetch(base + midPromoPath).then(function (r) { return r.ok ? r.text() : ''; });
 
         Promise.all([headerP, footerP, bannerP, topPromoP, midPromoP])
             .then(function (parts) {
@@ -99,10 +117,12 @@
                 var pTop = document.getElementById('partial-promo-top');
                 var pMid = document.getElementById('partial-promo-mid');
                 if (ph) {
-                    var t = document.createElement('div');
-                    t.innerHTML = h;
-                    var p = ph.parentNode;
-                    while (t.firstChild) p.insertBefore(t.firstChild, ph);
+                    if (h && h.trim()) {
+                        var t = document.createElement('div');
+                        t.innerHTML = h;
+                        var p = ph.parentNode;
+                        while (t.firstChild) p.insertBefore(t.firstChild, ph);
+                    }
                     ph.remove();
                 }
                 if (pf) pf.outerHTML = f;

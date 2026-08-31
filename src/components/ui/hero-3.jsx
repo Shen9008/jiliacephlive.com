@@ -68,12 +68,12 @@ export function Hero3({
   return (
     <section className="dark bg-background text-foreground relative min-h-screen w-full overflow-hidden font-sans">
       {backgroundImage && (
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
           <img
             src={backgroundImage}
             alt=""
             aria-hidden="true"
-            className="pointer-events-none h-full w-full object-cover brightness-40 select-none"
+            className="pointer-events-none h-full w-full object-cover object-center brightness-40 select-none"
           />
         </div>
       )}
@@ -85,7 +85,7 @@ export function Hero3({
         transition={{ type: "spring", duration: 0.6, bounce: 0 }}
         className="absolute top-0 left-0 z-30 w-full"
       >
-        <div className="flex max-w-full items-center justify-between px-6 py-6 sm:px-10 md:px-16 lg:px-20">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-6 sm:px-10 md:px-16 lg:px-20">
           <a
             href="/"
             className="text-foreground flex items-center gap-2.5 text-2xl font-light tracking-tight sm:text-xl"
@@ -188,13 +188,13 @@ export function Hero3({
         )}
       </AnimatePresence>
 
-      <div className="relative z-10 flex min-h-screen max-w-7xl flex-col justify-between px-6 pt-32 pb-12 sm:px-10 md:px-16 md:pt-40 lg:px-20 lg:pt-48">
+      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl flex-col justify-between px-6 pt-32 pb-12 sm:px-10 md:px-16 md:pt-40 lg:px-20 lg:pt-48">
         <motion.div
           variants={container}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.38 }}
-          className="flex flex-1 flex-col justify-center"
+          className="flex flex-1 flex-col items-center justify-center text-center"
         >
           <div className="max-w-4xl">
             {tagline && (
@@ -217,7 +217,7 @@ export function Hero3({
             {description && (
               <motion.p
                 variants={item}
-                className="sm:text-md md:text-md leading-wide mb-4 max-w-2xl text-base text-zinc-300"
+                className="sm:text-md md:text-md leading-wide mx-auto mb-4 max-w-2xl text-base text-zinc-300"
               >
                 {description}
               </motion.p>
@@ -225,7 +225,7 @@ export function Hero3({
 
             <motion.div
               variants={item}
-              className="mt-6 flex flex-wrap items-center gap-4 sm:gap-6"
+              className="mt-6 flex flex-wrap items-center justify-center gap-4 sm:gap-6"
             >
               {primaryCtaText && (
                 <a
@@ -253,9 +253,9 @@ export function Hero3({
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.6 }}
-          className="border-border/20 mt-12 border-t pt-8 sm:mt-16"
+          className="border-border/20 mt-12 w-full border-t pt-8 sm:mt-16"
         >
-          <div className="flex flex-col justify-between gap-8 md:flex-row md:items-center">
+          <div className="flex flex-col items-center justify-between gap-8 md:flex-row md:items-center">
             {stats.length > 0 && (
               <div className="flex flex-col divide-y divide-white/50 md:flex-row md:items-center md:divide-x md:divide-y-0">
                 {stats.map((stat) => (
@@ -280,7 +280,7 @@ export function Hero3({
               <motion.a
                 variants={item}
                 href={scrollHref}
-                className="text-muted-foreground/80 hover:text-foreground flex items-center gap-2 self-start text-xs font-semibold transition-colors sm:text-sm md:self-auto"
+                className="text-muted-foreground/80 hover:text-foreground flex items-center justify-center gap-2 self-center text-xs font-semibold transition-colors sm:text-sm md:self-auto"
               >
                 <span>{scrollText}</span>
                 <FaArrowDown className="h-4 w-4 fill-current" />

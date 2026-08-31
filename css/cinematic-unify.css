@@ -280,10 +280,7 @@ h4,
     margin-top: 0.45rem;
 }
 
-/* Homepage: first block after full-screen hero */
-body.has-react-hero #main-content > .section:first-child {
-    padding-top: clamp(3rem, 7vw, 4.5rem);
-}
+/* Homepage: first block after full-screen hero — see end of file for layout rules */
 
 /* --- Inner page cinematic hero strip --- */
 .hero-banner {
@@ -379,6 +376,152 @@ body:not([data-page="index"]) .hero-banner__frame {
 .promo-affiliate__text {
     margin-top: 0;
     line-height: 1.65;
+}
+
+/* --- Homepage section accompanying banner (portrait character art) --- */
+.section-accomp-banner__figure {
+    display: block;
+    pointer-events: none;
+    user-select: none;
+}
+
+.promo-affiliate--with-banner__shell,
+.section--with-banner__shell,
+.cta-strip--with-banner {
+    position: relative;
+    overflow: hidden;
+}
+
+.promo-affiliate--with-banner {
+    padding-inline: 0;
+    overflow: hidden;
+}
+
+.promo-affiliate--with-banner .shell {
+    position: relative;
+    min-height: clamp(260px, 34vw, 360px);
+}
+
+.promo-affiliate--with-banner .section-accomp-banner__figure {
+    position: absolute;
+    right: clamp(-1rem, -2vw, 0rem);
+    bottom: 0;
+    z-index: 0;
+    width: auto;
+    height: clamp(280px, 42vw, 420px);
+    max-width: min(46%, 340px);
+    object-fit: contain;
+    object-position: bottom right;
+    opacity: 0.92;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.35) 18%, #000 38%);
+    mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.35) 18%, #000 38%);
+}
+
+.promo-affiliate--with-banner .promo-affiliate__inner {
+    position: relative;
+    z-index: 1;
+    max-width: min(100%, 58rem);
+}
+
+.section--with-banner__shell {
+    display: grid;
+    gap: var(--space-xl);
+    align-items: start;
+}
+
+@media (min-width: 960px) {
+    .section--with-banner__shell {
+        grid-template-columns: minmax(0, 1fr) clamp(200px, 24vw, 300px);
+        gap: clamp(1.5rem, 4vw, 3rem);
+    }
+}
+
+.section--with-banner__content {
+    min-width: 0;
+}
+
+.section-accomp-banner__figure--section {
+    justify-self: center;
+    width: auto;
+    max-width: min(280px, 72vw);
+    height: auto;
+    max-height: clamp(280px, 52vw, 440px);
+    object-fit: contain;
+    object-position: center bottom;
+    opacity: 0.9;
+    order: -1;
+}
+
+@media (min-width: 960px) {
+    .section-accomp-banner__figure--section {
+        order: 1;
+        justify-self: end;
+        align-self: end;
+        max-height: min(520px, 72vh);
+        margin-bottom: -1.5rem;
+        -webkit-mask-image: linear-gradient(180deg, #000 72%, transparent 100%);
+        mask-image: linear-gradient(180deg, #000 72%, transparent 100%);
+    }
+}
+
+.cta-strip--with-banner {
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+}
+
+.cta-strip--with-banner .cta-strip__content {
+    position: relative;
+    z-index: 1;
+    max-width: min(100%, 36rem);
+}
+
+.cta-strip--with-banner .section-accomp-banner__figure--cta {
+    position: absolute;
+    right: clamp(-0.5rem, 1vw, 2rem);
+    bottom: 0;
+    z-index: 0;
+    width: auto;
+    height: clamp(220px, 38vw, 360px);
+    max-width: min(42%, 300px);
+    object-fit: contain;
+    object-position: bottom right;
+    opacity: 0.88;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.4) 22%, #000 42%);
+    mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.4) 22%, #000 42%);
+}
+
+@media (max-width: 767px) {
+    .promo-affiliate--with-banner .shell {
+        min-height: 0;
+        padding-bottom: clamp(12rem, 48vw, 16rem);
+    }
+
+    .promo-affiliate--with-banner .section-accomp-banner__figure {
+        right: 50%;
+        transform: translateX(50%);
+        max-width: min(240px, 62vw);
+        height: clamp(220px, 52vw, 300px);
+        -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 100%);
+        mask-image: linear-gradient(180deg, #000 55%, transparent 100%);
+    }
+
+    .promo-affiliate--with-banner .promo-affiliate__inner {
+        max-width: 100%;
+    }
+
+    .cta-strip--with-banner {
+        padding-bottom: clamp(11rem, 44vw, 14rem);
+    }
+
+    .cta-strip--with-banner .section-accomp-banner__figure--cta {
+        right: 50%;
+        transform: translateX(50%);
+        max-width: min(220px, 58vw);
+        height: clamp(200px, 48vw, 280px);
+        -webkit-mask-image: linear-gradient(180deg, #000 50%, transparent 100%);
+        mask-image: linear-gradient(180deg, #000 50%, transparent 100%);
+    }
 }
 
 /* --- Showcase & cards --- */
@@ -650,4 +793,33 @@ body:not([data-page="index"]) .hero-banner__frame {
     .site-header {
         top: 0;
     }
+}
+
+/* Homepage: single hero + nav (hero-3 only — no static header overlap) */
+body.has-react-hero .site-header,
+body.has-react-hero .skip-link,
+body.has-react-hero .mobile-panel {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+body.has-react-hero {
+    padding-top: 0;
+}
+
+body.has-react-hero #hero-root {
+    margin: 0;
+}
+
+body.has-react-hero #main-content {
+    position: relative;
+    z-index: 1;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+body.has-react-hero #main-content > .section:first-child {
+    padding-top: clamp(3.5rem, 8vw, 5rem);
+    border-top: none;
 }

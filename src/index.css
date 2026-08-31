@@ -68,7 +68,21 @@
 }
 
 #hero-root {
-  min-height: min(100dvh, 920px);
+  display: block;
+  width: 100%;
+  min-height: 100dvh;
+  position: relative;
+  z-index: 2;
+  isolation: isolate;
+}
+
+#hero-root > section {
+  min-height: 100dvh;
+}
+
+#hero-root img[aria-hidden="true"] {
+  object-fit: cover;
+  object-position: center center;
 }
 
 .hero-3-root--no-nav header {
