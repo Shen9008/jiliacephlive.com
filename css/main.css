@@ -1011,8 +1011,11 @@ body.mobile-nav-open {
     margin: 0 0 0.5rem;
     font-size: 0.95rem;
     font-weight: 600;
-    color: var(--accent-muted);
     line-height: 1.35;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .trust-card p {
@@ -1228,8 +1231,11 @@ body.mobile-nav-open {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: var(--accent-muted);
     margin-bottom: 0.35rem;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .promo-affiliate__title {
@@ -1893,7 +1899,6 @@ body,
 .promo-affiliate__text,
 .feature-card p,
 .faq p,
-.faq summary,
 .cta-strip p,
 .cta-strip .cta-strip__lead,
 .content-page p,
@@ -1939,14 +1944,46 @@ body,
 .content-page a:not(.btn),
 .footer-disclosure a,
 .footer-nav a:hover {
-    color: var(--primary-light);
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
-.promo-affiliate--with-banner .promo-affiliate__inner,
-.cta-strip--with-banner .cta-strip__content {
-    background: rgba(10, 8, 6, 0.82);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: var(--radius-lg);
-    padding: clamp(1.25rem, 3vw, 1.75rem);
-    backdrop-filter: blur(8px);
+.promo-affiliate__eyebrow,
+.trust-card__kicker,
+.stat-card__value,
+.stat-card__value--text {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.content-page h2,
+.prose h2 {
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--content-gap);
+}
+
+.feature-card h3,
+.trust-card h3,
+.listicle h3,
+.step-card h3,
+.facts-panel h3,
+.game-card__title {
+    margin-bottom: 0.65rem;
+}
+
+.showcase__row-title {
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-lg);
+}
+
+.section__head {
+    margin-bottom: var(--space-2xl);
+}
+
+.section__lead {
+    color: var(--text-body);
 }

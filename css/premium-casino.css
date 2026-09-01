@@ -336,7 +336,10 @@ body.future-ui-ready::before {
 
 /* --- Stat cards: gold numbers --- */
 .stat-card__value {
-    color: var(--primary-light);
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     font-family: var(--font-display);
     font-weight: 600;
 }

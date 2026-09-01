@@ -76,13 +76,20 @@
   isolation: isolate;
 }
 
-#hero-root > section {
-  min-height: 100dvh;
-}
-
 #hero-root img[aria-hidden="true"] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
   object-fit: cover;
   object-position: center center;
+}
+
+#hero-root > section {
+  min-height: 100dvh;
+  min-height: 100svh;
 }
 
 .hero-3-root--no-nav header {

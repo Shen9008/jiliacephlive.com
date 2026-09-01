@@ -30,8 +30,8 @@
     --card-bg: rgba(20, 8, 10, 0.92);
     --card-bg-hover: rgba(32, 12, 16, 0.96);
     --text-primary: #faf7f2;
-    --text-secondary: #f0ebe3;
-    --text-muted: #e8e2d8;
+    --text-secondary: #faf7f2;
+    --text-muted: #f5f0ea;
 
     /* Primary accent — ruby red gradient */
     --primary: #e11d48;
@@ -50,6 +50,7 @@
 
     --gradient-primary: linear-gradient(135deg, #ff6b7a 0%, #e11d48 32%, #be123c 68%, #881337 100%);
     --gradient-gold-bright: linear-gradient(135deg, #ffe4e8 0%, #fb7185 35%, #e11d48 65%, #be123c 100%);
+    --gradient-text: linear-gradient(135deg, #ffc2cb 0%, #fb7185 35%, #f43f5e 65%, #e11d48 100%);
     --gradient-mesh:
         radial-gradient(ellipse 70% 55% at 15% -5%, rgb(var(--primary-rgb) / 0.22), transparent 52%),
         radial-gradient(ellipse 55% 45% at 92% 8%, rgb(var(--crimson-rgb) / 0.14), transparent 48%),
@@ -100,7 +101,7 @@
     --surface: rgba(20, 8, 10, 0.92);
     --border: rgba(225, 29, 72, 0.14);
     --text: #faf7f2;
-    --muted: #f0ebe3;
+    --muted: #faf7f2;
     --accent: #e11d48;
     --accent-strong: #be123c;
     --accent-muted: #fb7185;

@@ -10,9 +10,9 @@
     --section-pad-y: clamp(3.5rem, 8vw, 5.75rem);
     --section-gap: clamp(1.25rem, 3vw, 2rem);
     --content-gap: clamp(0.85rem, 2vw, 1.25rem);
-    --ink-soft: #f5f0e8;
-    --ink-muted: #eee8de;
-    --text-body: #f0ebe3;
+    --ink-soft: #faf7f2;
+    --ink-muted: #f5f0ea;
+    --text-body: #faf7f2;
     --surface-glass: rgba(12, 6, 8, 0.72);
     --surface-glass-border: rgb(var(--primary-rgb) / 0.22);
 }
@@ -101,11 +101,14 @@ h4,
 /* Eyebrow: one per section max, lighter cadence */
 .section__eyebrow {
     font-size: 0.8125rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: none;
-    color: var(--primary-light);
     margin-bottom: var(--space-sm);
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .section__eyebrow::before {
@@ -230,8 +233,8 @@ h4,
 
 .section--alt {
     background:
-        linear-gradient(180deg, rgba(212, 175, 55, 0.03) 0%, transparent 22%),
-        linear-gradient(180deg, transparent 78%, rgba(212, 175, 55, 0.02) 100%);
+        linear-gradient(180deg, rgb(var(--primary-rgb) / 0.06) 0%, transparent 22%),
+        linear-gradient(180deg, transparent 78%, rgb(var(--primary-rgb) / 0.04) 100%);
 }
 
 .section__head,
@@ -543,7 +546,10 @@ body:not([data-page="index"]) .hero-banner__frame {
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--primary-light);
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .showcase__row-title:first-child {
@@ -827,7 +833,7 @@ body.has-react-hero #main-content > .section:first-child {
     border-top: none;
 }
 
-/* --- Readability: brighter body copy on dark velvet --- */
+/* --- Readability & red gradient accents --- */
 .trust-card p,
 .listicle p,
 .step-card p,
@@ -843,15 +849,25 @@ body.has-react-hero #main-content > .section:first-child {
 .content-page p,
 .content-page li,
 .page-hero .lead,
-.hero__lead {
-    color: var(--ink-soft);
+.hero__lead,
+.footer-lead,
+.footer-disclosure,
+.footer-contact-hint,
+.footer-copy,
+.facts-list,
+.facts-list li,
+.facts-table td,
+.facts-panel p,
+.shell > p:not([class]),
+.section p:not([class]) {
+    color: var(--text-body);
 }
 
 .stat-card__label,
-.stat-card__hint,
 .game-card__meta,
 .facts-note,
-.showcase-note {
+.showcase-note,
+.footer-heading {
     color: var(--ink-muted);
 }
 
@@ -859,8 +875,45 @@ body.has-react-hero #main-content > .section:first-child {
     color: var(--text-primary);
 }
 
+.section__eyebrow,
+.showcase__row-title,
+.promo-affiliate__eyebrow,
+.trust-card__kicker,
+.stat-card__value,
+.stat-card__value--text {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
 .promo-affiliate__text a,
 .faq p a,
-.content-page a:not(.btn) {
-    color: var(--primary-light);
+.content-page a:not(.btn),
+.footer-disclosure a {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-decoration: underline;
+    text-decoration-color: rgb(var(--primary-rgb) / 0.45);
+}
+
+.content-page h2,
+.prose h2 {
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--content-gap);
+}
+
+.feature-card h3,
+.trust-card h3,
+.listicle h3,
+.step-card h3,
+.facts-panel h3 {
+    margin-top: 0;
+    margin-bottom: 0.65rem;
+}
+
+.showcase__row-title:first-of-type {
+    margin-top: var(--space-lg);
 }

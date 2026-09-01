@@ -98,10 +98,7 @@
         var topPromoP = skipTopPromo
             ? Promise.resolve('')
             : fetch(base + topPromoPath).then(function (r) { return r.ok ? r.text() : ''; });
-        var midPromoPath =
-            pageKey === 'index'
-                ? 'partials/promo-home-mid.html'
-                : 'partials/promo-affiliate-mid.html';
+        var midPromoPath = 'partials/promo-affiliate-mid.html';
         var midPromoP = fetch(base + midPromoPath).then(function (r) { return r.ok ? r.text() : ''; });
 
         Promise.all([headerP, footerP, bannerP, topPromoP, midPromoP])

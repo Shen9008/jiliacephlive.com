@@ -68,12 +68,16 @@ export function Hero3({
   return (
     <section className="dark bg-background text-foreground relative min-h-screen w-full overflow-hidden font-sans [&_h1]:drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] [&_p]:drop-shadow-[0_1px_8px_rgba(0,0,0,0.75)]">
       {backgroundImage && (
-        <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <img
             src={backgroundImage}
             alt=""
             aria-hidden="true"
-            className="pointer-events-none h-full w-full object-cover object-center brightness-40 select-none"
+            className="pointer-events-none absolute inset-0 h-full w-full min-h-full min-w-full object-cover object-center select-none"
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/45 to-black/85"
+            aria-hidden="true"
           />
         </div>
       )}
