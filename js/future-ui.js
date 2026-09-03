@@ -349,7 +349,7 @@
         markBound(el, 'roll');
 
         var mode =
-            el.classList.contains('hero__title') || el.closest('.blog-index-masthead') ? 'char' : 'word';
+            el.classList.contains('hero__title') || el.closest('.blog-index-masthead') ? 'char' : 'words';
 
         buildRollingHeading(el, text, mode);
 

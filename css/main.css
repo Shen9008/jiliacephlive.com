@@ -125,7 +125,7 @@
 }
 
 .nav__link.is-active:hover {
-    color: #f5e6a8;
+    color: #ffb3c0;
     background: rgb(var(--primary-rgb) / 0.22);
     transform: translateY(-2px);
     border-color: rgb(var(--primary-rgb) / 0.45);
@@ -1944,20 +1944,24 @@ body,
 .content-page a:not(.btn),
 .footer-disclosure a,
 .footer-nav a:hover {
-    background: var(--gradient-text);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: var(--accent-muted);
+    text-decoration: underline;
+    text-decoration-color: rgb(var(--primary-rgb) / 0.45);
+}
+
+.promo-affiliate__text a:hover,
+.faq p a:hover,
+.content-page a:not(.btn):hover,
+.footer-disclosure a:hover,
+.footer-nav a:hover {
+    color: var(--primary-light);
 }
 
 .promo-affiliate__eyebrow,
 .trust-card__kicker,
 .stat-card__value,
 .stat-card__value--text {
-    background: var(--gradient-text);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: var(--accent-muted);
 }
 
 .content-page h2,

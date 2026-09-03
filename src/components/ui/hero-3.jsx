@@ -67,16 +67,22 @@ export function Hero3({
 
   return (
     <section className="dark bg-background text-foreground relative min-h-screen w-full overflow-hidden font-sans [&_h1]:drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] [&_p]:drop-shadow-[0_1px_8px_rgba(0,0,0,0.75)]">
+      <div
+        className="absolute inset-0 z-0 overflow-hidden"
+        aria-hidden="true"
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_85%_65%_at_50%_-8%,rgba(225,29,72,0.28),transparent_58%),radial-gradient(ellipse_55%_45%_at_92%_18%,rgba(190,18,60,0.16),transparent_52%),linear-gradient(180deg,#180a0e_0%,#0c0608_100%)]" />
+      </div>
       {backgroundImage && (
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
             src={backgroundImage}
             alt=""
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 h-full w-full min-h-full min-w-full object-cover object-center select-none"
+            className="pointer-events-none absolute inset-0 h-full w-full min-h-full min-w-full object-cover object-[center_38%] select-none scale-[1.06]"
           />
           <div
-            className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/45 to-black/85"
+            className="absolute inset-0 bg-gradient-to-b from-black/78 via-black/52 to-black/88"
             aria-hidden="true"
           />
         </div>
@@ -94,10 +100,10 @@ export function Hero3({
             href="/"
             className="text-foreground flex items-center gap-2.5 text-2xl font-light tracking-tight sm:text-xl"
           >
-            <span className="text-primary flex items-center justify-center">
+            <span className="flex items-center justify-center text-rose-400">
               {logo || <LogoIcon className="size-8 text-white" />}
             </span>
-            <span>{logoText}</span>
+            <span className="text-white">{logoText}</span>
           </a>
 
           <nav className="hidden items-center gap-8 md:flex">
@@ -149,10 +155,10 @@ export function Hero3({
               className="text-foreground flex items-center gap-2.5 text-lg font-semibold tracking-tight"
               onClick={() => setMobileMenuOpen(false)}
             >
-              <span className="text-primary flex items-center justify-center">
+              <span className="flex items-center justify-center text-rose-400">
                 {logo || <LogoIcon className="size-8 fill-current" />}
               </span>
-              <span>{logoText}</span>
+              <span className="text-white">{logoText}</span>
             </a>
             <button
               onClick={() => setMobileMenuOpen(false)}
@@ -168,7 +174,7 @@ export function Hero3({
               <a
                 key={item.label}
                 href={item.href}
-                className="border-border/40 text-foreground hover:text-primary flex items-center justify-between border-b pb-3 text-lg font-medium transition-colors"
+                className="border-border/40 text-zinc-100 hover:text-rose-300 flex items-center justify-between border-b pb-3 text-lg font-medium transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <span>{item.label}</span>

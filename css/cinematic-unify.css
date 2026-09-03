@@ -105,10 +105,7 @@ h4,
     letter-spacing: 0.06em;
     text-transform: none;
     margin-bottom: var(--space-sm);
-    background: var(--gradient-text);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: var(--accent-muted);
 }
 
 .section__eyebrow::before {
@@ -546,10 +543,7 @@ body:not([data-page="index"]) .hero-banner__frame {
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    background: var(--gradient-text);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: var(--accent-muted);
 }
 
 .showcase__row-title:first-child {
@@ -674,8 +668,8 @@ body:not([data-page="index"]) .hero-banner__frame {
     border-left: none;
     padding: var(--space-md) var(--space-lg);
     border-radius: var(--radius-md);
-    background: rgba(212, 175, 55, 0.06);
-    border: 1px solid rgba(212, 175, 55, 0.14);
+    background: rgb(225 29 72 / 0.08);
+    border: 1px solid rgb(225 29 72 / 0.22);
     margin: var(--space-lg) 0;
     line-height: 1.65;
 }
@@ -783,7 +777,7 @@ body:not([data-page="index"]) .hero-banner__frame {
 /* --- Mobile drawer --- */
 .mobile-panel__drawer {
     background: rgba(10, 8, 6, 0.98);
-    border-right-color: rgba(212, 175, 55, 0.15);
+    border-right-color: rgb(225 29 72 / 0.2);
 }
 
 .mm__link:not(.mm__link--cta):hover {
@@ -875,28 +869,41 @@ body.has-react-hero #main-content > .section:first-child {
     color: var(--text-primary);
 }
 
+.stat-card__label,
+.game-card__meta,
+.facts-note,
+.showcase-note,
+.footer-heading {
+    color: var(--ink-muted);
+}
+
+.faq summary {
+    color: var(--text-primary);
+}
+
 .section__eyebrow,
 .showcase__row-title,
 .promo-affiliate__eyebrow,
 .trust-card__kicker,
 .stat-card__value,
 .stat-card__value--text {
-    background: var(--gradient-text);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: var(--accent-muted);
 }
 
 .promo-affiliate__text a,
 .faq p a,
 .content-page a:not(.btn),
 .footer-disclosure a {
-    background: var(--gradient-text);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: var(--accent-muted);
     text-decoration: underline;
     text-decoration-color: rgb(var(--primary-rgb) / 0.45);
+}
+
+.promo-affiliate__text a:hover,
+.faq p a:hover,
+.content-page a:not(.btn):hover,
+.footer-disclosure a:hover {
+    color: var(--primary-light);
 }
 
 .content-page h2,

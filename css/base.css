@@ -31,7 +31,7 @@ body {
     min-height: 100vh;
 }
 
-img {
+img:not(#hero-root img) {
     max-width: 100%;
     height: auto;
     display: block;
@@ -41,6 +41,10 @@ a {
     color: var(--primary-light);
     text-decoration-thickness: 1px;
     text-underline-offset: 3px;
+}
+
+body.has-react-hero #hero-root a {
+    color: inherit;
 }
 
 /* Don’t apply default link hover colour to `.btn` anchors — it overrides button labels */

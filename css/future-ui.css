@@ -152,10 +152,10 @@ body.future-ui-ready {
 }
 
 .section__title.roll-text .roll-text__slice {
-    background: linear-gradient(120deg, #fff 0%, #ffd6de 45%, #fff 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    color: var(--text-primary);
 }
 
 .section__eyebrow {

@@ -37,7 +37,7 @@ function mountHero() {
       primaryCtaHref={AFFILIATE}
       secondaryCtaText="Promotions guide"
       secondaryCtaHref="/promotions.html"
-      backgroundImage="/images/hero-banner/home.webp"
+      backgroundImage={null}
       stats={[
         { value: '500+', label: 'Casino titles' },
         { value: '24/7', label: 'Live tables' },

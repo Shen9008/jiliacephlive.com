@@ -2,7 +2,7 @@
 
 .showcase-note {
     font-size: 0.82rem;
-    color: var(--muted);
+    color: #f5f0ea;
     margin: 0 0 1.25rem;
     max-width: 40rem;
     line-height: 1.45;
@@ -211,7 +211,7 @@
 .game-card__meta {
     margin: 0;
     font-size: 0.78rem;
-    color: var(--muted);
+    color: #f5f0ea;
     line-height: 1.35;
 }
 

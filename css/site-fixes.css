@@ -1,0 +1,240 @@
+/*
+ * Final cascade overrides — hero layout, red accent, readable body copy.
+ * Loaded after showcase, animations, and (on home) React styles.
+ */
+
+/* --- Hero: full-bleed background (base.css img reset breaks layout without this) --- */
+body.has-react-hero #hero-root {
+    display: block;
+    width: 100%;
+    min-height: 100dvh;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+body.has-react-hero #hero-root > section {
+    position: relative;
+    min-height: 100dvh;
+    min-height: 100svh;
+    width: 100%;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse 85% 65% at 50% -8%, rgb(225 29 72 / 0.28), transparent 58%),
+        radial-gradient(ellipse 55% 45% at 92% 18%, rgb(190 18 60 / 0.16), transparent 52%),
+        linear-gradient(180deg, #180a0e 0%, #0c0608 100%);
+}
+
+body.has-react-hero #hero-root > section > div:first-of-type {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    overflow: hidden !important;
+}
+
+body.has-react-hero #hero-root img[aria-hidden],
+body.has-react-hero #hero-root img[aria-hidden="true"] {
+    position: absolute !important;
+    inset: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    max-width: none !important;
+    object-fit: cover !important;
+    object-position: center 38% !important;
+    transform: scale(1.06);
+    transform-origin: center center;
+    pointer-events: none !important;
+}
+
+body.has-react-hero #hero-root > section > div:first-of-type > div[aria-hidden="true"]:last-child,
+body.has-react-hero #hero-root > section > div:first-of-type > div:last-child {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+    background: linear-gradient(
+        180deg,
+        rgb(0 0 0 / 0.78) 0%,
+        rgb(0 0 0 / 0.52) 42%,
+        rgb(0 0 0 / 0.88) 100%
+    ) !important;
+}
+
+body.has-react-hero #hero-root header,
+body.has-react-hero #hero-root > section > .relative {
+    position: relative;
+    z-index: 10;
+}
+
+/* Hero links: don't inherit base.css gold/pink link colour */
+body.has-react-hero #hero-root a {
+    color: #f4f4f5;
+    text-decoration: none;
+}
+
+body.has-react-hero #hero-root nav a:hover,
+body.has-react-hero #hero-root nav a:focus-visible {
+    color: #fff;
+}
+
+body.has-react-hero #hero-root a.rounded-full,
+body.has-react-hero #hero-root a[class*="from-rose"],
+body.has-react-hero #hero-root .mt-auto a {
+    background: linear-gradient(135deg, #ff6b7a 0%, #e11d48 38%, #be123c 100%) !important;
+    color: #fff !important;
+    border: 1px solid rgb(225 29 72 / 0.45) !important;
+    border-radius: 999px !important;
+    box-shadow: 0 8px 28px rgb(190 18 60 / 0.35) !important;
+}
+
+body.has-react-hero #hero-root a.rounded-full:hover,
+body.has-react-hero #hero-root a[class*="from-rose"]:hover {
+    background: linear-gradient(135deg, #ff8a96 0%, #f43f5e 40%, #e11d48 100%) !important;
+    color: #fff !important;
+}
+
+body.has-react-hero #hero-root h1,
+body.has-react-hero #hero-root .text-foreground {
+    color: #faf7f2 !important;
+}
+
+body.has-react-hero #hero-root p,
+body.has-react-hero #hero-root .text-zinc-50,
+body.has-react-hero #hero-root .text-zinc-100 {
+    color: #f4f4f5 !important;
+}
+
+body.has-react-hero #hero-root .text-primary {
+    color: #fb7185 !important;
+}
+
+/* --- Red accent text (solid — gradient-clip is fragile / unreadable) --- */
+.section__eyebrow,
+.showcase__row-title,
+.promo-affiliate__eyebrow,
+.trust-card__kicker,
+.stat-card__value,
+.stat-card__value--text,
+.promo-affiliate__eyebrow,
+.trust-card__kicker {
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    color: #fb7185 !important;
+}
+
+.promo-affiliate__text a,
+.faq p a,
+.content-page a:not(.btn),
+.footer-disclosure a,
+.footer-nav a:hover,
+.showcase-note strong {
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    color: #fb7185 !important;
+    text-decoration-color: rgb(225 29 72 / 0.55);
+}
+
+.promo-affiliate__text a:hover,
+.faq p a:hover,
+.content-page a:not(.btn):hover,
+.footer-disclosure a:hover {
+    color: #ff8a9b !important;
+}
+
+/* --- Readable body copy (wins over showcase.css load order) --- */
+.showcase-note,
+.game-card__meta,
+.cat-tile__hint,
+.live-cat-card__body p,
+.promo-pair-card p,
+.stat-card__label,
+.facts-note,
+.section__lead,
+.facts-list,
+.facts-list li,
+.footer-heading,
+.footer-lead,
+.footer-disclosure,
+.footer-contact-hint,
+.footer-copy,
+.chip--ghost,
+.provider-logo:not(.provider-logo--jili):not(.provider-logo--live) {
+    color: #f5f0ea !important;
+}
+
+.section__title,
+.game-card__title,
+.feature-card h3,
+.trust-card h3,
+.listicle h3,
+.step-card h3,
+.faq summary,
+.cta-strip h2,
+.promo-affiliate__title,
+.footer-brand,
+.facts-panel h3 {
+    color: #faf7f2 !important;
+}
+
+/* --- Heading rhythm --- */
+.section__head {
+    margin-bottom: clamp(2rem, 4vw, 3rem) !important;
+}
+
+.section__title {
+    margin: 0 0 clamp(0.85rem, 2vw, 1.25rem) !important;
+}
+
+.showcase__row-title {
+    margin-top: clamp(2rem, 4vw, 3rem) !important;
+    margin-bottom: clamp(0.85rem, 2vw, 1.25rem) !important;
+}
+
+.showcase__row-title:first-child,
+.showcase__row-title:first-of-type {
+    margin-top: clamp(1rem, 2.5vw, 1.5rem) !important;
+}
+
+.content-page h2,
+.prose h2 {
+    margin-top: clamp(2rem, 4vw, 3rem) !important;
+    margin-bottom: clamp(0.75rem, 2vw, 1rem) !important;
+}
+
+.feature-card h3,
+.trust-card h3,
+.listicle h3,
+.step-card h3,
+.game-card__title {
+    margin-bottom: 0.65rem !important;
+}
+
+.section__title.roll-text .roll-text__slice {
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    color: #faf7f2 !important;
+}
+
+.roll-text--words .roll-text__unit {
+    margin-right: 0.28em;
+}
+
+.roll-text--words .roll-text__unit:last-child {
+    margin-right: 0;
+}
+
+/* --- Remaining gold tokens --- */
+.nav__link.is-active:hover {
+    color: #ffb3c0 !important;
+}
+
+.hero__note,
+.prose-ref {
+    background: rgb(225 29 72 / 0.08) !important;
+    border-color: rgb(225 29 72 / 0.22) !important;
+}
