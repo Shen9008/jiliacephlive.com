@@ -3,7 +3,7 @@
  * Loaded after showcase, animations, and (on home) React styles.
  */
 
-/* --- Hero: full-bleed background (base.css img reset breaks layout without this) --- */
+/* --- Hero: full-bleed background + centered content --- */
 body.has-react-hero #hero-root {
     display: block;
     width: 100%;
@@ -19,12 +19,16 @@ body.has-react-hero #hero-root > section {
     min-height: 100svh;
     width: 100%;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
     background:
         radial-gradient(ellipse 85% 65% at 50% -8%, rgb(225 29 72 / 0.28), transparent 58%),
         radial-gradient(ellipse 55% 45% at 92% 18%, rgb(190 18 60 / 0.16), transparent 52%),
         linear-gradient(180deg, #180a0e 0%, #0c0608 100%);
 }
 
+/* Background layers sit behind everything */
+body.has-react-hero #hero-root > section > div[class*="absolute"][class*="inset-0"],
 body.has-react-hero #hero-root > section > div:first-of-type {
     position: absolute !important;
     inset: 0 !important;
@@ -43,29 +47,83 @@ body.has-react-hero #hero-root img[aria-hidden="true"] {
     min-height: 100% !important;
     max-width: none !important;
     object-fit: cover !important;
-    object-position: center 38% !important;
-    transform: scale(1.06);
+    object-position: center center !important;
+    transform: scale(1.08);
     transform-origin: center center;
     pointer-events: none !important;
 }
 
-body.has-react-hero #hero-root > section > div:first-of-type > div[aria-hidden="true"]:last-child,
-body.has-react-hero #hero-root > section > div:first-of-type > div:last-child {
+body.has-react-hero #hero-root > section > div > div[class*="gradient"],
+body.has-react-hero #hero-root > section > div:nth-of-type(2) > div:last-child {
     position: absolute !important;
     inset: 0 !important;
     z-index: 1 !important;
     background: linear-gradient(
         180deg,
-        rgb(0 0 0 / 0.78) 0%,
-        rgb(0 0 0 / 0.52) 42%,
-        rgb(0 0 0 / 0.88) 100%
+        rgb(0 0 0 / 0.72) 0%,
+        rgb(0 0 0 / 0.48) 45%,
+        rgb(0 0 0 / 0.82) 100%
     ) !important;
 }
 
-body.has-react-hero #hero-root header,
+body.has-react-hero #hero-root header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 30;
+    width: 100%;
+}
+
 body.has-react-hero #hero-root > section > .relative {
     position: relative;
     z-index: 10;
+    flex: 1;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding: clamp(7rem, 18vw, 11rem) clamp(1.25rem, 4vw, 5rem) clamp(2.5rem, 6vw, 3rem);
+    box-sizing: border-box;
+    text-align: center !important;
+}
+
+body.has-react-hero #hero-root > section > .relative > div:first-child {
+    flex: 1;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100%;
+    text-align: center !important;
+}
+
+body.has-react-hero #hero-root > section > .relative > div:first-child > div {
+    width: 100%;
+    max-width: 56rem;
+    margin-inline: auto;
+    text-align: center !important;
+}
+
+body.has-react-hero #hero-root h1 {
+    text-align: center !important;
+    margin-inline: auto;
+}
+
+body.has-react-hero #hero-root h1 span {
+    display: block;
+    text-align: center !important;
+}
+
+body.has-react-hero #hero-root > section > .relative > div:last-child {
+    width: 100%;
+}
+
+body.has-react-hero #hero-root > section > .relative > div:first-child > div > div[class*="flex"] {
+    justify-content: center !important;
 }
 
 /* Hero links: don't inherit base.css gold/pink link colour */
@@ -80,34 +138,34 @@ body.has-react-hero #hero-root nav a:focus-visible {
 }
 
 body.has-react-hero #hero-root a.rounded-full,
-body.has-react-hero #hero-root a[class*="from-rose"],
+body.has-react-hero #hero-root header a[target="_blank"],
 body.has-react-hero #hero-root .mt-auto a {
-    background: linear-gradient(135deg, #ff6b7a 0%, #e11d48 38%, #be123c 100%) !important;
+    background: #c81e3a !important;
     color: #fff !important;
-    border: 1px solid rgb(225 29 72 / 0.45) !important;
+    border: none !important;
     border-radius: 999px !important;
-    box-shadow: 0 8px 28px rgb(190 18 60 / 0.35) !important;
+    box-shadow: none !important;
 }
 
 body.has-react-hero #hero-root a.rounded-full:hover,
-body.has-react-hero #hero-root a[class*="from-rose"]:hover {
-    background: linear-gradient(135deg, #ff8a96 0%, #f43f5e 40%, #e11d48 100%) !important;
+body.has-react-hero #hero-root header a[target="_blank"]:hover {
+    background: #d42a46 !important;
     color: #fff !important;
 }
 
 body.has-react-hero #hero-root h1,
 body.has-react-hero #hero-root .text-foreground {
-    color: #faf7f2 !important;
+    color: #f4efe8 !important;
 }
 
 body.has-react-hero #hero-root p,
 body.has-react-hero #hero-root .text-zinc-50,
 body.has-react-hero #hero-root .text-zinc-100 {
-    color: #f4f4f5 !important;
+    color: #ebe4db !important;
 }
 
 body.has-react-hero #hero-root .text-primary {
-    color: #fb7185 !important;
+    color: #e8a0a8 !important;
 }
 
 /* --- Red accent text (solid — gradient-clip is fragile / unreadable) --- */
@@ -122,7 +180,7 @@ body.has-react-hero #hero-root .text-primary {
     background: none !important;
     -webkit-background-clip: unset !important;
     background-clip: unset !important;
-    color: #fb7185 !important;
+    color: #e8a0a8 !important;
 }
 
 .promo-affiliate__text a,
@@ -134,15 +192,15 @@ body.has-react-hero #hero-root .text-primary {
     background: none !important;
     -webkit-background-clip: unset !important;
     background-clip: unset !important;
-    color: #fb7185 !important;
-    text-decoration-color: rgb(225 29 72 / 0.55);
+    color: #e8a0a8 !important;
+    text-decoration-color: rgb(200 30 58 / 0.55);
 }
 
 .promo-affiliate__text a:hover,
 .faq p a:hover,
 .content-page a:not(.btn):hover,
 .footer-disclosure a:hover {
-    color: #ff8a9b !important;
+    color: #f4efe8 !important;
 }
 
 /* --- Readable body copy (wins over showcase.css load order) --- */
@@ -163,7 +221,7 @@ body.has-react-hero #hero-root .text-primary {
 .footer-copy,
 .chip--ghost,
 .provider-logo:not(.provider-logo--jili):not(.provider-logo--live) {
-    color: #f5f0ea !important;
+    color: #ebe4db !important;
 }
 
 .section__title,
@@ -177,7 +235,7 @@ body.has-react-hero #hero-root .text-primary {
 .promo-affiliate__title,
 .footer-brand,
 .facts-panel h3 {
-    color: #faf7f2 !important;
+    color: #f4efe8 !important;
 }
 
 /* --- Heading rhythm --- */
@@ -235,6 +293,63 @@ body.has-react-hero #hero-root .text-primary {
 
 .hero__note,
 .prose-ref {
-    background: rgb(225 29 72 / 0.08) !important;
-    border-color: rgb(225 29 72 / 0.22) !important;
+    background: rgb(200 30 58 / 0.08) !important;
+    border-color: rgb(200 30 58 / 0.22) !important;
+}
+
+.footer-legal {
+    margin: 0 0 2rem;
+    padding: 1.15rem 1.25rem;
+    border: 1px solid rgb(255 255 255 / 0.12);
+    border-radius: 10px;
+    background: #16100f;
+}
+
+.footer-legal .footer-18,
+.footer-18 {
+    margin: 0;
+    padding: 0;
+    border: none;
+    color: #f4efe8 !important;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+}
+
+.site-footer {
+    background: #16100f;
+    border-top: 1px solid rgb(255 255 255 / 0.08);
+}
+
+.skip-link {
+    color: #fff;
+}
+
+.skip-link:focus {
+    background: #c81e3a;
+    color: #fff;
+}
+
+.mobile-panel__drawer {
+    background: #0b0708;
+    border-right: 1px solid rgb(255 255 255 / 0.08);
+}
+
+.mm__link {
+    min-height: 44px;
+}
+
+.mm__link--cta {
+    background: #c81e3a !important;
+    box-shadow: none;
+}
+
+body.has-react-hero #hero-root header img {
+    position: static !important;
+    width: auto !important;
+    height: 2.5rem !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    max-width: 168px !important;
+    object-fit: contain !important;
+    transform: none !important;
 }

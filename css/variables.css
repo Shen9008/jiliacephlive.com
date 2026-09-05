@@ -1,115 +1,140 @@
-/* Design tokens — Crimson Velvet: deep black-red + ruby gradient */
+/* JiliAce PH Live — token spine
+   Ink field, ruby accent (spade ring), brass reserved for wordmark / Ace index. */
 
 :root {
-    /* Spacing */
+    /* Primitives */
+    --ink: #0b0708;
+    --raised: #16100f;
+    --ivory: #f4efe8;
+    --ruby: #c81e3a;
+    --rose: #e8a0a8;
+    --brass: #c4a574;
+
+    --ink-rgb: 11 7 8;
+    --raised-rgb: 22 16 15;
+    --ivory-rgb: 244 239 232;
+    --ruby-rgb: 200 30 58;
+    --rose-rgb: 232 160 168;
+    --brass-rgb: 196 165 116;
+
+    /* Spacing — 8pt */
     --space-xs: 0.25rem;
     --space-sm: 0.5rem;
     --space-md: 1rem;
     --space-lg: 1.5rem;
     --space-xl: 2rem;
     --space-2xl: 3rem;
-    --space-3xl: 4.5rem;
+    --space-3xl: 4rem;
     --space-4xl: 6rem;
 
-    /* Typography */
+    /* Type */
     --font-primary: "Jost", system-ui, -apple-system, sans-serif;
     --font-heading: "Bodoni Moda", Georgia, "Times New Roman", serif;
     --font-display: "Bodoni Moda", Georgia, "Times New Roman", serif;
+    --font-utility: "Jost", system-ui, sans-serif;
     --tracking-tight: -0.02em;
-    --tracking-wide: 0.1em;
+    --tracking-wide: 0.08em;
 
-    /* Radius — soft luxury corners */
-    --radius-sm: 10px;
-    --radius-md: 14px;
-    --radius-lg: 18px;
-    --radius-xl: 24px;
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.375rem;
+    --text-2xl: 1.75rem;
+    --text-3xl: 2.25rem;
+    --text-4xl: 3rem;
+    --text-5xl: 4rem;
+
+    /* Radius */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-xl: 20px;
 
     /* Surfaces & text */
-    --dark-bg: #0c0608;
-    --darker-bg: #060304;
-    --card-bg: rgba(20, 8, 10, 0.92);
-    --card-bg-hover: rgba(32, 12, 16, 0.96);
-    --text-primary: #faf7f2;
-    --text-secondary: #faf7f2;
-    --text-muted: #f5f0ea;
+    --dark-bg: var(--ink);
+    --darker-bg: #080506;
+    --card-bg: rgb(22 16 15 / 0.94);
+    --card-bg-hover: rgb(28 20 19 / 0.96);
+    --text-primary: var(--ivory);
+    --text-secondary: #ebe4db;
+    --text-muted: #ebe4db;
+    --text-body: #ebe4db;
 
-    /* Primary accent — ruby red gradient */
-    --primary: #e11d48;
-    --primary-light: #fb7185;
-    --primary-rgb: 225 29 72;
-    --border-color: rgba(225, 29, 72, 0.15);
+    /* Accent — ruby */
+    --primary: var(--ruby);
+    --primary-light: var(--rose);
+    --primary-rgb: var(--ruby-rgb);
+    --border-color: rgb(var(--ruby-rgb) / 0.18);
 
-    /* Secondary glow — warm rose highlight */
-    --neon-cyan: #ff8a9b;
-    --neon-cyan-dim: rgba(255, 138, 155, 0.14);
-    --neon-cyan-rgb: 255 138 155;
+    --neon-cyan: var(--rose);
+    --neon-cyan-dim: rgb(var(--rose-rgb) / 0.14);
+    --neon-cyan-rgb: var(--rose-rgb);
 
-    /* Deep crimson (badges, hot labels) */
-    --crimson: #be123c;
-    --crimson-rgb: 190 18 60;
+    --crimson: #9f1233;
+    --crimson-rgb: 159 18 51;
 
-    --gradient-primary: linear-gradient(135deg, #ff6b7a 0%, #e11d48 32%, #be123c 68%, #881337 100%);
-    --gradient-gold-bright: linear-gradient(135deg, #ffe4e8 0%, #fb7185 35%, #e11d48 65%, #be123c 100%);
-    --gradient-text: linear-gradient(135deg, #ffc2cb 0%, #fb7185 35%, #f43f5e 65%, #e11d48 100%);
+    --gradient-primary: linear-gradient(180deg, #d42a46 0%, var(--ruby) 55%, #9f1233 100%);
+    --gradient-gold-bright: var(--gradient-primary);
+    --gradient-text: none;
     --gradient-mesh:
-        radial-gradient(ellipse 70% 55% at 15% -5%, rgb(var(--primary-rgb) / 0.22), transparent 52%),
-        radial-gradient(ellipse 55% 45% at 92% 8%, rgb(var(--crimson-rgb) / 0.14), transparent 48%),
-        radial-gradient(ellipse 40% 35% at 50% 100%, rgb(var(--primary-rgb) / 0.1), transparent 55%),
-        linear-gradient(180deg, #14080c 0%, #0c0608 100%);
+        radial-gradient(ellipse 70% 55% at 15% -5%, rgb(var(--ruby-rgb) / 0.16), transparent 52%),
+        radial-gradient(ellipse 55% 45% at 92% 8%, rgb(var(--crimson-rgb) / 0.1), transparent 48%),
+        linear-gradient(180deg, #120c0d 0%, var(--ink) 100%);
 
-    --shadow-sm: 0 4px 24px rgb(0 0 0 / 0.45);
-    --shadow-md: 0 24px 64px rgb(0 0 0 / 0.6);
-    --shadow-glow-primary: 0 0 48px rgb(var(--primary-rgb) / 0.32), 0 12px 36px rgb(0 0 0 / 0.45);
-    --shadow-glow-cyan: 0 0 36px rgb(var(--neon-cyan-rgb) / 0.2);
+    --shadow-sm: 0 4px 20px rgb(0 0 0 / 0.4);
+    --shadow-md: 0 18px 48px rgb(0 0 0 / 0.5);
+    --shadow-glow-primary: 0 8px 28px rgb(var(--ruby-rgb) / 0.22);
+    --shadow-glow-cyan: 0 0 24px rgb(var(--rose-rgb) / 0.12);
 
-    --glass-bg: rgba(16, 6, 8, 0.72);
-    --glass-border: rgba(225, 29, 72, 0.16);
-    --glass-blur: 20px;
+    --glass-bg: rgb(11 7 8 / 0.78);
+    --glass-border: rgb(255 255 255 / 0.08);
+    --glass-blur: 16px;
 
-    --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-base: 0.32s cubic-bezier(0.16, 1, 0.3, 1);
-    --transition-spring: 0.48s cubic-bezier(0.34, 1.56, 0.64, 1);
+    --transition-fast: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-spring: 0.28s cubic-bezier(0.22, 1, 0.36, 1);
 
     /* Main nav */
-    --nav-bg: rgba(10, 4, 6, 0.82);
-    --nav-border: rgb(225 29 72 / 0.12);
-    --nav-link: rgb(248 244 236 / 0.92);
-    --nav-link-hover: #fff5f5;
-    --nav-active-pill-bg: rgb(var(--primary-rgb) / 0.14);
-    --nav-active-pill-border: rgb(var(--primary-rgb) / 0.42);
+    --nav-bg: rgb(11 7 8 / 0.88);
+    --nav-border: rgb(255 255 255 / 0.08);
+    --nav-link: rgb(244 239 232 / 0.92);
+    --nav-link-hover: var(--ivory);
+    --nav-active-pill-bg: rgb(var(--ruby-rgb) / 0.12);
+    --nav-active-pill-border: rgb(var(--ruby-rgb) / 0.4);
     --nav-cta-text: #fff;
-    --nav-cta-bg: var(--gradient-primary);
+    --nav-cta-bg: var(--ruby);
 
     /* Layout */
     --container-max-width: 1200px;
     --hero-banner-max: min(96vw, 1400px);
 
     /* Buttons */
-    --btn-padding-y: 0.88rem;
-    --btn-padding-x: 1.45rem;
+    --btn-padding-y: 0.85rem;
+    --btn-padding-x: 1.4rem;
     --btn-font-size: 0.875rem;
     --btn-padding-y-sm: 0.55rem;
     --btn-padding-x-sm: 1rem;
     --btn-font-size-sm: 0.8125rem;
-    --btn-padding-y-lg: 1.05rem;
-    --btn-padding-x-lg: 1.65rem;
+    --btn-padding-y-lg: 1rem;
+    --btn-padding-x-lg: 1.6rem;
     --btn-font-size-lg: 0.9375rem;
 
     /* Semantic aliases */
-    --bg: #0c0608;
-    --bg-elev: #14080c;
-    --surface: rgba(20, 8, 10, 0.92);
-    --border: rgba(225, 29, 72, 0.14);
-    --text: #faf7f2;
-    --muted: #faf7f2;
-    --accent: #e11d48;
-    --accent-strong: #be123c;
-    --accent-muted: #fb7185;
-    --accent-dim: rgba(225, 29, 72, 0.14);
-    --gold: #e11d48;
-    --gold-dim: rgba(225, 29, 72, 0.1);
-    --danger: #f43f5e;
-    --radius: 14px;
+    --bg: var(--ink);
+    --bg-elev: var(--raised);
+    --surface: rgb(22 16 15 / 0.94);
+    --border: rgb(255 255 255 / 0.08);
+    --text: var(--ivory);
+    --muted: #ebe4db;
+    --accent: var(--ruby);
+    --accent-strong: #9f1233;
+    --accent-muted: var(--rose);
+    --accent-dim: rgb(var(--ruby-rgb) / 0.12);
+    --gold: var(--brass);
+    --gold-dim: rgb(var(--brass-rgb) / 0.14);
+    --danger: var(--ruby);
+    --radius: 10px;
     --shadow: var(--shadow-md);
     --font: var(--font-primary);
     --max: 1200px;

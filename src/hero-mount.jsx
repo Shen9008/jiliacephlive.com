@@ -1,18 +1,19 @@
 import { createRoot } from 'react-dom/client';
 
 import { Hero3 } from '@/components/ui/hero-3';
-import LogoIcon from '@/assets/logo-icon';
 import '@/index.css';
 
 const AFFILIATE =
   'https://reffpa.com/L?tag=d_5503298m_1236c_&site=5503298&ad=1236';
 
 const navItems = [
+  { label: 'Home', href: '/index.html' },
   { label: 'Slots', href: '/slots.html' },
   { label: 'Live casino', href: '/live-casino.html' },
   { label: 'Promotions', href: '/promotions.html' },
   { label: 'Player guide', href: '/player-guide.html' },
   { label: 'Blog', href: '/blog/' },
+  { label: 'Responsible play', href: '/responsible-gambling.html' },
 ];
 
 function mountHero() {
@@ -24,8 +25,18 @@ function mountHero() {
 
   createRoot(rootEl).render(
     <Hero3
-      logo={<LogoIcon className="size-8 rounded-sm object-contain" />}
-      logoText="JiliAce PH"
+      logo={
+        <img
+          src="/images/logo.png"
+          alt="JiliAce"
+          width={240}
+          height={96}
+          className="h-10 w-auto max-w-[168px] object-contain object-left"
+          decoding="async"
+          fetchPriority="high"
+        />
+      }
+      logoText=""
       navItems={navItems}
       signInText="Play now"
       signInHref={AFFILIATE}
@@ -37,7 +48,10 @@ function mountHero() {
       primaryCtaHref={AFFILIATE}
       secondaryCtaText="Promotions guide"
       secondaryCtaHref="/promotions.html"
-      backgroundImage={null}
+      backgroundImage="/images/hero-banner/home.webp"
+      complianceText="18+ only · Curaçao OGL/2024/1262/0493"
+      complianceLinkText="verify at cert.cga.cw"
+      complianceHref="https://cert.cga.cw/"
       stats={[
         { value: '500+', label: 'Casino titles' },
         { value: '24/7', label: 'Live tables' },

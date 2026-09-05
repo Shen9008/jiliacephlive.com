@@ -22,6 +22,7 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --font-sans: "Jost", system-ui, sans-serif;
+  --font-display: "Bodoni Moda", Georgia, "Times New Roman", serif;
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
@@ -31,40 +32,44 @@
 }
 
 :root {
-  --background: oklch(0.11 0.035 15);
-  --foreground: oklch(0.97 0.01 85);
-  --primary: oklch(0.58 0.22 18);
-  --primary-foreground: oklch(0.99 0.01 85);
-  --secondary: oklch(0.2 0.04 18);
-  --secondary-foreground: oklch(0.95 0.01 85);
-  --muted: oklch(0.22 0.03 18);
-  --muted-foreground: oklch(0.93 0.012 85);
-  --accent: oklch(0.32 0.08 18);
-  --accent-foreground: oklch(0.97 0.01 85);
-  --border: oklch(0.38 0.08 18 / 0.32);
-  --ring: oklch(0.62 0.2 18);
-  --radius: 0.875rem;
-  --card: oklch(0.14 0.04 18);
-  --card-foreground: oklch(0.97 0.01 85);
-  --popover: oklch(0.12 0.04 18);
-  --popover-foreground: oklch(0.97 0.01 85);
-  --destructive: oklch(0.55 0.22 18);
-  --input: oklch(0.22 0.04 18);
+  --ivory: #f4efe8;
+  --ruby: #c81e3a;
+  --rose: #e8a0a8;
+  --ink: #0b0708;
+  --background: #0b0708;
+  --foreground: #f4efe8;
+  --primary: #c81e3a;
+  --primary-foreground: #fff;
+  --secondary: #16100f;
+  --secondary-foreground: #f4efe8;
+  --muted: #16100f;
+  --muted-foreground: #ebe4db;
+  --accent: #16100f;
+  --accent-foreground: #f4efe8;
+  --border: rgb(255 255 255 / 0.1);
+  --ring: #e8a0a8;
+  --radius: 0.625rem;
+  --card: #16100f;
+  --card-foreground: #f4efe8;
+  --popover: #0b0708;
+  --popover-foreground: #f4efe8;
+  --destructive: #c81e3a;
+  --input: #16100f;
 }
 
 .dark {
-  --background: oklch(0.12 0.04 18);
-  --foreground: oklch(0.97 0.01 85);
-  --primary: oklch(0.62 0.22 18);
-  --primary-foreground: oklch(0.99 0.01 85);
-  --secondary: oklch(0.22 0.05 18);
-  --secondary-foreground: oklch(0.95 0.01 85);
-  --muted: oklch(0.22 0.04 18);
-  --muted-foreground: oklch(0.93 0.012 85);
-  --accent: oklch(0.32 0.08 18);
-  --accent-foreground: oklch(0.97 0.01 85);
-  --border: oklch(0.38 0.08 18 / 0.38);
-  --ring: oklch(0.62 0.2 18);
+  --background: #0b0708;
+  --foreground: #f4efe8;
+  --primary: #c81e3a;
+  --primary-foreground: #fff;
+  --secondary: #16100f;
+  --secondary-foreground: #f4efe8;
+  --muted: #16100f;
+  --muted-foreground: #ebe4db;
+  --accent: #16100f;
+  --accent-foreground: #f4efe8;
+  --border: rgb(255 255 255 / 0.1);
+  --ring: #e8a0a8;
 }
 
 #hero-root {
@@ -87,9 +92,46 @@
   object-position: center center;
 }
 
+#hero-root header img:not([aria-hidden="true"]) {
+  position: static;
+  width: auto;
+  height: 2.5rem;
+  min-width: 0;
+  min-height: 0;
+  object-fit: contain;
+}
+
 #hero-root > section {
   min-height: 100dvh;
   min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+#hero-root > section > .relative {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+}
+
+#hero-root > section > .relative > div:first-child {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+
+#hero-root h1,
+#hero-root h1 span {
+  text-align: center;
 }
 
 .hero-3-root--no-nav header {

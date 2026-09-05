@@ -106,8 +106,8 @@ h4 {
     position: absolute;
     left: -9999px;
     top: 0;
-    background: var(--primary);
-    color: #1a1508;
+    background: var(--ruby);
+    color: #fff;
     padding: var(--space-sm) var(--space-md);
     z-index: 100;
     font-weight: 600;

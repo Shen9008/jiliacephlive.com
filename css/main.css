@@ -1991,3 +1991,30 @@ body,
 .section__lead {
     color: var(--text-body);
 }
+
+/* Chrome — tokens + compliance desk (wins over earlier footer-18) */
+.footer-legal {
+    margin: 0 0 var(--space-2xl);
+    padding: 1.15rem 1.25rem;
+    border: 1px solid rgb(255 255 255 / 0.12);
+    border-radius: var(--radius-md);
+    background: var(--raised);
+}
+
+.footer-legal .footer-18 {
+    margin: 0;
+    padding: 0;
+    border: none;
+    color: var(--ivory);
+    font-size: 0.9375rem;
+    line-height: 1.65;
+}
+
+.nav__link:not(.nav__link--cta) {
+    min-height: 44px;
+}
+
+.nav__link--cta,
+.mm__link--cta {
+    min-height: 44px;
+}

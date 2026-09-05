@@ -1,77 +1,85 @@
-
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import {
-  FaChevronDown,
-  FaArrowRight,
-  FaArrowDown,
-  FaBars,
-  FaXmark,
-} from 'react-icons/fa6';
-import LogoIcon from '@/assets/logo-icon';
+import { useEffect, useId, useState } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
+import { FaArrowRight, FaArrowDown, FaBars, FaXmark } from 'react-icons/fa6';
 
 const container = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      delayChildren: 0.12,
-      staggerChildren: 0.1,
+      delayChildren: 0.1,
+      staggerChildren: 0.08,
     },
   },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 18, filter: "blur(10px)" },
+  hidden: { opacity: 0, y: 16, filter: 'blur(8px)' },
   visible: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
-    transition: { type: "spring", duration: 0.65, bounce: 0 },
+    filter: 'blur(0px)',
+    transition: { type: 'spring', duration: 0.55, bounce: 0 },
   },
+};
+
+const itemStatic = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.01 } },
 };
 
 export function Hero3({
   logo,
-  logoText = 'Watermelon',
+  logoText = 'JiliAce PH',
 
-  navItems = [
-    { label: 'Solutions', href: '#', hasDropdown: true },
-    { label: 'Technology', href: '#', hasDropdown: true },
-    { label: 'Documentation', href: '#' },
-    { label: 'Community', href: '#' },
-  ],
+  navItems = [],
 
-  signInText = 'Sign in',
+  signInText = 'Play now',
   signInHref = '#',
-  tagline = 'Quantum-powered. Designed for scale.',
-  titleLine1 = 'Unleashing Potential',
-  titleLine2 = 'Across The Cosmos.',
-  description = 'We engineer decentralized infrastructure and quantum applications that accelerate compute speeds and unlock next-generation solutions.',
-  primaryCtaText = 'Explore Platform',
+  tagline = '',
+  titleLine1 = '',
+  titleLine2 = '',
+  description = '',
+  primaryCtaText = 'Play now',
   primaryCtaHref = '#',
-  secondaryCtaText = 'Request Access',
+  secondaryCtaText = '',
   secondaryCtaHref = '#',
-  backgroundImage = 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920',
+  backgroundImage = '',
 
-  stats = [
-    { value: '250+', label: 'Nodes Deployed' },
-    { value: '1.2B', label: 'Queries Processed' },
-    { value: '99.9%', label: 'Uptime Guaranteed' },
-  ],
+  complianceText = '',
+  complianceLinkText = '',
+  complianceHref = '',
 
-  scrollText = 'Scroll to Discover',
-  scrollHref = '#'
+  stats = [],
+
+  scrollText = 'Explore the guide',
+  scrollHref = '#',
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const reduceMotion = useReducedMotion();
+  const menuId = useId();
+  const variants = reduceMotion ? { hidden: {}, visible: {} } : container;
+  const child = reduceMotion ? itemStatic : item;
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return undefined;
+
+    function onKey(e) {
+      if (e.key === 'Escape') setMobileMenuOpen(false);
+    }
+
+    document.addEventListener('keydown', onKey);
+    document.body.classList.add('mobile-nav-open');
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.classList.remove('mobile-nav-open');
+    };
+  }, [mobileMenuOpen]);
 
   return (
-    <section className="dark bg-background text-foreground relative min-h-screen w-full overflow-hidden font-sans [&_h1]:drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] [&_p]:drop-shadow-[0_1px_8px_rgba(0,0,0,0.75)]">
-      <div
-        className="absolute inset-0 z-0 overflow-hidden"
-        aria-hidden="true"
-      >
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_85%_65%_at_50%_-8%,rgba(225,29,72,0.28),transparent_58%),radial-gradient(ellipse_55%_45%_at_92%_18%,rgba(190,18,60,0.16),transparent_52%),linear-gradient(180deg,#180a0e_0%,#0c0608_100%)]" />
+    <section className="hero-3-root dark bg-background text-foreground relative min-h-screen w-full overflow-hidden font-sans">
+      <div className="absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-8%,rgba(200,30,58,0.2),transparent_58%),linear-gradient(180deg,#120c0d_0%,#0b0708_100%)]" />
       </div>
       {backgroundImage && (
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -79,63 +87,62 @@ export function Hero3({
             src={backgroundImage}
             alt=""
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 h-full w-full min-h-full min-w-full object-cover object-[center_38%] select-none scale-[1.06]"
+            className="pointer-events-none absolute inset-0 h-full w-full min-h-full min-w-full object-cover object-center select-none"
           />
           <div
-            className="absolute inset-0 bg-gradient-to-b from-black/78 via-black/52 to-black/88"
+            className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/58 to-[#0b0708]/94"
             aria-hidden="true"
           />
         </div>
       )}
 
       <motion.header
-        initial={{ opacity: 0, y: -14, filter: "blur(8px)" }}
-        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-        viewport={{ once: true, amount: 0.6 }}
-        transition={{ type: "spring", duration: 0.6, bounce: 0 }}
-        className="absolute top-0 left-0 z-30 w-full"
+        initial={reduceMotion ? false : { opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+        className="absolute top-0 left-0 z-30 w-full border-b border-white/8 bg-[#0b0708]/70 backdrop-blur-xl"
       >
-        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-6 sm:px-10 md:px-16 lg:px-20">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-5 py-3 sm:px-8 lg:px-12">
           <a
             href="/"
-            className="text-foreground flex items-center gap-2.5 text-2xl font-light tracking-tight sm:text-xl"
+            className="text-foreground flex min-h-11 items-center gap-2.5 text-lg font-medium tracking-tight"
           >
-            <span className="flex items-center justify-center text-rose-400">
-              {logo || <LogoIcon className="size-8 text-white" />}
-            </span>
-            <span className="text-white">{logoText}</span>
+            {logo}
+            {logoText ? <span className="sr-only sm:not-sr-only text-[var(--ivory,#f4efe8)]">{logoText}</span> : null}
           </a>
 
-          <nav className="hidden items-center gap-8 md:flex">
-            {navItems.map((item) => (
+          <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Main">
+            {navItems.map((navItem) => (
               <a
-                key={item.label}
-                href={item.href}
-                className="group text-zinc-100 hover:text-white flex items-center gap-1.5 text-sm font-medium transition-colors duration-200"
+                key={navItem.label}
+                href={navItem.href}
+                className="text-[var(--ivory,#f4efe8)] hover:bg-white/5 inline-flex min-h-11 items-center rounded-md px-2.5 text-[0.8125rem] font-medium transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e8a0a8]"
               >
-                <span>{item.label}</span>
-                {item.hasDropdown && (
-                  <FaChevronDown className="text-zinc-200 h-3 w-3 fill-current transition-transform duration-200 group-hover:translate-y-0.5" />
-                )}
+                {navItem.label}
               </a>
             ))}
           </nav>
 
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <a
               href={signInHref}
-              className="border-primary/50 bg-gradient-to-r from-rose-500 via-red-600 to-rose-800 text-white hover:from-rose-400 hover:via-red-500 hover:to-rose-700 rounded-full border px-6 py-2 text-sm font-medium shadow-lg shadow-red-900/30 backdrop-blur-sm transition-all duration-200"
+              target="_blank"
+              rel="noopener noreferrer sponsored"
+              className="inline-flex min-h-11 items-center rounded-full bg-[#c81e3a] px-5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#d42a46] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e8a0a8]"
             >
               {signInText}
             </a>
           </div>
 
           <button
+            type="button"
             onClick={() => setMobileMenuOpen(true)}
-            className="text-foreground hover:bg-accent flex items-center justify-center rounded-full p-2 transition-colors md:hidden"
-            aria-label="Toggle navigation menu"
+            className="text-foreground hover:bg-white/8 inline-flex size-11 items-center justify-center rounded-md transition-colors lg:hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e8a0a8]"
+            aria-label="Open menu"
+            aria-expanded={mobileMenuOpen}
+            aria-controls={menuId}
           >
-            <FaBars className="h-5 w-5 fill-current" />
+            <FaBars className="h-5 w-5 fill-current" aria-hidden="true" />
           </button>
         </div>
       </motion.header>
@@ -143,82 +150,82 @@ export function Hero3({
       <AnimatePresence initial={false}>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -12, filter: "blur(8px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            exit={{ opacity: 0, y: -8, filter: "blur(6px)" }}
-            transition={{ type: "spring", duration: 0.3, bounce: 0 }}
-            className="bg-background/95 fixed inset-0 z-50 flex flex-col p-6 backdrop-blur-md md:hidden"
+            id={menuId}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Site menu"
+            initial={reduceMotion ? { opacity: 1 } : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={reduceMotion ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 flex flex-col bg-[#0b0708]/96 p-5 backdrop-blur-md lg:hidden"
           >
-          <div className="flex items-center justify-between">
-            <a
-              href="/"
-              className="text-foreground flex items-center gap-2.5 text-lg font-semibold tracking-tight"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <span className="flex items-center justify-center text-rose-400">
-                {logo || <LogoIcon className="size-8 fill-current" />}
-              </span>
-              <span className="text-white">{logoText}</span>
-            </a>
-            <button
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-foreground hover:bg-accent flex items-center justify-center rounded-full p-2 transition-colors"
-              aria-label="Close menu"
-            >
-              <FaXmark className="h-5 w-5 fill-current" />
-            </button>
-          </div>
-
-          <nav className="mt-12 flex flex-col gap-6">
-            {navItems.map((item) => (
+            <div className="flex items-center justify-between">
               <a
-                key={item.label}
-                href={item.href}
-                className="border-border/40 text-zinc-100 hover:text-rose-300 flex items-center justify-between border-b pb-3 text-lg font-medium transition-colors"
+                href="/"
+                className="flex min-h-11 items-center"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <span>{item.label}</span>
-                {item.hasDropdown && (
-                  <FaChevronDown className="text-muted-foreground h-4 w-4 fill-current" />
-                )}
+                {logo}
               </a>
-            ))}
-          </nav>
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-foreground hover:bg-white/8 inline-flex size-11 items-center justify-center rounded-md transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e8a0a8]"
+                aria-label="Close menu"
+              >
+                <FaXmark className="h-5 w-5 fill-current" aria-hidden="true" />
+              </button>
+            </div>
 
-          <div className="mt-auto">
-            <a
-              href={signInHref}
-              onClick={() => setMobileMenuOpen(false)}
-              className="bg-gradient-to-r from-rose-500 via-red-600 to-rose-800 text-white hover:from-rose-400 hover:via-red-500 hover:to-rose-700 flex w-full items-center justify-center rounded-full border border-red-500/40 py-3 text-base font-semibold transition-colors"
-            >
-              {signInText}
-            </a>
-          </div>
-        </motion.div>
+            <nav className="mt-8 flex flex-col gap-1" aria-label="Site">
+              {navItems.map((navItem) => (
+                <a
+                  key={navItem.label}
+                  href={navItem.href}
+                  className="text-[var(--ivory,#f4efe8)] hover:bg-white/5 flex min-h-11 items-center border-b border-white/8 py-3 text-base font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e8a0a8]"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {navItem.label}
+                </a>
+              ))}
+            </nav>
+
+            <div className="mt-auto pt-6">
+              <a
+                href={signInHref}
+                target="_blank"
+                rel="noopener noreferrer sponsored"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex min-h-11 w-full items-center justify-center rounded-full bg-[#c81e3a] py-3 text-base font-semibold text-white transition-colors hover:bg-[#d42a46] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e8a0a8]"
+              >
+                {signInText}
+              </a>
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
 
-      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl flex-col justify-between px-6 pt-32 pb-12 sm:px-10 md:px-16 md:pt-40 lg:px-20 lg:pt-48">
+      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl flex-col justify-between px-5 pt-28 pb-10 sm:px-8 md:pt-36 lg:px-12 lg:pt-40">
         <motion.div
-          variants={container}
+          variants={variants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.38 }}
+          animate="visible"
           className="flex flex-1 flex-col items-center justify-center text-center"
         >
           <div className="max-w-4xl">
             {tagline && (
               <motion.p
-                variants={item}
-                className="sm:text-md mb-4 font-light tracking-wide text-white"
+                variants={child}
+                className="mb-4 text-sm font-medium tracking-wide text-[var(--ivory,#f4efe8)] sm:text-base"
               >
                 {tagline}
               </motion.p>
             )}
 
             <motion.h1
-              variants={item}
-              className="text-foreground mb-6 text-4xl font-light tracking-tight sm:text-5xl md:text-6xl lg:text-7xl "
+              variants={child}
+              className="mb-6 font-display text-[2.25rem] leading-[1.12] font-medium tracking-tight text-[var(--ivory,#f4efe8)] sm:text-5xl md:text-6xl"
             >
               {titleLine1 && <span className="block">{titleLine1}</span>}
               {titleLine2 && <span className="block">{titleLine2}</span>}
@@ -226,21 +233,45 @@ export function Hero3({
 
             {description && (
               <motion.p
-                variants={item}
-                className="sm:text-md md:text-md leading-wide mx-auto mb-4 max-w-2xl text-base text-zinc-50"
+                variants={child}
+                className="mx-auto mb-5 max-w-2xl text-base leading-relaxed text-[#ebe4db] sm:text-lg"
               >
                 {description}
               </motion.p>
             )}
 
+            {(complianceText || complianceLinkText) && (
+              <motion.p
+                variants={child}
+                className="mx-auto mb-6 max-w-xl text-sm leading-relaxed text-[var(--ivory,#f4efe8)]"
+              >
+                {complianceText}
+                {complianceLinkText && complianceHref ? (
+                  <>
+                    {' · '}
+                    <a
+                      href={complianceHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#e8a0a8] underline decoration-[#e8a0a8]/50 underline-offset-3 hover:text-[#f4efe8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e8a0a8]"
+                    >
+                      {complianceLinkText}
+                    </a>
+                  </>
+                ) : null}
+              </motion.p>
+            )}
+
             <motion.div
-              variants={item}
-              className="mt-6 flex flex-wrap items-center justify-center gap-4 sm:gap-6"
+              variants={child}
+              className="mt-2 flex flex-wrap items-center justify-center gap-3 sm:gap-5"
             >
               {primaryCtaText && (
                 <a
                   href={primaryCtaHref}
-                  className="rounded-full bg-gradient-to-r from-rose-500 via-red-600 to-rose-800 px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-red-900/35 transition-all duration-200 hover:from-rose-400 hover:via-red-500 hover:to-rose-700 sm:text-base"
+                  target="_blank"
+                  rel="noopener noreferrer sponsored"
+                  className="inline-flex min-h-11 items-center rounded-full bg-[#c81e3a] px-7 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#d42a46] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e8a0a8] sm:text-base"
                 >
                   {primaryCtaText}
                 </a>
@@ -248,10 +279,10 @@ export function Hero3({
               {secondaryCtaText && (
                 <a
                   href={secondaryCtaHref}
-                  className="group inline-flex items-center gap-2 text-sm font-light text-zinc-100 transition-colors duration-200 hover:text-zinc-300 sm:text-base"
+                  className="group inline-flex min-h-11 items-center gap-2 px-2 text-sm font-medium text-[var(--ivory,#f4efe8)] transition-colors duration-200 hover:text-[#e8a0a8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e8a0a8] sm:text-base"
                 >
                   <span>{secondaryCtaText}</span>
-                  <FaArrowRight className="h-4 w-4 fill-current transition-transform duration-200 group-hover:translate-x-1" />
+                  <FaArrowRight className="h-4 w-4 fill-current transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden="true" />
                 </a>
               )}
             </motion.div>
@@ -259,28 +290,24 @@ export function Hero3({
         </motion.div>
 
         <motion.div
-          variants={container}
+          variants={variants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.6 }}
-          className="border-border/20 mt-12 w-full border-t pt-8 sm:mt-16"
+          animate="visible"
+          className="mt-10 w-full border-t border-white/10 pt-7 sm:mt-14"
         >
           <div className="flex flex-col items-center justify-between gap-8 md:flex-row md:items-center">
             {stats.length > 0 && (
-              <div className="flex flex-col divide-y divide-white/50 md:flex-row md:items-center md:divide-x md:divide-y-0">
+              <div className="flex flex-col divide-y divide-white/15 md:flex-row md:items-center md:divide-x md:divide-y-0">
                 {stats.map((stat) => (
                   <motion.div
-                    variants={item}
+                    variants={child}
                     key={stat.label}
-                    className="flex flex-col gap-1.5 py-4 first:pt-0 last:pb-0 md:px-6 md:py-0 md:first:pl-0 md:last:pr-0"
+                    className="flex flex-col gap-1 py-4 first:pt-0 last:pb-0 md:px-6 md:py-0 md:first:pl-0 md:last:pr-0"
                   >
-                    <span className="text-foreground text-3xl font-light tracking-tight sm:text-4xl">
+                    <span className="font-display text-3xl font-medium tracking-tight text-[var(--ivory,#f4efe8)] sm:text-4xl">
                       {stat.value}
                     </span>
-
-                    <span className="text-xs text-zinc-100 sm:text-sm">
-                      {stat.label}
-                    </span>
+                    <span className="text-xs text-[#ebe4db] sm:text-sm">{stat.label}</span>
                   </motion.div>
                 ))}
               </div>
@@ -288,12 +315,12 @@ export function Hero3({
 
             {scrollText && (
               <motion.a
-                variants={item}
+                variants={child}
                 href={scrollHref}
-                className="text-zinc-100 hover:text-white flex items-center justify-center gap-2 self-center text-xs font-semibold transition-colors sm:text-sm md:self-auto"
+                className="inline-flex min-h-11 items-center justify-center gap-2 self-center text-sm font-medium text-[var(--ivory,#f4efe8)] transition-colors hover:text-[#e8a0a8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e8a0a8] md:self-auto"
               >
                 <span>{scrollText}</span>
-                <FaArrowDown className="h-4 w-4 fill-current" />
+                <FaArrowDown className="h-4 w-4 fill-current" aria-hidden="true" />
               </motion.a>
             )}
           </div>
