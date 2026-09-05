@@ -1,6 +1,26 @@
-import { useEffect, useId, useState } from 'react';
+import { Component, useEffect, useId, useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import { FaArrowRight, FaArrowDown, FaBars, FaXmark } from 'react-icons/fa6';
+import Topography from '@/components/react-bits/Topography';
+
+const MESH_FALLBACK =
+  'bg-[radial-gradient(ellipse_80%_60%_at_50%_-8%,rgba(225,29,72,0.32),transparent_58%),radial-gradient(ellipse_50%_40%_at_90%_10%,rgba(190,18,60,0.2),transparent_50%),linear-gradient(180deg,#18080c_0%,#0b0708_100%)]';
+
+class WebGLFallback extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { error: false };
+  }
+
+  static getDerivedStateFromError() {
+    return { error: true };
+  }
+
+  render() {
+    if (this.state.error) return this.props.fallback;
+    return this.props.children;
+  }
+}
 
 const container = {
   hidden: { opacity: 0 },
@@ -44,7 +64,6 @@ export function Hero3({
   primaryCtaHref = '#',
   secondaryCtaText = '',
   secondaryCtaHref = '#',
-  backgroundImage = '',
 
   complianceText = '',
   complianceLinkText = '',
@@ -79,22 +98,40 @@ export function Hero3({
   return (
     <section className="hero-3-root dark bg-background text-foreground relative min-h-screen w-full overflow-hidden font-sans">
       <div className="absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-8%,rgba(200,30,58,0.2),transparent_58%),linear-gradient(180deg,#120c0d_0%,#0b0708_100%)]" />
+        <div className="absolute inset-0 bg-[#0b0708]" />
+        {reduceMotion ? (
+          <div className={`absolute inset-0 ${MESH_FALLBACK}`} />
+        ) : (
+          <WebGLFallback fallback={<div className={`absolute inset-0 ${MESH_FALLBACK}`} />}>
+            <div className="absolute inset-0">
+              <Topography
+                lowColor="#F43F5E"
+                midColor="#ea8fbb"
+                highColor="#FFFFFF"
+                speed={0.35}
+                morphAmount={3.0}
+                morphSpeed={0.05}
+                bands={2.0}
+                thickness={0.01}
+                scale={1.0}
+                pixelSize={1.0}
+                glow={0.5}
+                colorMode="elevation"
+                contrast={3.0}
+                brightness={1.0}
+                fillBands={false}
+                opacity={1.0}
+                grain
+                grainIntensity={0.05}
+                mouseInteraction
+                mouseRadius={0.3}
+                mouseStrength={0.4}
+              />
+            </div>
+          </WebGLFallback>
+        )}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#0b0708]/45 via-[#0b0708]/15 to-[#0b0708]/88" />
       </div>
-      {backgroundImage && (
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <img
-            src={backgroundImage}
-            alt=""
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 h-full w-full min-h-full min-w-full object-cover object-center select-none"
-          />
-          <div
-            className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/58 to-[#0b0708]/94"
-            aria-hidden="true"
-          />
-        </div>
-      )}
 
       <motion.header
         initial={reduceMotion ? false : { opacity: 0, y: -10 }}
@@ -128,7 +165,7 @@ export function Hero3({
               href={signInHref}
               target="_blank"
               rel="noopener noreferrer sponsored"
-              className="inline-flex min-h-11 items-center rounded-full bg-[#c81e3a] px-5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#d42a46] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e8a0a8]"
+              className="inline-flex min-h-11 items-center rounded-full bg-gradient-to-br from-[#ff6b7a] via-[#e11d48] to-[#881337] px-5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(225,29,72,0.35)] transition-all duration-200 hover:from-[#ff8a96] hover:via-[#f43f5e] hover:to-[#e11d48] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fb7185]"
             >
               {signInText}
             </a>
@@ -197,7 +234,7 @@ export function Hero3({
                 target="_blank"
                 rel="noopener noreferrer sponsored"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex min-h-11 w-full items-center justify-center rounded-full bg-[#c81e3a] py-3 text-base font-semibold text-white transition-colors hover:bg-[#d42a46] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e8a0a8]"
+                className="flex min-h-11 w-full items-center justify-center rounded-full bg-gradient-to-br from-[#ff6b7a] via-[#e11d48] to-[#881337] py-3 text-base font-semibold text-white shadow-[0_8px_24px_rgba(225,29,72,0.35)] transition-all hover:from-[#ff8a96] hover:via-[#f43f5e] hover:to-[#e11d48] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fb7185]"
               >
                 {signInText}
               </a>
@@ -206,7 +243,7 @@ export function Hero3({
         )}
       </AnimatePresence>
 
-      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl flex-col justify-between px-5 pt-28 pb-10 sm:px-8 md:pt-36 lg:px-12 lg:pt-40">
+      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl flex-col justify-between px-5 pt-28 pb-10 pointer-events-none sm:px-8 md:pt-36 lg:px-12 lg:pt-40 [&_a]:pointer-events-auto">
         <motion.div
           variants={variants}
           initial="hidden"
@@ -271,7 +308,7 @@ export function Hero3({
                   href={primaryCtaHref}
                   target="_blank"
                   rel="noopener noreferrer sponsored"
-                  className="inline-flex min-h-11 items-center rounded-full bg-[#c81e3a] px-7 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#d42a46] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e8a0a8] sm:text-base"
+                  className="inline-flex min-h-11 items-center rounded-full bg-gradient-to-br from-[#ff6b7a] via-[#e11d48] to-[#881337] px-7 py-3 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(225,29,72,0.35)] transition-all duration-200 hover:from-[#ff8a96] hover:via-[#f43f5e] hover:to-[#e11d48] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fb7185] sm:text-base"
                 >
                   {primaryCtaText}
                 </a>

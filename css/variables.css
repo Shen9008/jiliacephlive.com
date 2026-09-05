@@ -6,15 +6,15 @@
     --ink: #0b0708;
     --raised: #16100f;
     --ivory: #f4efe8;
-    --ruby: #c81e3a;
-    --rose: #e8a0a8;
+    --ruby: #e11d48;
+    --rose: #fb7185;
     --brass: #c4a574;
 
     --ink-rgb: 11 7 8;
     --raised-rgb: 22 16 15;
     --ivory-rgb: 244 239 232;
-    --ruby-rgb: 200 30 58;
-    --rose-rgb: 232 160 168;
+    --ruby-rgb: 225 29 72;
+    --rose-rgb: 251 113 133;
     --brass-rgb: 196 165 116;
 
     /* Spacing — 8pt */
@@ -71,16 +71,18 @@
     --neon-cyan-dim: rgb(var(--rose-rgb) / 0.14);
     --neon-cyan-rgb: var(--rose-rgb);
 
-    --crimson: #9f1233;
-    --crimson-rgb: 159 18 51;
+    --crimson: #be123c;
+    --crimson-rgb: 190 18 60;
 
-    --gradient-primary: linear-gradient(180deg, #d42a46 0%, var(--ruby) 55%, #9f1233 100%);
+    --gradient-primary: linear-gradient(135deg, #ff6b7a 0%, #e11d48 38%, #be123c 72%, #881337 100%);
+    --gradient-primary-hover: linear-gradient(135deg, #ff8a96 0%, #f43f5e 40%, #e11d48 100%);
     --gradient-gold-bright: var(--gradient-primary);
-    --gradient-text: none;
+    --gradient-text: linear-gradient(135deg, #ffc2cb 0%, #fb7185 40%, #f43f5e 70%, #e11d48 100%);
     --gradient-mesh:
-        radial-gradient(ellipse 70% 55% at 15% -5%, rgb(var(--ruby-rgb) / 0.16), transparent 52%),
-        radial-gradient(ellipse 55% 45% at 92% 8%, rgb(var(--crimson-rgb) / 0.1), transparent 48%),
-        linear-gradient(180deg, #120c0d 0%, var(--ink) 100%);
+        radial-gradient(ellipse 70% 55% at 15% -5%, rgb(var(--ruby-rgb) / 0.28), transparent 52%),
+        radial-gradient(ellipse 55% 45% at 92% 8%, rgb(var(--crimson-rgb) / 0.18), transparent 48%),
+        radial-gradient(ellipse 40% 35% at 50% 100%, rgb(var(--ruby-rgb) / 0.12), transparent 55%),
+        linear-gradient(180deg, #16080c 0%, var(--ink) 100%);
 
     --shadow-sm: 0 4px 20px rgb(0 0 0 / 0.4);
     --shadow-md: 0 18px 48px rgb(0 0 0 / 0.5);
@@ -103,7 +105,7 @@
     --nav-active-pill-bg: rgb(var(--ruby-rgb) / 0.12);
     --nav-active-pill-border: rgb(var(--ruby-rgb) / 0.4);
     --nav-cta-text: #fff;
-    --nav-cta-bg: var(--ruby);
+    --nav-cta-bg: var(--gradient-primary);
 
     /* Layout */
     --container-max-width: 1200px;
@@ -128,7 +130,7 @@
     --text: var(--ivory);
     --muted: #ebe4db;
     --accent: var(--ruby);
-    --accent-strong: #9f1233;
+    --accent-strong: #be123c;
     --accent-muted: var(--rose);
     --accent-dim: rgb(var(--ruby-rgb) / 0.12);
     --gold: var(--brass);

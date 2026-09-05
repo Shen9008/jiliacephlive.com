@@ -48,7 +48,6 @@ function mountHero() {
       primaryCtaHref={AFFILIATE}
       secondaryCtaText="Promotions guide"
       secondaryCtaHref="/promotions.html"
-      backgroundImage="/images/hero-banner/home.webp"
       complianceText="18+ only · Curaçao OGL/2024/1262/0493"
       complianceLinkText="verify at cert.cga.cw"
       complianceHref="https://cert.cga.cw/"

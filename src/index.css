@@ -33,12 +33,12 @@
 
 :root {
   --ivory: #f4efe8;
-  --ruby: #c81e3a;
-  --rose: #e8a0a8;
+  --ruby: #e11d48;
+  --rose: #fb7185;
   --ink: #0b0708;
   --background: #0b0708;
   --foreground: #f4efe8;
-  --primary: #c81e3a;
+  --primary: #e11d48;
   --primary-foreground: #fff;
   --secondary: #16100f;
   --secondary-foreground: #f4efe8;
@@ -47,20 +47,20 @@
   --accent: #16100f;
   --accent-foreground: #f4efe8;
   --border: rgb(255 255 255 / 0.1);
-  --ring: #e8a0a8;
+  --ring: #fb7185;
   --radius: 0.625rem;
   --card: #16100f;
   --card-foreground: #f4efe8;
   --popover: #0b0708;
   --popover-foreground: #f4efe8;
-  --destructive: #c81e3a;
+  --destructive: #e11d48;
   --input: #16100f;
 }
 
 .dark {
   --background: #0b0708;
   --foreground: #f4efe8;
-  --primary: #c81e3a;
+  --primary: #e11d48;
   --primary-foreground: #fff;
   --secondary: #16100f;
   --secondary-foreground: #f4efe8;
@@ -69,7 +69,7 @@
   --accent: #16100f;
   --accent-foreground: #f4efe8;
   --border: rgb(255 255 255 / 0.1);
-  --ring: #e8a0a8;
+  --ring: #fb7185;
 }
 
 #hero-root {
@@ -79,17 +79,6 @@
   position: relative;
   z-index: 2;
   isolation: isolate;
-}
-
-#hero-root img[aria-hidden="true"] {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  min-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
-  object-position: center center;
 }
 
 #hero-root header img:not([aria-hidden="true"]) {

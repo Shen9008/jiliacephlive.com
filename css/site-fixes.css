@@ -22,12 +22,12 @@ body.has-react-hero #hero-root > section {
     display: flex;
     flex-direction: column;
     background:
-        radial-gradient(ellipse 85% 65% at 50% -8%, rgb(225 29 72 / 0.28), transparent 58%),
-        radial-gradient(ellipse 55% 45% at 92% 18%, rgb(190 18 60 / 0.16), transparent 52%),
-        linear-gradient(180deg, #180a0e 0%, #0c0608 100%);
+        radial-gradient(ellipse 85% 65% at 50% -8%, rgb(225 29 72 / 0.38), transparent 58%),
+        radial-gradient(ellipse 55% 45% at 92% 18%, rgb(190 18 60 / 0.22), transparent 52%),
+        linear-gradient(180deg, #1c0a10 0%, #0c0608 100%);
 }
 
-/* Background layers sit behind everything */
+/* Topography (or static mesh) sits behind chrome */
 body.has-react-hero #hero-root > section > div[class*="absolute"][class*="inset-0"],
 body.has-react-hero #hero-root > section > div:first-of-type {
     position: absolute !important;
@@ -36,34 +36,13 @@ body.has-react-hero #hero-root > section > div:first-of-type {
     overflow: hidden !important;
 }
 
-body.has-react-hero #hero-root img[aria-hidden],
-body.has-react-hero #hero-root img[aria-hidden="true"] {
-    position: absolute !important;
-    inset: 0 !important;
-    display: block !important;
-    width: 100% !important;
-    height: 100% !important;
-    min-width: 100% !important;
-    min-height: 100% !important;
-    max-width: none !important;
-    object-fit: cover !important;
-    object-position: center center !important;
-    transform: scale(1.08);
-    transform-origin: center center;
-    pointer-events: none !important;
-}
-
-body.has-react-hero #hero-root > section > div > div[class*="gradient"],
-body.has-react-hero #hero-root > section > div:nth-of-type(2) > div:last-child {
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: 1 !important;
-    background: linear-gradient(
-        180deg,
-        rgb(0 0 0 / 0.72) 0%,
-        rgb(0 0 0 / 0.48) 45%,
-        rgb(0 0 0 / 0.82) 100%
-    ) !important;
+body.has-react-hero #hero-root .topography-container,
+body.has-react-hero #hero-root .topography-container canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
 body.has-react-hero #hero-root header {
@@ -119,7 +98,11 @@ body.has-react-hero #hero-root h1 span {
 }
 
 body.has-react-hero #hero-root > section > .relative > div:last-child {
+    position: relative;
+    inset: auto;
+    z-index: auto;
     width: 100%;
+    background: none !important;
 }
 
 body.has-react-hero #hero-root > section > .relative > div:first-child > div > div[class*="flex"] {
@@ -140,16 +123,16 @@ body.has-react-hero #hero-root nav a:focus-visible {
 body.has-react-hero #hero-root a.rounded-full,
 body.has-react-hero #hero-root header a[target="_blank"],
 body.has-react-hero #hero-root .mt-auto a {
-    background: #c81e3a !important;
+    background: linear-gradient(135deg, #ff6b7a 0%, #e11d48 38%, #be123c 72%, #881337 100%) !important;
     color: #fff !important;
-    border: none !important;
+    border: 1px solid rgb(225 29 72 / 0.4) !important;
     border-radius: 999px !important;
-    box-shadow: none !important;
+    box-shadow: 0 8px 28px rgb(190 18 60 / 0.38) !important;
 }
 
 body.has-react-hero #hero-root a.rounded-full:hover,
 body.has-react-hero #hero-root header a[target="_blank"]:hover {
-    background: #d42a46 !important;
+    background: linear-gradient(135deg, #ff8a96 0%, #f43f5e 40%, #e11d48 100%) !important;
     color: #fff !important;
 }
 
@@ -165,7 +148,7 @@ body.has-react-hero #hero-root .text-zinc-100 {
 }
 
 body.has-react-hero #hero-root .text-primary {
-    color: #e8a0a8 !important;
+    color: #fb7185 !important;
 }
 
 /* --- Red accent text (solid — gradient-clip is fragile / unreadable) --- */
@@ -180,7 +163,7 @@ body.has-react-hero #hero-root .text-primary {
     background: none !important;
     -webkit-background-clip: unset !important;
     background-clip: unset !important;
-    color: #e8a0a8 !important;
+    color: #fb7185 !important;
 }
 
 .promo-affiliate__text a,
@@ -192,15 +175,15 @@ body.has-react-hero #hero-root .text-primary {
     background: none !important;
     -webkit-background-clip: unset !important;
     background-clip: unset !important;
-    color: #e8a0a8 !important;
-    text-decoration-color: rgb(200 30 58 / 0.55);
+    color: #fb7185 !important;
+    text-decoration-color: rgb(225 29 72 / 0.55);
 }
 
 .promo-affiliate__text a:hover,
 .faq p a:hover,
 .content-page a:not(.btn):hover,
 .footer-disclosure a:hover {
-    color: #f4efe8 !important;
+    color: #ff8a9b !important;
 }
 
 /* --- Readable body copy (wins over showcase.css load order) --- */
@@ -325,7 +308,7 @@ body.has-react-hero #hero-root .text-primary {
 }
 
 .skip-link:focus {
-    background: #c81e3a;
+    background: var(--gradient-primary);
     color: #fff;
 }
 
@@ -339,8 +322,8 @@ body.has-react-hero #hero-root .text-primary {
 }
 
 .mm__link--cta {
-    background: #c81e3a !important;
-    box-shadow: none;
+    background: var(--gradient-primary) !important;
+    box-shadow: 0 8px 24px rgb(225 29 72 / 0.32);
 }
 
 body.has-react-hero #hero-root header img {

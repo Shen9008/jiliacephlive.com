@@ -22,7 +22,7 @@ html {
 body {
     margin: 0;
     font-family: var(--font-primary);
-    background: var(--dark-bg);
+    background: var(--gradient-mesh);
     color: var(--text-primary);
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
