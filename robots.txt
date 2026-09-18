@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 
+# AI / LLM context: https://jiliacephlive.com/llms.txt
+
 Sitemap: https://jiliacephlive.com/sitemap.xml

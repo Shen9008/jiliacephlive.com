@@ -69,19 +69,23 @@
                 '<p class="blog-empty">New guides are on the way. Check back soon, or browse <a href="/slots.html">slots</a>, <a href="/live-casino.html">live casino</a>, and <a href="/promotions.html">promotions</a> in the meantime.</p>';
             return;
         }
-        posts.forEach(function (p) {
+        posts.forEach(function (p, idx) {
             var slug = escapeHtml(p.slug);
             var title = escapeHtml(p.title || slug);
             var excerpt = escapeHtml(p.excerpt || '');
             var cat = escapeHtml(p.category || '');
             var date = escapeHtml(p.published_date || '');
             var imgSrc = escapeHtml((p.featured_image || '').trim() || DEFAULT_BLOG_IMAGE);
+            var eager = idx < 2;
+            var imgAttrs =
+                ' width="640" height="360" decoding="async"' +
+                (eager ? ' fetchpriority="high"' : ' loading="lazy"');
             var card = document.createElement('article');
             card.className = 'blog-card';
             card.innerHTML =
                 '<a class="blog-card__link" href="/blog/' + slug + '/">' +
                 '<div class="blog-card__media">' +
-                '<img class="blog-card__thumb" src="' + imgSrc + '" alt="' + title + '" loading="lazy" decoding="async">' +
+                '<img class="blog-card__thumb" src="' + imgSrc + '" alt="' + title + '"' + imgAttrs + '>' +
                 '</div>' +
                 '<div class="blog-card__body">' +
                 '<div class="blog-card__meta">' + cat + (cat && date ? ' · ' : '') + date + '</div>' +
