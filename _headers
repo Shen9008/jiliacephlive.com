@@ -1,3 +1,11 @@
+# Security headers (site-wide)
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
 # Cloudflare Pages — avoid stale HTML at the edge (CTA / affiliate updates propagate faster)
 /
   Cache-Control: public, max-age=0, must-revalidate

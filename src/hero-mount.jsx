@@ -7,12 +7,13 @@ const AFFILIATE =
   'https://reffpa.com/L?tag=d_5503298m_1236c_&site=5503298&ad=1236';
 
 const navItems = [
-  { label: 'Home', href: '/index.html' },
+  { label: 'Home', href: '/' },
   { label: 'Slots', href: '/slots.html' },
   { label: 'Live casino', href: '/live-casino.html' },
   { label: 'Promotions', href: '/promotions.html' },
   { label: 'Player guide', href: '/player-guide.html' },
   { label: 'Blog', href: '/blog/' },
+  { label: 'About', href: '/about.html' },
   { label: 'Responsible play', href: '/responsible-gambling.html' },
 ];
 

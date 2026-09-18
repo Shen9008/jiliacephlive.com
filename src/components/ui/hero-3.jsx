@@ -260,13 +260,14 @@ export function Hero3({
               </motion.p>
             )}
 
-            <motion.h1
+            <motion.p
               variants={child}
+              aria-hidden="true"
               className="mb-6 font-display text-[2.25rem] leading-[1.12] font-medium tracking-tight text-[var(--ivory,#f4efe8)] sm:text-5xl md:text-6xl"
             >
               {titleLine1 && <span className="block">{titleLine1}</span>}
               {titleLine2 && <span className="block">{titleLine2}</span>}
-            </motion.h1>
+            </motion.p>
 
             {description && (
               <motion.p
