@@ -62,7 +62,11 @@ function applyMeta(html, b, pageUrl) {
   );
 
   const feat = String(b.featured_image || '').trim();
-  const isDefaultCover = feat.endsWith('blog-default.png') || feat === '/images/blog-default.png';
+  const isDefaultCover =
+    feat.endsWith('blog-default.png') ||
+    feat.endsWith('blog-default.webp') ||
+    feat === '/images/blog-default.webp' ||
+    feat === '/images/blog-default.webp';
   if (isDefaultCover) {
     html = html.replace(
       /<meta property="og:image:width" content="[^"]*"/,
@@ -95,7 +99,9 @@ function applyMeta(html, b, pageUrl) {
         url: 'https://jiliacephlive.com/images/favicon.png',
       },
     },
-    image: `https://jiliacephlive.com/images/blog-default.png`,
+    image: feat.startsWith('http')
+      ? feat
+      : `https://jiliacephlive.com${feat.startsWith('/') ? feat : '/images/blog-default.webp'}`,
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': pageUrl,

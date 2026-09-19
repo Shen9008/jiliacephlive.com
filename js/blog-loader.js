@@ -7,7 +7,7 @@
     var PAGE_SIZE = 6;
     var MAX_PAGE = 99;
     var DATA_URL = '/assets/data/blogs.json';
-    var DEFAULT_BLOG_IMAGE = '/images/blog-default.png';
+    var DEFAULT_BLOG_IMAGE = '/images/blog-default.webp';
 
     function sortBlogsByLatestSyncFirst(a, b) {
         var sa = new Date(b.synced_at || 0).getTime() - new Date(a.synced_at || 0).getTime();

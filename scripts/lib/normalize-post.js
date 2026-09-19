@@ -1,7 +1,7 @@
 'use strict';
 
 /** Used when Strapi has no cover / featured image */
-const DEFAULT_BLOG_IMAGE = '/images/blog-default.png';
+const DEFAULT_BLOG_IMAGE = '/images/blog-default.webp';
 
 const INTENT_GRADIENTS = {
   navigational:

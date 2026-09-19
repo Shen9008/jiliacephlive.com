@@ -19,6 +19,7 @@
     "trim:blog-meta": "node scripts/trim-blog-meta.mjs",
     "inject:chrome": "node scripts/inject-chrome.mjs",
     "batch4:seo": "node scripts/batch4-seo.mjs",
+    "batch5:seo": "node scripts/batch5-seo.mjs",
     "indexnow": "node scripts/indexnow-submit.js",
     "build:react": "vite build",
     "predeploy": "npm run build:react",

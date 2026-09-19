@@ -148,7 +148,7 @@
                     if (!btn || !panel) return;
                     if (open) {
                         panel.classList.add('is-open');
-                        panel.setAttribute('aria-hidden', 'false');
+                        panel.removeAttribute('inert');
                         btn.setAttribute('aria-expanded', 'true');
                         btn.setAttribute('aria-label', 'Close menu');
                         document.body.classList.add('mobile-nav-open');
@@ -158,7 +158,7 @@
                         });
                     } else {
                         panel.classList.remove('is-open');
-                        panel.setAttribute('aria-hidden', 'true');
+                        panel.setAttribute('inert', '');
                         btn.setAttribute('aria-expanded', 'false');
                         btn.setAttribute('aria-label', 'Open menu');
                         document.body.classList.remove('mobile-nav-open');
