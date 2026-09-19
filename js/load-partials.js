@@ -88,7 +88,8 @@
         var topPromoPath =
             pageKey === 'rg' ? 'partials/promo-affiliate-top-rg.html' : 'partials/promo-affiliate-top.html';
 
-        var headerP = reactHero
+        var hasInlineHeader = Boolean(document.querySelector('.site-header'));
+        var headerP = reactHero || hasInlineHeader
             ? Promise.resolve('')
             : fetch(base + 'partials/header.html').then(function (r) { return r.text(); });
         var footerP = fetch(base + 'partials/footer.html').then(function (r) { return r.text(); });
@@ -126,6 +127,8 @@
                         while (t.firstChild) p.insertBefore(t.firstChild, ph);
                     }
                     ph.remove();
+                } else if (!ph && !hasInlineHeader && h && h.trim()) {
+                    document.body.insertAdjacentHTML('afterbegin', h);
                 }
                 if (pf) pf.outerHTML = f;
                 if (pb && bannerHtml) pb.outerHTML = bannerHtml;

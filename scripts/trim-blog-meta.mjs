@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const BLOGS_PATH = path.join(__dirname, '..', 'assets', 'data', 'blogs.json');
-const MAX = 150;
+const MAX = 120;
 
 function trim(s) {
   const t = String(s || '').replace(/\s+/g, ' ').trim();
