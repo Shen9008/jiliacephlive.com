@@ -13,7 +13,8 @@ const navItems = [
   { label: 'Promotions', href: '/promotions.html' },
   { label: 'Player guide', href: '/player-guide.html' },
   { label: 'Blog', href: '/blog/' },
-  { label: 'About', href: '/about.html' },
+  { label: 'About us', href: '/about.html' },
+  { label: 'Contact', href: '/contact.html' },
   { label: 'Responsible play', href: '/responsible-gambling.html' },
 ];
 

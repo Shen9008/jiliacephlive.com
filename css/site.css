@@ -1,10 +1,10 @@
 /* Bundled styles for inner pages (referenced as /css/site.css) */
 @import url("animations.css");
 
-/* --- CLS: reserve header/banner space before partials inject --- */
+/* --- CLS: reserve header/banner/promo space before partials inject --- */
 #partial-header {
     display: block;
-    min-height: 4.25rem;
+    min-height: 5.5rem;
 }
 
 @media (min-width: 768px) {
@@ -13,9 +13,43 @@
     }
 }
 
+#main-content > #partial-hero-banner:empty {
+    display: block;
+    min-height: clamp(120px, 18vw, 180px);
+    margin: 0;
+    padding: 0.75rem 0 0;
+    border-bottom: 1px solid var(--border, rgb(255 255 255 / 0.08));
+    background: linear-gradient(180deg, var(--bg-elev, #141010) 0%, var(--bg, #0a0806) 100%);
+}
+
+#partial-promo-top:empty {
+    display: block;
+    min-height: 0;
+}
+
+body:not(.has-react-hero) #partial-promo-top:empty {
+    min-height: 5.5rem;
+}
+
 .hero-banner__frame {
     aspect-ratio: 21 / 5;
     min-height: clamp(100px, 18vw, 168px);
+}
+
+.content-meta,
+.page-byline {
+    margin: 0;
+    padding: 0.75rem 0 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--text-muted, #ebe4db);
+}
+
+.content-meta a,
+.page-byline a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
 }
 
 /* Crawlable blog index (static + JS grid) */

@@ -100,19 +100,24 @@
             : fetch(base + topPromoPath).then(function (r) { return r.ok ? r.text() : ''; });
         var midPromoPath = 'partials/promo-affiliate-mid.html';
         var midPromoP = fetch(base + midPromoPath).then(function (r) { return r.ok ? r.text() : ''; });
+        var bylineP = document.getElementById('partial-page-byline')
+            ? fetch(base + 'partials/page-byline.html').then(function (r) { return r.ok ? r.text() : ''; })
+            : Promise.resolve('');
 
-        Promise.all([headerP, footerP, bannerP, topPromoP, midPromoP])
+        Promise.all([headerP, footerP, bannerP, topPromoP, midPromoP, bylineP])
             .then(function (parts) {
                 var h = rewriteLinks(parts[0]);
                 var f = rewriteLinks(parts[1]);
                 var bannerHtml = parts[2] ? rewriteLinks(parts[2]) : '';
                 var topPromoHtml = parts[3] ? rewriteLinks(parts[3]) : '';
                 var midPromoHtml = parts[4] ? rewriteLinks(parts[4]) : '';
+                var bylineHtml = parts[5] ? rewriteLinks(parts[5]) : '';
                 var ph = document.getElementById('partial-header');
                 var pf = document.getElementById('partial-footer');
                 var pb = document.getElementById('partial-hero-banner');
                 var pTop = document.getElementById('partial-promo-top');
                 var pMid = document.getElementById('partial-promo-mid');
+                var pByline = document.getElementById('partial-page-byline');
                 if (ph) {
                     if (h && h.trim()) {
                         var t = document.createElement('div');
@@ -126,6 +131,7 @@
                 if (pb && bannerHtml) pb.outerHTML = bannerHtml;
                 if (pTop && topPromoHtml) pTop.outerHTML = topPromoHtml;
                 if (pMid && midPromoHtml) pMid.outerHTML = midPromoHtml;
+                if (pByline && bylineHtml) pByline.outerHTML = bylineHtml;
                 patchAffiliateLinks();
                 setActiveNav();
                 setFooterYear();

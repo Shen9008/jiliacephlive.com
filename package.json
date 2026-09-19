@@ -16,6 +16,7 @@
     "sync:blog-meta": "node scripts/sync-blog-html-meta.js",
     "sync:blog-static": "node scripts/sync-blog-index-static.mjs",
     "fix:blog-seo": "node scripts/fix-blog-seo-meta.mjs",
+    "trim:blog-meta": "node scripts/trim-blog-meta.mjs",
     "indexnow": "node scripts/indexnow-submit.js",
     "build:react": "vite build",
     "predeploy": "npm run build:react",
