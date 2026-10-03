@@ -31,7 +31,7 @@ body {
     min-height: 100vh;
 }
 
-img:not(#hero-root img) {
+img:not(#hero-root img):not(.brand__logo):not(.mobile-panel__brand-logo) {
     max-width: 100%;
     height: auto;
     display: block;

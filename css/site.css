@@ -1,6 +1,22 @@
 /* Bundled styles for inner pages (referenced as /css/site.css) */
 @import url("animations.css");
 
+/* Header logo: global img reset in base.css wins on specificity — keep wordmark compact */
+.site-header img.brand__logo--wordmark {
+    height: 40px !important;
+    width: auto !important;
+    max-width: min(168px, 46vw) !important;
+    object-fit: contain !important;
+    object-position: left center !important;
+}
+
+.mobile-panel__brand-logo {
+    height: 26px !important;
+    width: auto !important;
+    max-width: min(158px, 52vw) !important;
+    object-fit: contain !important;
+}
+
 /* --- CLS: reserve header/banner/promo space before partials inject --- */
 #partial-header {
     display: block;

@@ -45,10 +45,10 @@
     flex-shrink: 0;
 }
 
-.brand__logo--wordmark {
+.site-header .brand__logo--wordmark {
     height: 40px;
     width: auto;
-    max-width: min(280px, 72vw);
+    max-width: min(168px, 46vw);
     display: block;
     object-fit: contain;
     object-position: left center;
@@ -57,7 +57,7 @@
         filter 0.28s ease;
 }
 
-.brand:hover .brand__logo--wordmark {
+.site-header .brand:hover .brand__logo--wordmark {
     transform: scale(1.04);
     filter: brightness(1.12) drop-shadow(0 0 12px rgb(var(--primary-rgb) / 0.35));
 }
