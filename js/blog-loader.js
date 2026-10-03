@@ -66,7 +66,7 @@
         gridEl.innerHTML = '';
         if (!posts.length) {
             gridEl.innerHTML =
-                '<p class="blog-empty">New guides are on the way. Check back soon, or browse <a href="/slots.html">slots</a>, <a href="/live-casino.html">live casino</a>, and <a href="/promotions.html">promotions</a> in the meantime.</p>';
+                '<p class="blog-empty">New guides are on the way. Check back soon, or browse <a href="/slots">slots</a>, <a href="/live-casino">live casino</a>, and <a href="/promotions">promotions</a> in the meantime.</p>';
             return;
         }
         posts.forEach(function (p, idx) {
