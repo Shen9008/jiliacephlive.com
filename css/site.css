@@ -54,11 +54,17 @@ body:not(.has-react-hero) #partial-promo-top:empty {
 
 .content-meta,
 .page-byline {
-    margin: 0;
+    margin-block: 0;
+    margin-inline: auto;
     padding: 0.75rem 0 0;
     font-size: 0.875rem;
     line-height: 1.5;
     color: var(--text-muted, #ebe4db);
+}
+
+/* Byline uses .shell width; never zero horizontal margin (was flush to viewport edge) */
+p.shell.content-meta.page-byline {
+    width: min(100% - var(--space-lg) * 2, var(--container-max-width));
 }
 
 .content-meta a,
